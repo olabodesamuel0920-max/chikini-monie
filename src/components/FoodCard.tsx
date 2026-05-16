@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Plus, Heart, Flame, Sparkles } from "lucide-react";
+import { Plus, Heart, Flame, Sparkles, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { MenuItem } from "@/lib/demo-data";
 import { formatPrice } from "@/lib/utils";
