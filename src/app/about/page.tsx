@@ -3,7 +3,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { UtensilsCrossed, Heart, Zap, Award, Star, Info, Target } from "lucide-react";
+import { UtensilsCrossed, Heart, Zap, Award, Star, Info, Target, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -21,20 +21,25 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Our Journey</span>
-              <h1 className="text-6xl md:text-8xl font-extrabold gold-text mb-10 uppercase tracking-tighter leading-none font-heading">
-                BUILT FOR <br /><span className="italic text-white">CRAVINGS.</span>
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Our Philosophy</span>
+              <h1 className="text-6xl md:text-[8rem] font-extrabold gold-text mb-12 uppercase tracking-tighter leading-[0.85] font-heading">
+                BIG ENJOYMENT. <br /><span className="italic text-white text-5xl md:text-7xl">SMALL MONEY.</span>
               </h1>
               <div className="space-y-8 text-gray-400 text-xl leading-relaxed font-medium">
                 <p>
-                  Chikini Monie was born from a singular vision: to prove that "small money" can command "big enjoyment." In the heart of Akure, we've redefined the 24/7 food landscape.
+                  Chikini Monie was established to bridge the gap between premium hospitality and everyday affordability. In the vibrant heart of Akure, we have engineered a logistics-driven food system that prioritizes quality without the high-end markup.
                 </p>
                 <p>
-                  Whether you're a student burning the midnight oil or a professional on a tight schedule, we deliver a digital-first food experience that values your taste as much as your time.
+                  Our 24/7 food culture is designed for the modern Akure—fueling students during midnight study sessions, supporting workers on the night shift, and providing families with high-quality meals at any hour. We blend traditional flavors with a digital engine for seamless satisfaction.
                 </p>
-                <div className="p-8 glass-premium rounded-[2rem] border border-primary/10 inline-block">
-                  <p className="font-bold text-white italic text-2xl font-heading">
-                    "Big satisfaction isn't a luxury—it's your right."
+                <div className="bg-white/5 border border-white/10 p-6 rounded-2xl mb-8">
+                  <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest italic">
+                    Brand details and media pending management confirmation. This preview represents the strategic vision of Chikini Monie.
+                  </p>
+                </div>
+                <div className="p-10 glass-premium rounded-[3rem] border border-primary/10 inline-block hospitality-glow">
+                  <p className="font-bold text-white italic text-3xl font-heading leading-tight">
+                    "Maximum satisfaction is no <br className="hidden md:block" /> longer a luxury—it's a standard."
                   </p>
                 </div>
               </div>
@@ -52,11 +57,11 @@ export default function AboutPage() {
               <div className="absolute -bottom-12 -left-12 glass-premium p-10 rounded-[3rem] border border-white/10 z-20 shadow-2xl hidden md:block group-hover:scale-105 transition-transform">
                 <div className="flex items-center gap-6">
                   <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center text-primary shadow-xl">
-                    <Heart className="w-8 h-8 fill-primary" />
+                    <UtensilsCrossed className="w-8 h-8" />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-4xl gold-text leading-none mb-1 font-heading">100%</h4>
-                    <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em]">Passion Infused</p>
+                    <h4 className="font-extrabold text-4xl gold-text leading-none mb-1 font-heading uppercase">24/7</h4>
+                    <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em]">Operational Culture</p>
                   </div>
                 </div>
               </div>
@@ -64,45 +69,27 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Values Section - Premium Cards */}
-        <section className="mb-40 py-40 border-y border-white/5">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 uppercase tracking-tight font-heading">THE <span className="text-primary italic">CHIKINI</span> WAY.</h2>
-            <p className="text-gray-500 text-xl font-medium">Core principles that define every digital ticket we fulfill.</p>
+        {/* Vision Details - Clean & Informative */}
+        <section className="mb-40 grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="glass-premium p-16 rounded-[4rem] border border-white/5 font-body">
+            <h3 className="text-3xl font-bold mb-8 uppercase tracking-tight font-heading text-white">Digital-First Growth</h3>
+            <p className="text-gray-500 text-lg leading-relaxed mb-8 font-medium">
+              We aren't just a kitchen; we are a tech-enabled hospitality platform. By digitizing the entire flow from order to delivery, we minimize errors and maximize the speed of satisfaction.
+            </p>
+            <div className="flex items-center gap-4 text-xs font-bold text-primary uppercase tracking-[0.2em]">
+              <Target className="w-5 h-5" />
+              Operational Transparency
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                icon: Zap,
-                title: "Energy & Vibe",
-                desc: "We bring a youthful, bold spirit to Akure's food scene. Every interaction should feel like an event."
-              },
-              {
-                icon: Award,
-                title: "Premium Quality",
-                desc: "Small money never means secondary ingredients. We source the finest to ensure first-class satisfaction."
-              },
-              {
-                icon: UtensilsCrossed,
-                title: "Authentic Soul",
-                desc: "We celebrate Akure's local culinary heritage, refined through a modern digital lens."
-              }
-            ].map((value, idx) => (
-              <motion.div 
-                key={idx} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="glass-premium p-12 rounded-[3.5rem] border border-white/5 group hover:border-primary/20 transition-all duration-500"
-              >
-                <div className="w-20 h-20 bg-primary/10 rounded-[2rem] flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform shadow-2xl">
-                  <value.icon className="w-10 h-10" />
-                </div>
-                <h3 className="text-3xl font-bold mb-6 uppercase tracking-tight font-heading">{value.title}</h3>
-                <p className="text-gray-500 text-lg leading-relaxed font-medium">{value.desc}</p>
-              </motion.div>
-            ))}
+          <div className="glass-premium p-16 rounded-[4rem] border border-white/5 font-body">
+            <h3 className="text-3xl font-bold mb-8 uppercase tracking-tight font-heading text-white">The Akure Audience</h3>
+            <p className="text-gray-500 text-lg leading-relaxed mb-8 font-medium">
+              Our menu is curated for the diverse energy of Akure. From student-friendly combos to family-sized swallow platters, we serve the community that keeps this city moving.
+            </p>
+            <div className="flex items-center gap-4 text-xs font-bold text-accent uppercase tracking-[0.2em]">
+              <Heart className="w-5 h-5" />
+              Community Focused
+            </div>
           </div>
         </section>
 
@@ -117,28 +104,25 @@ export default function AboutPage() {
               ABULA <br /><span className="text-accent italic">BACKYARD.</span>
             </h2>
             <p className="text-gray-400 text-xl md:text-2xl mb-12 leading-relaxed font-medium">
-              Chikini Monie is the energetic sibling of Akure's legendary <span className="text-accent font-bold">Abula Backyard</span>. 
-              While we focus on fast/casual cravings, Abula Backyard remains the sanctuary of deep tradition and local mastery.
+              Chikini Monie draws inspiration from the culinary legacy of <span className="text-accent font-bold">Abula Backyard</span>. 
+              While Chikini Monie focuses on high-speed, 24/7 digital satisfaction, our heritage is rooted in the deep tradition and local mastery that Abula Backyard is renowned for.
             </p>
             <div className="bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] flex items-start gap-6 mb-12 max-w-2xl">
               <Info className="text-gray-600 w-8 h-8 shrink-0 mt-1" />
-              <p className="text-sm text-gray-500 font-bold uppercase tracking-wider leading-relaxed">
-                Sister-brand ecosystem and shared loyalty integrations are currently in the final modeling phase.
+              <p className="text-xs text-gray-500 font-bold uppercase tracking-wider leading-relaxed">
+                Sister-brand ecosystem and shared media pending final management confirmation. Currently in strategic preview mode.
               </p>
             </div>
-            <button className="bg-accent text-black px-12 py-6 rounded-[2rem] font-bold text-xl hover:scale-105 active:scale-95 transition-all uppercase tracking-wider shadow-2xl shadow-accent/20">
-              Explore Our Roots
-            </button>
           </div>
         </section>
 
         {/* Vision Quote - Final Impact */}
         <section className="text-center max-w-5xl mx-auto font-body">
           <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-16 border border-primary/20 shadow-2xl">
-            <Target className="text-primary w-10 h-10" />
+            <Sparkles className="text-primary w-10 h-10" />
           </div>
           <h2 className="text-4xl md:text-7xl font-extrabold mb-12 leading-[0.9] tracking-tight uppercase font-heading">
-            "REDEFINING HOW <br /><span className="italic">AKURE EATS,</span> 
+            "REDEFINING HOW <br /><span className="italic text-primary">AKURE EATS,</span> 
             <span className="gold-text block mt-4 italic">ONE CRAVING AT A TIME.</span>"
           </h2>
           <div className="flex items-center justify-center gap-4">
