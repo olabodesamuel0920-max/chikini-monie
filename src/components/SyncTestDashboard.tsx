@@ -24,7 +24,7 @@ export default function SyncTestDashboard() {
     const testOrder: Order = {
       id: `TEST-${Math.floor(Math.random() * 9000) + 1000}`,
       customerName: "Sync Test User",
-      phone: "08000000000",
+      phone: "Phone pending management confirmation",
       branch: "FUTA South Gate",
       items: [{ id: "r1", name: "Test Jollof", price: 1000, category: "Rice Meals", image: "", quantity: 1, description: "Sync test item" }],
       total: 1000,

@@ -8,7 +8,7 @@ import PreviewGate from "@/components/PreviewGate";
 
 const KitchenDashboard = dynamic(() => import("@/components/KitchenDashboard"), {
   ssr: false,
-  loading: () => <div className="min-h-screen bg-black flex items-center justify-center text-gray-500 font-black uppercase tracking-widest">Initialising Kitchen Display...</div>
+  loading: () => <div className="min-h-screen bg-black flex items-center justify-center text-gray-500 font-black uppercase tracking-widest">Preparing Kitchen Display...</div>
 });
 
 export default function KitchenPage() {

@@ -8,7 +8,7 @@ import PreviewGate from "@/components/PreviewGate";
 
 const ManagerDashboard = dynamic(() => import("@/components/ManagerDashboard"), {
   ssr: false,
-  loading: () => <div className="min-h-screen bg-dark flex items-center justify-center text-gray-500 font-black uppercase tracking-widest">Initialising Manager Analytics...</div>
+  loading: () => <div className="min-h-screen bg-dark flex items-center justify-center text-gray-500 font-black uppercase tracking-widest">Preparing Manager Analytics...</div>
 });
 
 export default function ManagerPage() {
