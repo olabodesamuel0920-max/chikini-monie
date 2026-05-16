@@ -11,12 +11,20 @@ interface OrderCardProps {
   order: Order;
   onUpdate?: () => void;
   showActions?: boolean;
+  isKitchenView?: boolean;
 }
 
-const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
+const OrderCard = ({ order, onUpdate, showActions = true, isKitchenView = false }: OrderCardProps) => {
   const handleStatusUpdate = async (status: OrderStatus) => {
     await updateOrderStatus(order.id, status);
     onUpdate?.();
+  };
+
+  const getUrgency = (dateStr: string) => {
+    const seconds = Math.floor((new Date().getTime() - new Date(dateStr).getTime()) / 1000);
+    if (seconds > 900) return { label: "Needs attention", color: "text-red-500 bg-red-500/10 border-red-500/20" };
+    if (seconds > 450) return { label: "Waiting", color: "text-orange-500 bg-orange-500/10 border-orange-500/20" };
+    return { label: "Normal", color: "text-blue-500 bg-blue-500/10 border-blue-500/20" };
   };
 
   const timeAgo = (dateStr: string) => {
@@ -27,6 +35,8 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
     const hours = Math.floor(minutes / 60);
     return `${hours}h ago`;
   };
+
+  const urgency = getUrgency(order.createdAt);
 
   return (
     <motion.div
@@ -39,7 +49,14 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
           <span className="text-[10px] uppercase tracking-wider text-gray-500 font-bold block mb-1">Order Identifier</span>
           <h3 className="font-bold text-xl text-white tracking-tight font-heading">{order.id}</h3>
         </div>
-        <StatusBadge status={order.status} />
+        <div className="flex items-center gap-3">
+          {isKitchenView && (
+            <div className={`px-3 py-1.5 rounded-xl text-[10px] font-bold uppercase tracking-wider border ${urgency.color}`}>
+              {urgency.label}
+            </div>
+          )}
+          <StatusBadge status={order.status} />
+        </div>
       </div>
 
       <div className="p-8 space-y-8">
@@ -98,41 +115,41 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
             {order.status === "Pending" && (
               <button
                 onClick={() => handleStatusUpdate("Confirmed")}
-                className="px-4 py-4 bg-blue-600/20 border border-blue-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-blue-400 hover:bg-blue-600 hover:text-white transition-all"
+                className="px-4 py-4 bg-blue-600/20 border border-blue-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-blue-400 hover:bg-blue-600 hover:text-white transition-all shadow-xl shadow-blue-600/10"
               >
-                Confirm
+                Confirm Order
               </button>
             )}
             {(order.status === "Confirmed" || order.status === "Pending") && (
               <button
                 onClick={() => handleStatusUpdate("Preparing")}
-                className="px-4 py-4 bg-orange-600/20 border border-orange-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-orange-400 hover:bg-orange-600 hover:text-white transition-all"
+                className="px-4 py-4 bg-orange-600/20 border border-orange-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-orange-400 hover:bg-orange-600 hover:text-white transition-all shadow-xl shadow-orange-600/10"
               >
-                Prepare
+                Send to Kitchen
               </button>
             )}
             {order.status === "Preparing" && (
               <button
                 onClick={() => handleStatusUpdate("Ready")}
-                className="px-4 py-4 bg-green-600/20 border border-green-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-green-400 hover:bg-green-600 hover:text-white transition-all"
+                className="px-4 py-4 bg-green-600/20 border border-green-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-green-400 hover:bg-green-600 hover:text-white transition-all shadow-xl shadow-green-600/10"
               >
-                Mark Ready
+                Mark as Ready
               </button>
             )}
             {order.status === "Ready" && (
               <button
                 onClick={() => handleStatusUpdate("Completed")}
-                className="px-4 py-4 bg-purple-600/20 border border-purple-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-purple-400 hover:bg-purple-600 hover:text-white transition-all"
+                className="px-4 py-4 bg-purple-600/20 border border-purple-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-purple-400 hover:bg-purple-600 hover:text-white transition-all shadow-xl shadow-purple-600/10"
               >
-                Complete
+                Complete Order
               </button>
             )}
             {order.status !== "Completed" && order.status !== "Cancelled" && (
               <button
                 onClick={() => handleStatusUpdate("Cancelled")}
-                className="px-4 py-4 bg-red-900/20 border border-red-900/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-red-400 hover:bg-red-900 hover:text-white transition-all"
+                className="px-4 py-4 bg-red-900/10 border border-red-900/20 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-red-400 hover:bg-red-900 hover:text-white transition-all"
               >
-                Cancel
+                Cancel Order
               </button>
             )}
           </div>
