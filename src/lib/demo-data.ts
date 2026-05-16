@@ -159,6 +159,6 @@ export const testimonials = [
   {
     name: "David Okafor",
     role: "Tech Lead",
-    content: "The manager dashboard demo looks impressive. Can't wait for the real deal.",
+    content: "The digital management suite looks impressive. It's exactly the digital engine a growing restaurant needs.",
   },
 ];

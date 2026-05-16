@@ -61,7 +61,7 @@ export default function OrderCheckout() {
       await saveOrder(newOrder);
       localStorage.removeItem("chikini_monie_cart");
       setIsSaving(false);
-      alert("Demo order saved! If Cloud Demo is active, it will now appear instantly on the Staff, Kitchen, and Manager dashboards.");
+      alert("Demo order saved! If Cloud Demo is active, it will now appear instantly on the operational dashboards in the Demo Center.");
       router.push("/staff");
     }, 1000);
   };
