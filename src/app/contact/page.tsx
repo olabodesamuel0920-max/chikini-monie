@@ -21,7 +21,7 @@ export default function ContactPage() {
             <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Operational Contact</span>
             <h1 className="text-6xl md:text-[8rem] font-extrabold gold-text uppercase tracking-tighter leading-none font-heading">CONNECT<span className="italic text-white">.</span></h1>
             <p className="text-gray-500 mt-10 max-w-3xl mx-auto text-xl md:text-2xl font-medium leading-relaxed">
-              Have a partnership vision, a branch inquiry, or a technical question? The Chikini Monie management team is ready to connect.
+              Use this preview contact hub to structure future management, partnership, and customer inquiry flows.
             </p>
           </motion.div>
         </div>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                       <label className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] ml-1">Inquiry Type</label>
                       <select className="w-full bg-black/40 border border-white/10 rounded-2xl py-5 px-8 focus:border-primary focus:bg-black/60 transition-all focus:outline-none font-bold text-white shadow-inner appearance-none cursor-pointer">
                         <option>General Enquiry</option>
-                        <option>Table Reservation</option>
+                        <option>Dining Inquiry Preview</option>
                         <option>Event Hosting</option>
                         <option>Corporate Catering</option>
                         <option>Partnership Proposal</option>
