@@ -137,7 +137,7 @@ export default function PitchPage() {
                   <h4 className="font-bold text-2xl uppercase tracking-tight font-heading text-white">The Opportunity</h4>
                 </div>
                 <p className="text-sm font-bold text-gray-500 uppercase tracking-wider leading-relaxed">
-                  Capture 100% of digital traffic and establish a unified, high-trust brand presence that appeals to premium customers.
+                  Create a unified, high-trust brand portal for future digital traffic.
                 </p>
               </div>
               <div className="glass-premium p-10 rounded-[3rem] border border-white/10 space-y-6 shadow-2xl">
@@ -167,8 +167,8 @@ export default function PitchPage() {
             {[
               { title: "Unified Ordering", desc: "A premium digital storefront that eliminates social media order chaos and verification delays." },
               { title: "Staff Clarity", desc: "Real-time boards that ensure staff always know what needs to be confirmed and served." },
-              { title: "Kitchen Precision", desc: "Digital ticket prioritization to ensure faster preparation times and zero missed orders." },
-              { title: "Owner Dashboard", desc: "Real-time sales and branch visibility, giving you total control from any location." },
+              { title: "Kitchen Precision", desc: "Digital tickets help staff reduce missed handoffs during busy periods." },
+              { title: "Owner Dashboard", desc: "Owner can review preview performance data from supported devices." },
               { title: "Brand Premium", desc: "A world-class digital presence that builds massive trust with corporate and high-end clients." },
               { title: "24/7 Readiness", desc: "Designed for the intensity of night-time surges without the stress of manual coordination." },
             ].map((sol, idx) => (
@@ -195,7 +195,7 @@ export default function PitchPage() {
           <div className="text-center mb-24">
             <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-6 block font-heading">Deployment Roadmap</span>
             <h2 className="text-4xl md:text-7xl font-extrabold mb-8 uppercase leading-none tracking-tight font-heading">THE <span className="text-primary italic">PATHWAY.</span></h2>
-            <p className="text-gray-500 text-xl max-w-3xl mx-auto font-medium">From high-fidelity demonstration to Akure's leading future-ready food operations platform.</p>
+            <p className="text-gray-500 text-xl max-w-3xl mx-auto font-medium">From high-fidelity demonstration to a foundation for Chikini Monie’s next stage of digital operations.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -237,7 +237,7 @@ export default function PitchPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
               <div className="space-y-6">
                 <h4 className="text-2xl font-bold uppercase tracking-tight font-heading text-white">Protecting the Taste</h4>
-                <p className="text-gray-500 leading-relaxed font-medium">By automating the logistics, we free up your team to focus 100% on what matters: the uncompromising quality of the food.</p>
+                <p className="text-gray-500 leading-relaxed font-medium">By automating the logistics, we free up your team to focus on what matters: the uncompromising quality of the food.</p>
               </div>
               <div className="space-y-6">
                 <h4 className="text-2xl font-bold uppercase tracking-tight font-heading text-white">Scaling the Vision</h4>

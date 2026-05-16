@@ -23,7 +23,7 @@ export default function BranchesPage() {
           >
             <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Network Footprint</span>
             <h1 className="text-6xl md:text-[8rem] font-extrabold gold-text mb-10 uppercase tracking-tighter leading-[0.85] font-heading">
-              LOCATE YOUR <br /><span className="italic text-white text-5xl md:text-7xl">SATISFACTION.</span>
+              PREVIEW OUR <br /><span className="italic text-white text-5xl md:text-7xl">BRANCHES.</span>
             </h1>
             <p className="text-gray-500 text-xl md:text-2xl leading-relaxed max-w-3xl font-medium">
               Chikini Monie is strategically expanding across Akure to ensure 24/7 craving coverage. Find our active preview hubs or stay updated on upcoming locations.
@@ -76,7 +76,7 @@ export default function BranchesPage() {
               <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Scaling Vision</span>
               <h2 className="text-5xl md:text-8xl font-extrabold mb-10 uppercase leading-[0.9] tracking-tighter font-heading text-white">HUB <br /><span className="text-primary italic">EXPANSION.</span></h2>
               <p className="text-gray-500 text-xl leading-relaxed mb-12 font-medium">
-                Our mission is 100% craving coverage. We are strategically scouting high-impact locations in Akure and beyond to bring Chikini Monie closer to you.
+                Our mission is unified craving coverage. We are strategically scouting high-impact locations in Akure and beyond to bring Chikini Monie closer to you.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <div className="bg-white/5 border border-white/10 px-10 py-5 rounded-2xl text-[10px] font-bold text-gray-500 uppercase tracking-widest italic">
@@ -87,8 +87,8 @@ export default function BranchesPage() {
             <div className="grid grid-cols-2 gap-8 relative">
               <div className="space-y-8 pt-16">
                 <div className="aspect-square glass-premium border border-white/10 rounded-[3rem] flex flex-col items-center justify-center p-8 text-center shadow-2xl font-heading">
-                  <h4 className="text-5xl font-extrabold gold-text mb-2 leading-none">05+</h4>
-                  <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider font-body">Targeted Hubs</p>
+                  <h4 className="text-5xl font-extrabold gold-text mb-2 leading-none">Future</h4>
+                  <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider font-body">Hubs</p>
                 </div>
                 <div className="aspect-square glass-premium border border-white/10 rounded-[3rem] flex flex-col items-center justify-center p-8 text-center shadow-2xl font-heading">
                   <h4 className="text-5xl font-extrabold gold-text mb-2 leading-none">24h</h4>
@@ -97,8 +97,8 @@ export default function BranchesPage() {
               </div>
               <div className="space-y-8">
                 <div className="aspect-square glass-premium border border-white/10 rounded-[3rem] flex flex-col items-center justify-center p-8 text-center shadow-2xl font-heading">
-                  <h4 className="text-5xl font-extrabold gold-text mb-2 leading-none">100%</h4>
-                  <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider font-body">Cloud Sync</p>
+                  <h4 className="text-5xl font-extrabold gold-text mb-2 leading-none">Quality</h4>
+                  <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider font-body">Standard</p>
                 </div>
                 <div className="aspect-[4/5] bg-primary/20 border border-primary/20 rounded-[3.5rem] flex flex-col items-center justify-center p-8 text-center shadow-[inset_0_0_50px_rgba(255,102,0,0.1)] relative group font-body overflow-hidden">
                   <div className="absolute inset-0 bg-primary/10 blur-[40px] rounded-full group-hover:scale-150 transition-transform duration-1000" />

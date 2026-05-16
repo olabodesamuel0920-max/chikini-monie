@@ -249,7 +249,7 @@ export default function Home() {
               BIG <br /> <span className="italic text-white/90">ENJOYMENT?</span>
             </h2>
             <p className="text-white/90 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
-              Experience the best of Akure's digital food culture. Start your journey with Chikini Monie today.
+              Built for Akure food lovers and future digital ordering.
             </p>
             <Link
               href="/menu"

@@ -91,7 +91,7 @@ const BranchCard = ({ branch }: BranchCardProps) => {
             ? "Hub Expansion Planned" 
             : isActive 
               ? "View Hub Preview" 
-              : "Location Pending"}
+              : "Location Pending Confirmation"}
           {isActive && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
         </button>
 
