@@ -1,5 +1,7 @@
 
 import { MenuItem } from "./demo-data";
+import { isSupabaseConfigured } from "./supabase-client";
+import { saveSupabaseOrder, updateSupabaseOrderStatus } from "./supabase-orders";
 
 export interface OrderItem extends MenuItem {
   quantity: number;
@@ -22,24 +24,48 @@ export interface Order {
 
 const STORAGE_KEY = "chikini_monie_orders";
 
+export const getDemoMode = () => {
+  return isSupabaseConfigured ? "Cloud Demo Active" : "Local Demo Mode";
+};
+
 export const getOrders = (): Order[] => {
   if (typeof window === "undefined") return [];
   const orders = localStorage.getItem(STORAGE_KEY);
   return orders ? JSON.parse(orders) : [];
 };
 
-export const saveOrder = (order: Order) => {
+export const saveOrder = async (order: Order) => {
+  // Always save to localStorage for fallback/cache
   const orders = getOrders();
   const newOrders = [order, ...orders];
   localStorage.setItem(STORAGE_KEY, JSON.stringify(newOrders));
+
+  // If Supabase is configured, save there too
+  if (isSupabaseConfigured) {
+    try {
+      await saveSupabaseOrder(order);
+    } catch (e) {
+      console.error("Supabase save failed, relying on localStorage", e);
+    }
+  }
 };
 
-export const updateOrderStatus = (orderId: string, status: OrderStatus) => {
+export const updateOrderStatus = async (orderId: string, status: OrderStatus) => {
+  // Update localStorage
   const orders = getOrders();
   const updatedOrders = orders.map((order) =>
     order.id === orderId ? { ...order, status } : order
   );
   localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedOrders));
+
+  // Update Supabase
+  if (isSupabaseConfigured) {
+    try {
+      await updateSupabaseOrderStatus(orderId, status);
+    } catch (e) {
+      console.error("Supabase update failed, relying on localStorage", e);
+    }
+  }
 };
 
 export const resetOrders = () => {

@@ -14,8 +14,8 @@ interface OrderCardProps {
 }
 
 const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
-  const handleStatusUpdate = (status: OrderStatus) => {
-    updateOrderStatus(order.id, status);
+  const handleStatusUpdate = async (status: OrderStatus) => {
+    await updateOrderStatus(order.id, status);
     onUpdate?.();
   };
 
