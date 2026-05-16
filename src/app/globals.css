@@ -2,22 +2,23 @@
 @import "tailwindcss";
 
 @theme {
-  --font-heading: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --color-primary: #FF6600;
-  --color-secondary: #FF4500;
-  --color-accent: #D4AF37;
-  --color-cream: #FFFDD0;
-  --color-dark: #050505;
+  --color-secondary: #E65C00;
+  --color-accent: #C5A028;
+  --color-cream: #F5F5F0;
+  --color-dark: #0A0A0A;
+  --color-card: #141414;
   
   --color-background: var(--color-dark);
   --color-foreground: var(--color-cream);
 }
 
 :root {
-  --background: #050505;
-  --foreground: #FFFDD0;
+  --background: #0A0A0A;
+  --foreground: #F5F5F0;
 }
 
 @layer base {
@@ -25,84 +26,95 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
-    @apply antialiased;
+    @apply antialiased selection:bg-primary/30;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    @apply tracking-tight;
+    @apply tracking-tight font-bold;
   }
 }
 
+/* Typography Utilities */
+.tracking-premium {
+  @apply tracking-[0.02em];
+}
+
+.tracking-label {
+  @apply tracking-[0.15em] uppercase;
+}
+
+/* Glassmorphism Refined */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.08];
 }
 
 .glass-premium {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  @apply bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-xl border border-white/[0.05];
 }
 
+.glass-dark {
+  @apply bg-black/40 backdrop-blur-2xl border border-white/[0.05];
+}
+
+/* Gradients & Text */
 .premium-gradient {
-  background: linear-gradient(135deg, #FF6600 0%, #FF3300 100%);
+  background: linear-gradient(135deg, #FF6600 0%, #E65C00 100%);
 }
 
 .gold-text {
-  background: linear-gradient(to right, #D4AF37, #F9D71C, #D4AF37);
+  background: linear-gradient(to right, #C5A028, #E6C200, #C5A028);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
+  animation: shine 4s linear infinite;
 }
 
 @keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+  to { background-position: 200% center; }
+}
+
+/* Animations */
+.animate-slow-zoom {
+  animation: slow-zoom 30s ease-in-out infinite alternate;
 }
 
 @keyframes slow-zoom {
   0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+  100% { transform: scale(1.05); }
 }
 
-.animate-slow-zoom {
-  animation: slow-zoom 20s ease-in-out infinite alternate;
+/* Layout Utilities */
+.section-spacing {
+  @apply py-20 md:py-32;
 }
 
-.hospitality-glow {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 102, 0, 0.05);
+.container-tight {
+  @apply max-w-5xl mx-auto px-6;
 }
 
-.hospitality-glow-gold {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.05);
+.container-wide {
+  @apply max-w-7xl mx-auto px-6;
 }
 
-.cinematic-overlay {
-  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0.4) 50%, rgba(5, 5, 5, 0.9) 100%);
-}
-
+/* Menu Components */
 .category-chip {
-  @apply px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/10 backdrop-blur-md;
+  @apply px-5 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest border border-white/5 bg-white/[0.02] hover:bg-white/[0.08] transition-all;
 }
 
-/* Custom Scrollbar for dashboards */
+.category-chip-active {
+  @apply bg-primary text-white border-primary shadow-lg shadow-primary/20;
+}
+
+/* Scrollbar Refined */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
+  @apply bg-white/[0.02];
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 102, 0, 0.2);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 102, 0, 0.4);
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-all;
 }

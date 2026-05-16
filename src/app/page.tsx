@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import FoodCard from "@/components/FoodCard";
 import BranchCard from "@/components/BranchCard";
 import { menuItems, branches, testimonials } from "@/lib/demo-data";
-import { ArrowRight, Star, Clock, ShieldCheck, Zap, UtensilsCrossed, Smartphone, LayoutDashboard, ChefHat, BarChart3, Sparkles } from "lucide-react";
+import { ArrowRight, Star, Clock, UtensilsCrossed, Smartphone, LayoutDashboard, ChefHat, BarChart3, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -16,51 +16,51 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-grow font-body selection:bg-primary/30">
-        {/* Hero Section - Refined Cinematic Hospitality */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 md:py-32">
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-24 md:py-32">
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 cinematic-overlay z-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark/40 via-dark/20 to-dark z-10" />
             <img
               src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2070&auto=format&fit=crop"
               alt="Premium Food"
-              className="w-full h-full object-cover scale-105 animate-slow-zoom"
+              className="w-full h-full object-cover animate-slow-zoom"
             />
           </div>
 
-          <div className="relative z-20 text-center px-6 max-w-6xl mx-auto">
+          <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1 }}
             >
-              <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-accent text-[11px] font-bold uppercase tracking-[0.3em] mb-12 backdrop-blur-3xl hospitality-glow">
-                <Sparkles className="w-4 h-4 text-accent animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] text-accent text-[10px] font-black uppercase tracking-[0.2em] mb-10 backdrop-blur-xl">
+                <Sparkles className="w-3.5 h-3.5 text-accent" />
                 Akure's Premium 24/7 Digital Hub
               </div>
               
-              <h1 className="text-5xl md:text-8xl font-extrabold mb-10 tracking-tighter leading-[0.9] uppercase font-heading text-white">
-                Big <span className="italic">enjoyment</span> <br />
-                <span className="text-white/90">with </span>
+              <h1 className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter leading-[0.95] uppercase font-heading text-white">
+                Big <span className="italic text-primary">enjoyment</span> <br />
+                <span className="text-white/80">with </span>
                 <span className="gold-text italic">small money.</span>
               </h1>
               
-              <p className="text-xl md:text-3xl text-gray-400 mb-20 max-w-4xl mx-auto leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-gray-400 mb-16 max-w-2xl mx-auto leading-relaxed font-medium">
                 Akure's premier digital food destination. <br className="hidden md:block" /> 
                 Authentic local soul meets global fast-food excellence.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-10">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <Link
                   href="/menu"
-                  className="premium-gradient w-full sm:w-auto px-16 py-8 rounded-[2.5rem] text-white font-bold text-2xl shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-4 uppercase tracking-widest hospitality-glow"
+                  className="premium-gradient w-full sm:w-auto px-10 py-5 rounded-2xl text-white font-bold text-sm shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 uppercase tracking-widest"
                 >
-                  Start Order
-                  <ArrowRight className="w-7 h-7" />
+                  Start Your Order
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
                   href="/demo"
-                  className="glass-premium w-full sm:w-auto px-16 py-8 rounded-[2.5rem] text-white font-bold text-2xl hover:bg-white/10 transition-all border border-white/10 uppercase tracking-widest"
+                  className="glass w-full sm:w-auto px-10 py-5 rounded-2xl text-white font-bold text-sm hover:bg-white/[0.05] transition-all border border-white/[0.1] uppercase tracking-widest"
                 >
                   Demo Center
                 </Link>
@@ -69,65 +69,61 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Popular Preview - Refined Spacing */}
-        <section className="py-24 md:py-32 lg:py-40 px-6 bg-black relative">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-dark to-transparent pointer-events-none" />
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
-              <div className="max-w-3xl">
-                <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-6 block">Popular Selection</span>
-                <h2 className="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight uppercase font-heading leading-none">Crave it. <br /><span className="text-primary italic">Get it.</span></h2>
-                <p className="text-gray-500 text-2xl font-medium max-w-2xl">Our most requested satisfaction boosters, crafted for your delight and delivered digitally.</p>
-              </div>
-              <Link href="/menu" className="text-primary font-bold uppercase tracking-[0.2em] text-xs flex items-center gap-4 hover:gap-6 transition-all group pb-4 border-b border-primary/20">
-                Explore Full Menu <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-              </Link>
+        {/* Popular Preview */}
+        <section className="section-spacing container-wide">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <div className="max-w-2xl">
+              <span className="text-primary font-bold text-[10px] uppercase tracking-[0.3em] mb-4 block">Selection</span>
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight uppercase font-heading leading-tight">Crave it. <span className="text-primary italic">Get it.</span></h2>
+              <p className="text-gray-500 text-lg md:text-xl font-medium">Our most requested satisfaction boosters, crafted for your delight and delivered digitally.</p>
             </div>
+            <Link href="/menu" className="text-primary font-bold uppercase tracking-widest text-[11px] flex items-center gap-3 hover:gap-5 transition-all group pb-3 border-b border-primary/20">
+              Explore Menu <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-              {popularItems.slice(0, 3).map((item) => (
-                <FoodCard key={item.id} item={item} />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {popularItems.slice(0, 3).map((item) => (
+              <FoodCard key={item.id} item={item} />
+            ))}
           </div>
         </section>
 
-        {/* Why Chikini Monie - Narrative Depth */}
-        <section className="py-24 md:py-32 lg:py-40 px-6 bg-dark relative overflow-hidden">
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/2 h-full bg-primary/5 blur-[200px] rounded-full -mr-64 pointer-events-none" />
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-40 items-center">
+        {/* Why Chikini Monie */}
+        <section className="section-spacing bg-white/[0.01] border-y border-white/[0.03]">
+          <div className="container-wide">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
               <div>
-                <span className="text-accent font-bold text-xs uppercase tracking-[0.4em] mb-8 block">The Standard</span>
-                <h2 className="text-4xl md:text-7xl font-extrabold mb-12 leading-[0.9] tracking-tighter uppercase font-heading">
+                <span className="text-accent font-bold text-[10px] uppercase tracking-[0.3em] mb-6 block">The Standard</span>
+                <h2 className="text-4xl md:text-6xl font-bold mb-16 leading-[0.95] tracking-tighter uppercase font-heading">
                   WHY AKURE <br />
                   <span className="text-primary italic">LOVES US.</span>
                 </h2>
-                <div className="space-y-20">
+                <div className="space-y-12">
                   {[
-                    { icon: Zap, color: "primary", title: "Speed that kills hunger.", desc: "Orders confirmed in seconds, ready in minutes. We value your time as much as your taste buds." },
-                    { icon: UtensilsCrossed, color: "accent", title: "Quality for everyone.", desc: "From students to CEOs, we serve premium meals at prices that make perfect sense." },
+                    { icon: UtensilsCrossed, color: "primary", title: "Designed for speed.", desc: "Designed to make ordering faster, clearer, and easier to manage." },
+                    { icon: Star, color: "accent", title: "Quality for everyone.", desc: "From students to CEOs, we serve premium meals at prices that make perfect sense." },
                     { icon: Clock, color: "white", title: "Always awake for you.", desc: "Midnight cravings? Early morning breakfast? Our kitchen never sleeps." },
                   ].map((feature, idx) => (
-                    <div key={idx} className="flex gap-10 group">
-                      <div className={`w-20 h-20 shrink-0 bg-${feature.color}/10 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform border border-${feature.color}/20 shadow-2xl`}>
-                        <feature.icon className={`text-${feature.color} w-10 h-10`} />
+                    <div key={idx} className="flex gap-8 group">
+                      <div className="w-16 h-16 shrink-0 bg-white/[0.03] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform border border-white/[0.05]">
+                        <feature.icon className={`text-${feature.color} w-7 h-7`} />
                       </div>
                       <div>
-                        <h4 className="font-bold text-3xl mb-4 uppercase font-heading tracking-tight text-white">{feature.title}</h4>
-                        <p className="text-gray-500 text-xl leading-relaxed font-medium">{feature.desc}</p>
+                        <h4 className="font-bold text-xl mb-3 uppercase font-heading tracking-tight text-white">{feature.title}</h4>
+                        <p className="text-gray-500 text-base leading-relaxed font-medium">{feature.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="relative group">
-                <div className="absolute inset-0 premium-gradient blur-[150px] opacity-10 group-hover:opacity-20 transition-opacity" />
-                <div className="relative z-10 glass-premium p-6 rounded-[4rem] border border-white/10 rotate-2 group-hover:rotate-0 transition-all duration-1000 hospitality-glow">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+                <div className="relative z-10 glass-premium p-4 rounded-[3rem] border border-white/[0.08] rotate-2">
                   <img
                     src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800"
                     alt="Delicious Food"
-                    className="rounded-[3rem] shadow-2xl"
+                    className="rounded-[2.2rem] shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
               </div>
@@ -135,110 +131,108 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Abula Backyard - Sister Concept */}
-        <section className="py-24 md:py-32 lg:py-40 px-6 bg-black border-y border-white/5 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto glass-premium p-16 md:p-32 rounded-[5rem] border border-primary/10 relative overflow-hidden hospitality-glow">
-            <div className="absolute top-0 right-0 p-16 opacity-[0.02] -rotate-12 scale-150">
-              <UtensilsCrossed className="w-96 h-96" />
+        {/* Abula Backyard */}
+        <section className="section-spacing container-wide">
+          <div className="glass-premium p-12 md:p-24 rounded-[3.5rem] border border-primary/10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-12 opacity-[0.02] -rotate-12 scale-150">
+              <UtensilsCrossed className="w-72 h-72" />
             </div>
-            <div className="relative z-10 lg:max-w-4xl">
-              <span className="text-primary font-bold text-xs uppercase tracking-[0.5em] mb-8 block">Sister Brand Heritage</span>
-              <h2 className="text-4xl md:text-7xl font-extrabold mb-8 uppercase font-heading leading-none tracking-tighter">ABULA <br /><span className="italic">BACKYARD</span></h2>
-              <p className="text-gray-400 text-2xl md:text-3xl mb-16 leading-relaxed font-medium">
+            <div className="relative z-10 lg:max-w-3xl">
+              <span className="text-primary font-bold text-[10px] uppercase tracking-[0.3em] mb-6 block">Heritage</span>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 uppercase font-heading leading-tight tracking-tighter">ABULA <span className="italic text-primary">BACKYARD</span></h2>
+              <p className="text-gray-400 text-lg md:text-xl mb-12 leading-relaxed font-medium">
                 Experience authentic local flavors at our sister brand, Abula Backyard. The traditional soul of Akure, served with premium hospitality.
               </p>
-              <Link href="/about" className="inline-flex items-center gap-6 font-bold uppercase tracking-widest text-white hover:text-primary transition-all group border-b border-white/10 pb-4">
-                Discover Our Heritage <ArrowRight className="w-8 h-8 group-hover:translate-x-4 transition-transform" />
+              <Link href="/about" className="inline-flex items-center gap-4 font-bold uppercase tracking-widest text-[11px] text-white hover:text-primary transition-all group pb-2 border-b border-white/10">
+                Our Heritage <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Operational Flow - Business Ready */}
-        <section className="py-24 md:py-32 lg:py-40 px-6 bg-dark border-b border-white/5 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-32">
-              <span className="text-primary font-bold text-xs uppercase tracking-[0.5em] mb-8 block">Digital Infrastructure</span>
-              <h2 className="text-4xl md:text-7xl font-extrabold mb-8 uppercase font-heading leading-none tracking-tighter">THE <span className="text-primary italic">LIFECYCLE.</span></h2>
-              <p className="text-gray-500 text-2xl max-w-4xl mx-auto font-medium">A seamless digital journey powered by Supabase Realtime—from the first craving to executive reporting.</p>
+        {/* Operational Flow */}
+        <section className="section-spacing bg-white/[0.01]">
+          <div className="container-wide">
+            <div className="text-center mb-24">
+              <span className="text-primary font-bold text-[10px] uppercase tracking-[0.3em] mb-6 block">Infrastructure</span>
+              <h2 className="text-4xl md:text-6xl font-bold mb-8 uppercase font-heading leading-tight tracking-tighter">THE <span className="text-primary italic">LIFECYCLE.</span></h2>
+              <p className="text-gray-500 text-lg md:text-xl max-w-3xl mx-auto font-medium">A seamless digital journey powered by Supabase—from the first craving to executive reporting.</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { title: "Order", step: "01", desc: "Customer chooses their craving from the interactive digital menu.", icon: Smartphone },
+                { title: "Order", step: "01", desc: "Choose your craving from the interactive digital menu.", icon: Smartphone },
                 { title: "Confirm", step: "02", desc: "Order appears instantly on the staff board for verification.", icon: LayoutDashboard },
                 { title: "Prepare", step: "03", desc: "Kitchen receives the digital ticket and begins preparation.", icon: ChefHat },
-                { title: "Analyze", step: "04", desc: "Owner tracks the sale and performance in real-time.", icon: BarChart3 },
+                { title: "Analyze", step: "04", desc: "Track performance and sales trends in real-time.", icon: BarChart3 },
               ].map((item, idx) => (
-                <div key={idx} className="glass-premium p-14 rounded-[4rem] border border-white/5 relative group hover:bg-white/[0.03] transition-all duration-700 hospitality-glow">
-                  <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-12 group-hover:scale-110 transition-transform border border-primary/20 shadow-inner">
-                    <item.icon className="w-10 h-10" />
+                <div key={idx} className="glass p-10 rounded-[2.5rem] relative group hover:bg-white/[0.05] transition-all">
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform border border-primary/20">
+                    <item.icon className="w-7 h-7" />
                   </div>
-                  <span className="absolute top-14 right-14 text-7xl font-bold text-white/[0.02] group-hover:text-primary/10 transition-colors leading-none italic font-heading">{item.step}</span>
-                  <h3 className="text-3xl font-bold mb-6 uppercase font-heading tracking-tight text-white">{item.title}</h3>
-                  <p className="text-gray-500 text-lg leading-relaxed font-medium">{item.desc}</p>
+                  <span className="absolute top-10 right-10 text-6xl font-bold text-white/[0.02] leading-none italic font-heading">{item.step}</span>
+                  <h3 className="text-2xl font-bold mb-4 uppercase font-heading tracking-tight text-white">{item.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed font-medium">{item.desc}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-32 text-center">
+            <div className="mt-20 text-center">
               <Link
                 href="/demo"
-                className="bg-white text-black px-16 py-8 rounded-[2.5rem] font-bold text-2xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-6 shadow-2xl shadow-white/10 uppercase tracking-widest"
+                className="bg-white text-black px-12 py-5 rounded-2xl font-bold text-sm hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-4 shadow-xl shadow-white/5 uppercase tracking-widest"
               >
                 Experience The Engine
-                <ArrowRight className="w-8 h-8" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Branches - Hospitality Hubs */}
-        <section className="py-24 md:py-32 lg:py-40 px-6 bg-black relative overflow-hidden">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-32">
-              <span className="text-accent font-bold text-xs uppercase tracking-[0.5em] mb-8 block">Global Footprint</span>
-              <h2 className="text-4xl md:text-7xl font-extrabold mb-8 uppercase font-heading leading-none tracking-tighter">ALWAYS <span className="gold-text italic">NEARBY.</span></h2>
-              <p className="text-gray-500 text-2xl max-w-3xl mx-auto font-medium">Pick up your order or dine with us at any of our strategically located hospitality hubs across Akure.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-              {branches.map((branch) => (
-                <BranchCard key={branch.id} branch={branch} />
-              ))}
-            </div>
+        {/* Branches */}
+        <section className="section-spacing container-wide">
+          <div className="text-center mb-24">
+            <span className="text-accent font-bold text-[10px] uppercase tracking-[0.3em] mb-6 block">Locations</span>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 uppercase font-heading leading-tight tracking-tighter">ALWAYS <span className="gold-text italic">NEARBY.</span></h2>
+            <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto font-medium">Pick up your order or dine with us at any of our hospitality hubs across Akure.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {branches.map((branch) => (
+              <BranchCard key={branch.id} branch={branch} />
+            ))}
           </div>
         </section>
 
-        {/* Testimonials - Community Proof */}
-        <section className="py-24 md:py-32 lg:py-40 px-6 bg-dark overflow-hidden relative">
-          <div className="max-w-7xl mx-auto relative z-10">
-            <h2 className="text-4xl md:text-7xl font-extrabold mb-8 text-center uppercase font-heading leading-none tracking-tighter">THE <span className="text-primary italic">CULTURE.</span></h2>
-            <p className="text-gray-600 text-center text-xs font-bold uppercase tracking-[0.3em] mb-32 font-body max-w-2xl mx-auto">Sample customer review layout — final testimonials pending Chikini Monie management approval.</p>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        {/* Testimonials */}
+        <section className="section-spacing bg-white/[0.01]">
+          <div className="container-wide">
+            <h2 className="text-4xl md:text-6xl font-bold mb-10 text-center uppercase font-heading tracking-tighter">THE <span className="text-primary italic">CULTURE.</span></h2>
+            <p className="text-gray-600 text-center text-[10px] font-bold uppercase tracking-[0.2em] mb-24 max-w-xl mx-auto">Sample layout — Built for Akure food lovers and future digital ordering.</p>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {testimonials.map((t, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="glass-premium p-16 rounded-[4rem] border border-white/5 relative flex flex-col justify-between hospitality-glow"
+                  className="glass p-10 rounded-[2.5rem] flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex gap-2 text-accent/40 mb-10">
+                    <div className="flex gap-1.5 text-accent/40 mb-8">
                       {[1, 2, 3, 4, 5].map((s) => (
-                        <Star key={s} className="w-4 h-4 fill-current" />
+                        <Star key={s} className="w-3.5 h-3.5 fill-current" />
                       ))}
                     </div>
-                    <p className="text-gray-300 text-2xl leading-relaxed italic mb-16 font-medium">"{t.content}"</p>
+                    <p className="text-gray-300 text-lg leading-relaxed italic mb-12 font-medium">"{t.content}"</p>
                   </div>
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center font-bold text-2xl text-primary border border-white/10 font-heading shadow-inner">
+                  <div className="flex items-center gap-5">
+                    <div className="w-12 h-12 bg-white/[0.03] rounded-xl flex items-center justify-center font-bold text-lg text-primary border border-white/[0.05]">
                       {t.name[0]}
                     </div>
                     <div>
-                      <h4 className="font-bold text-xl uppercase tracking-tight font-heading text-white">{t.name}</h4>
-                      <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.2em]">{t.role}</p>
+                      <h4 className="font-bold text-base uppercase tracking-tight font-heading text-white">{t.name}</h4>
+                      <p className="text-[9px] font-bold text-gray-600 uppercase tracking-widest">{t.role}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -247,20 +241,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Final CTA - Executive Invitation */}
-        <section className="py-32 md:py-48 lg:py-56 px-6 bg-primary relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] pointer-events-none" />
-          <div className="max-w-6xl mx-auto text-center relative z-10">
-            <h2 className="text-5xl md:text-9xl font-extrabold text-white mb-12 tracking-tighter uppercase font-heading leading-[0.8] drop-shadow-2xl">
+        {/* Final CTA */}
+        <section className="py-24 md:py-40 bg-primary relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10" />
+          <div className="max-w-4xl mx-auto text-center relative z-10 px-6">
+            <h2 className="text-5xl md:text-8xl font-bold text-white mb-10 tracking-tighter uppercase font-heading leading-[0.9]">
               BIG <br /> <span className="italic text-white/90">ENJOYMENT?</span>
             </h2>
-            <p className="text-white/90 text-2xl md:text-4xl mb-24 max-w-3xl mx-auto font-medium leading-relaxed">
-              Join the thousands who trust Chikini Monie for Akure's best 24/7 food experience.
+            <p className="text-white/90 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium leading-relaxed">
+              Experience the best of Akure's digital food culture. Start your journey with Chikini Monie today.
             </p>
             <Link
               href="/menu"
-              className="bg-white text-primary px-24 py-10 rounded-[3rem] font-bold text-3xl shadow-[0_30px_70px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all inline-block uppercase tracking-widest"
+              className="bg-white text-primary px-16 py-6 rounded-2xl font-bold text-lg shadow-2xl hover:scale-105 active:scale-95 transition-all inline-block uppercase tracking-widest"
             >
               Order Now
             </Link>

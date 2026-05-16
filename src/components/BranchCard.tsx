@@ -1,7 +1,7 @@
 
 "use client";
 
-import { MapPin, Phone, Clock, ArrowRight, ShieldCheck, Sparkles, Navigation } from "lucide-react";
+import { MapPin, Phone, Clock, ArrowRight, Navigation, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Branch } from "@/lib/demo-data";
 import { cn } from "@/lib/utils";
@@ -17,78 +17,73 @@ const BranchCard = ({ branch }: BranchCardProps) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className={cn(
-        "glass-premium rounded-[3rem] p-10 border transition-all duration-700 group shadow-2xl font-body flex flex-col h-full relative overflow-hidden",
-        isActive ? "border-primary/20 bg-primary/[0.03] hospitality-glow" : "border-white/5",
-        isComingSoon && "opacity-80 grayscale-[0.5]"
+        "glass-premium rounded-2xl p-8 border transition-all duration-500 group shadow-lg font-body flex flex-col h-full relative overflow-hidden",
+        isActive ? "border-primary/30 bg-primary/[0.02]" : "border-white/[0.05]",
+        isComingSoon && "opacity-70 grayscale-[0.4]"
       )}
     >
       {isActive && (
-        <div className="absolute top-0 right-0 p-8 opacity-10 -mr-4 -mt-4">
-          <Sparkles className="w-24 h-24 text-primary" />
+        <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+          <Sparkles className="w-20 h-20 text-primary" />
         </div>
       )}
-      <div className="flex justify-between items-start mb-10 relative z-10">
+      
+      <div className="flex justify-between items-start mb-8 relative z-10">
         <div className={cn(
-          "w-16 h-16 rounded-2xl flex items-center justify-center border shadow-2xl transition-all duration-700",
-          isActive ? "bg-primary/20 border-primary/20 text-primary group-hover:scale-110 rotate-3 group-hover:rotate-0" : "bg-white/5 border-white/10 text-gray-500"
+          "w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-500",
+          isActive ? "bg-primary/10 border-primary/20 text-primary" : "bg-white/[0.03] border-white/[0.05] text-gray-500"
         )}>
-          {isActive ? <Navigation className="w-8 h-8" /> : <MapPin className="w-8 h-8" />}
+          {isActive ? <Navigation className="w-5 h-5" /> : <MapPin className="w-5 h-5" />}
         </div>
         <div className={cn(
-          "px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border backdrop-blur-md",
+          "px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider border backdrop-blur-md",
           isActive ? "bg-primary/10 border-primary/20 text-primary" : 
           isPending ? "bg-accent/10 border-accent/20 text-accent" :
-          "bg-white/5 border-white/10 text-gray-500"
+          "bg-white/[0.03] border-white/[0.05] text-gray-500"
         )}>
           {branch.status}
         </div>
       </div>
 
       <div className="flex-grow relative z-10">
-        <h3 className="font-bold text-3xl uppercase tracking-tighter mb-4 font-heading text-white group-hover:text-primary transition-colors leading-none">
+        <h3 className="font-bold text-2xl uppercase tracking-tight mb-4 font-heading text-white group-hover:text-primary transition-colors leading-tight">
           {branch.name}
         </h3>
         
-        <div className="space-y-6 mb-10">
-          <div className="flex items-center gap-4 text-gray-500">
-            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 shrink-0">
-              <Clock className="w-4 h-4 text-primary" />
-            </div>
-            <span className="text-xs font-bold uppercase tracking-wider">
+        <div className="space-y-4 mb-8">
+          <div className="flex items-center gap-3 text-gray-500">
+            <Clock className="w-4 h-4 text-primary/70" />
+            <span className="text-[11px] font-bold uppercase tracking-widest">
               {branch.is247 ? "Active 24/7 Service" : "Operational hours pending"}
             </span>
           </div>
-          <div className="flex items-start gap-4 text-gray-400">
-            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 shrink-0 mt-0.5">
-              <MapPin className="w-4 h-4 text-primary" />
-            </div>
-            <span className="text-xs font-medium leading-relaxed">
+          <div className="flex items-start gap-3 text-gray-400">
+            <MapPin className="w-4 h-4 text-primary/70 mt-0.5 shrink-0" />
+            <span className="text-[12px] font-medium leading-relaxed">
               {branch.address}
             </span>
           </div>
-          <div className="flex items-center gap-4 text-gray-500">
-            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5 shrink-0">
-              <Phone className="w-4 h-4 text-primary" />
-            </div>
-            <span className="text-xs font-bold tracking-wider italic">
+          <div className="flex items-center gap-3 text-gray-500">
+            <Phone className="w-4 h-4 text-primary/70" />
+            <span className="text-[11px] font-bold tracking-widest italic">
               {branch.phone}
             </span>
           </div>
         </div>
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 mt-auto">
         <button 
           disabled={isComingSoon || isPending}
           className={cn(
-            "w-full py-5 rounded-2xl border transition-all duration-300 font-bold text-[11px] uppercase tracking-[0.2em] flex items-center justify-center gap-3",
+            "w-full py-4 rounded-xl border transition-all duration-300 font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-2",
             isActive 
-              ? "premium-gradient text-white border-transparent shadow-xl shadow-primary/20 hover:scale-[1.02]" 
-              : "bg-white/5 border-white/10 text-white hover:bg-white/10",
+              ? "premium-gradient text-white border-transparent shadow-lg shadow-primary/10 hover:scale-[1.02]" 
+              : "bg-white/[0.03] border-white/[0.05] text-white hover:bg-white/[0.08]",
             (isComingSoon || isPending) && "cursor-not-allowed opacity-50"
           )}
         >
@@ -96,13 +91,13 @@ const BranchCard = ({ branch }: BranchCardProps) => {
             ? "Hub Expansion Planned" 
             : isActive 
               ? "View Hub Preview" 
-              : "Location Pending Confirmation"}
-          {isActive && <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />}
+              : "Location Pending"}
+          {isActive && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
         </button>
 
         {!isActive && !isComingSoon && (
-          <p className="text-[9px] text-gray-600 font-bold uppercase tracking-wider text-center mt-6 italic">
-            Verification pending management approval
+          <p className="text-[8px] text-gray-600 font-bold uppercase tracking-widest text-center mt-4">
+            Pending management approval
           </p>
         )}
       </div>

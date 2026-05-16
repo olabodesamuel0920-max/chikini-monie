@@ -1,13 +1,13 @@
 
 import type { Metadata } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import DemoBadge from "@/components/DemoBadge";
 import DemoNotice from "@/components/DemoNotice";
 
-const sora = Sora({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-sora",
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable} h-full antialiased scroll-smooth`}>
+    <html lang="en" className={`${outfit.variable} ${inter.variable} h-full antialiased scroll-smooth`}>
       <body className="min-h-full flex flex-col font-body bg-dark text-white selection:bg-primary/30">
         <DemoNotice />
         <DemoBadge />
