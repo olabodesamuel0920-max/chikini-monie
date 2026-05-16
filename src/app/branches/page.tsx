@@ -21,7 +21,7 @@ export default function BranchesPage() {
             FIND YOUR <br />SATISFACTION.
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed">
-            Chikini Monie is expanding rapidly across Akure. Find our official branches below and enjoy premium meals 24/7.
+            Chikini Monie is expanding rapidly across Akure. Find our preview branches below and enjoy premium meals 24/7.
           </p>
         </div>
 

@@ -202,8 +202,8 @@ export default function ManagerPage() {
               <h3 className="text-xl font-bold italic">Recent Demo Orders</h3>
               <button className="text-xs font-bold text-primary hover:underline">View All</button>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+            <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+              <table className="w-full text-left border-collapse min-w-[800px]">
                 <thead>
                   <tr className="bg-white/5 text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">
                     <th className="p-6">Order ID</th>
@@ -211,37 +211,43 @@ export default function ManagerPage() {
                     <th className="p-6">Branch</th>
                     <th className="p-6">Total</th>
                     <th className="p-6">Status</th>
-                    <th className="p-6">Action</th>
+                    <th className="p-6 text-right">Action</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm">
-                  {orders.slice(0, 5).map((order) => (
-                    <tr key={order.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                      <td className="p-6 font-bold">{order.id}</td>
-                      <td className="p-6">
-                        <div className="flex flex-col">
-                          <span className="font-bold">{order.customerName}</span>
-                          <span className="text-[10px] text-gray-500">{order.phone}</span>
-                        </div>
-                      </td>
-                      <td className="p-6 text-gray-400">{order.branch}</td>
-                      <td className="p-6 font-bold gold-text">{formatPrice(order.total)}</td>
-                      <td className="p-6">
-                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase border ${
-                          order.status === 'Completed' ? 'bg-purple-500/10 text-purple-500 border-purple-500/20' :
-                          order.status === 'Pending' ? 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20' :
-                          'bg-blue-500/10 text-blue-500 border-blue-500/20'
-                        }`}>
-                          {order.status}
-                        </span>
-                      </td>
-                      <td className="p-6">
-                        <button className="p-2 bg-white/5 rounded-lg hover:bg-white/10 text-gray-400">
-                          <ArrowUpRight className="w-4 h-4" />
-                        </button>
-                      </td>
+                  {orders.length === 0 ? (
+                    <tr>
+                      <td colSpan={6} className="p-12 text-center text-gray-500 italic">No demo orders yet.</td>
                     </tr>
-                  ))}
+                  ) : (
+                    orders.slice(0, 10).map((order) => (
+                      <tr key={order.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
+                        <td className="p-6 font-bold">{order.id}</td>
+                        <td className="p-6">
+                          <div className="flex flex-col">
+                            <span className="font-bold">{order.customerName}</span>
+                            <span className="text-[10px] text-gray-500">{order.phone}</span>
+                          </div>
+                        </td>
+                        <td className="p-6 text-gray-400 text-xs">{order.branch}</td>
+                        <td className="p-6 font-bold gold-text">{formatPrice(order.total)}</td>
+                        <td className="p-6">
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase border ${
+                            order.status === 'Completed' ? 'bg-purple-500/10 text-purple-500 border-purple-500/20' :
+                            order.status === 'Pending' ? 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20' :
+                            'bg-blue-500/10 text-blue-500 border-blue-500/20'
+                          }`}>
+                            {order.status}
+                          </span>
+                        </td>
+                        <td className="p-6 text-right">
+                          <button className="p-2 bg-white/5 rounded-lg hover:bg-primary transition-colors text-gray-400 hover:text-white">
+                            <ArrowUpRight className="w-4 h-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>

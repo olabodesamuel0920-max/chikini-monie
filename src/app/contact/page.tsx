@@ -63,7 +63,7 @@ export default function ContactPage() {
                   <MapPin className="w-7 h-7" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-xl mb-1">Official Hub</h4>
+                  <h4 className="font-bold text-xl mb-1">Brand Hub</h4>
                   <p className="text-gray-400 mb-2">Visit us anytime.</p>
                   <p className="text-white font-bold">FUTA South Gate, Akure</p>
                 </div>

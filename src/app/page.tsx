@@ -27,7 +27,7 @@ export default function Home() {
               className="w-full h-full object-cover scale-105 animate-slow-zoom"
             />
             <div className="absolute bottom-10 right-10 z-20">
-              <span className="text-[10px] text-white/20 uppercase tracking-[0.5em] font-black">Official Media Pending Confirmation</span>
+              <span className="text-[10px] text-white/20 uppercase tracking-[0.5em] font-black">Preview Media Pending Confirmation</span>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-primary" />
-              Verified Taste
+              Premium Taste
             </div>
             <div className="flex items-center gap-2">
               <Zap className="w-4 h-4 text-primary" />

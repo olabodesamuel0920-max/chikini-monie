@@ -29,7 +29,7 @@ export default function PitchPage() {
       title: "Phase 1: Brand Foundation",
       status: "Built / Demo Ready",
       items: [
-        "Official Customer Website",
+        "Digital Customer Website",
         "Interactive Digital Menu",
         "WhatsApp Ordering Flow",
         "Brand Story & About Page",
@@ -89,7 +89,7 @@ export default function PitchPage() {
             THE DIGITAL <br />UPGRADE.
           </h1>
           <p className="text-gray-400 text-xl leading-relaxed mb-12">
-            Chikini Monie already has the momentum and the taste Akure loves. Now it's time to build the official digital engine that powers 24/7 operations and future growth.
+            Chikini Monie already has the momentum and the taste Akure loves. Now it's time to build the digital engine that powers 24/7 operations and future growth.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
@@ -112,7 +112,7 @@ export default function PitchPage() {
                 Chikini Monie has built a strong social presence and branch momentum. However, managing high-volume 24/7 orders through WhatsApp alone has limitations in tracking, prioritization, and professional branding.
               </p>
               <p className="text-gray-400 text-lg leading-relaxed">
-                By establishing an official digital home and an integrated operating layer, Chikini Monie moves from a "popular spot" to a "premium food system" that can scale to multiple branches with total control.
+                By establishing a professional digital home and an integrated operating layer, Chikini Monie moves from a "popular spot" to a "premium food system" that can scale to multiple branches with total control.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -142,7 +142,7 @@ export default function PitchPage() {
               { title: "Staff Visibility", desc: "Front-of-house staff see exactly what's pending, preparing, and ready in one view." },
               { title: "Kitchen Precision", desc: "The kitchen gets a prioritized digital queue, eliminating paper slips and confusion." },
               { title: "Owner Oversight", desc: "Understand sales, branch performance, and trends without being physically present." },
-              { title: "Brand Authority", desc: "An official platform builds high trust, especially for new customers and large orders." },
+              { title: "Brand Authority", desc: "A premium platform builds high trust, especially for new customers and large orders." },
               { title: "24/7 Readiness", desc: "A system that never sleeps, perfectly built for Akure's late-night food culture." },
             ].map((sol, idx) => (
               <div key={idx} className="p-8 border-l-2 border-primary/20 hover:border-primary transition-all">

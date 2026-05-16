@@ -23,7 +23,7 @@ export default function DemoCommandCenter() {
     {
       id: "01",
       title: "Customer Website",
-      desc: "Explore the official digital storefront where the brand comes to life.",
+      desc: "Explore the premium digital storefront where the brand comes to life.",
       route: "/",
       icon: Utensils,
       value: "Professionalizes the brand presence beyond social media."

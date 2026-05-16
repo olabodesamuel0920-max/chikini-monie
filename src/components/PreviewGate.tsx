@@ -73,6 +73,11 @@ const PreviewGate = ({ children, dashboardName }: PreviewGateProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
+          <div className="bg-primary/10 border-b border-primary/20 py-2 px-4 text-center fixed top-16 left-0 right-0 z-[45] backdrop-blur-md">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary">
+              Preview Demo Mode • Local Session Data Only
+            </p>
+          </div>
           {children}
         </motion.div>
       )}
