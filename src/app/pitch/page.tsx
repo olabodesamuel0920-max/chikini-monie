@@ -137,7 +137,7 @@ export default function PitchPage() {
                   <h4 className="font-bold text-2xl uppercase tracking-tight font-heading text-white">The Opportunity</h4>
                 </div>
                 <p className="text-sm font-bold text-gray-500 uppercase tracking-wider leading-relaxed">
-                  Create a unified, high-trust brand portal for future digital traffic.
+                  Create a unified brand portal for future traffic.
                 </p>
               </div>
               <div className="glass-premium p-10 rounded-[3rem] border border-white/10 space-y-6 shadow-2xl">
@@ -167,8 +167,8 @@ export default function PitchPage() {
             {[
               { title: "Unified Ordering", desc: "A premium digital storefront that eliminates social media order chaos and verification delays." },
               { title: "Staff Clarity", desc: "Real-time boards that ensure staff always know what needs to be confirmed and served." },
-              { title: "Kitchen Precision", desc: "Digital tickets help staff reduce missed handoffs during busy periods." },
-              { title: "Owner Dashboard", desc: "Owner can review preview performance data from supported devices." },
+              { title: "Kitchen Precision", desc: "Digital tickets help staff reduce missed handoffs." },
+              { title: "Owner Dashboard", desc: "Owner can review performance data from supported devices." },
               { title: "Brand Premium", desc: "A world-class digital presence that builds massive trust with corporate and high-end clients." },
               { title: "24/7 Readiness", desc: "Designed for the intensity of night-time surges without the stress of manual coordination." },
             ].map((sol, idx) => (
