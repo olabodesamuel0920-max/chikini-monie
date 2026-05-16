@@ -66,9 +66,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-8 border-t border-white/5 text-center text-xs text-gray-500">
-        <p>© {new Date().getFullYear()} Chikini Monie. For business review only. Built with ❤️ in Akure.</p>
-        <p className="mt-2 text-[10px] opacity-50 uppercase tracking-widest">Premium Digital Hub Demo</p>
+      <div className="max-w-7xl mx-auto pt-8 border-t border-white/5 text-center">
+        <p className="text-[10px] text-gray-500 leading-relaxed max-w-3xl mx-auto uppercase tracking-widest">
+          © {new Date().getFullYear()} Chikini Monie. This is a business review prototype. Final menu, pricing, phone numbers, branch details, media, payments, and operational workflows require confirmation from Chikini Monie management.
+        </p>
+        <p className="mt-4 text-[9px] opacity-30 uppercase tracking-[0.4em] font-black">Premium Digital Hub Demo • Akure</p>
       </div>
     </footer>
   );

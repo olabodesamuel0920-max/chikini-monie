@@ -26,6 +26,9 @@ const FoodCard = ({ item, onAddToCart }: FoodCardProps) => {
           alt={item.name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
+        <div className="absolute bottom-2 left-3 z-20">
+          <span className="text-[7px] text-white/40 uppercase tracking-widest font-medium">Placeholder Preview</span>
+        </div>
         <div className="absolute top-3 right-3">
           <button className="p-2 bg-black/40 backdrop-blur-md rounded-full text-white/80 hover:text-primary transition-colors">
             <Heart className="w-4 h-4" />

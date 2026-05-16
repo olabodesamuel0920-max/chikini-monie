@@ -14,14 +14,19 @@ import {
   ArrowRight,
   CheckCircle2,
   Lock,
-  Layers
+  Layers,
+  TrendingUp,
+  Target,
+  Zap,
+  Clock
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function PitchPage() {
   const phases = [
     {
-      title: "Phase 1: Brand Launch",
+      title: "Phase 1: Brand Foundation",
       status: "Built / Demo Ready",
       items: [
         "Official Customer Website",
@@ -52,6 +57,17 @@ export default function PitchPage() {
         "Inventory Management",
         "Advanced Branch Analytics"
       ]
+    },
+    {
+      title: "Phase 4: Enterprise Operations",
+      status: "Future Vision",
+      items: [
+        "Multi-branch Centralized Hub",
+        "Automated Receipt Printing",
+        "Loyalty & Reward Programs",
+        "AI-driven Demand Forecasting",
+        "Enterprise API Integrations"
+      ]
     }
   ];
 
@@ -67,63 +83,129 @@ export default function PitchPage() {
             animate={{ opacity: 1, scale: 1 }}
             className="w-24 h-24 bg-primary/10 rounded-3xl flex items-center justify-center text-primary mx-auto mb-10 border border-primary/20"
           >
-            <Rocket className="w-12 h-12" />
+            <Target className="w-12 h-12" />
           </motion.div>
           <h1 className="text-5xl md:text-8xl font-black italic gold-text mb-8 uppercase leading-tight">
-            DIGITAL <br />GROWTH SYSTEM.
+            THE DIGITAL <br />UPGRADE.
           </h1>
           <p className="text-gray-400 text-xl leading-relaxed mb-12">
-            Chikini Monie is more than just a restaurant. It's a high-performance digital ecosystem designed to scale food satisfaction across Akure.
+            Chikini Monie already has the momentum and the taste Akure loves. Now it's time to build the official digital engine that powers 24/7 operations and future growth.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="premium-gradient px-10 py-5 rounded-2xl text-white font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-105 transition-all">
-              Request Full Demo
-            </button>
-            <button className="glass px-10 py-5 rounded-2xl text-white font-bold text-lg border border-white/10 hover:bg-white/5 transition-all">
-              View Roadmap
-            </button>
+            <Link
+              href="/demo"
+              className="premium-gradient px-12 py-5 rounded-2xl text-white font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-105 transition-all flex items-center gap-2"
+            >
+              Enter Demo Center
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </section>
 
-        {/* Feature Grid */}
+        {/* The Opportunity */}
         <section className="mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-accent font-black text-xs uppercase tracking-[0.4em] mb-4 block">The Opportunity</span>
+              <h2 className="text-3xl md:text-5xl font-black italic mb-8 uppercase">FROM SOCIAL TO <br /><span className="text-primary">SCALABLE.</span></h2>
+              <p className="text-gray-400 text-lg leading-relaxed mb-6">
+                Chikini Monie has built a strong social presence and branch momentum. However, managing high-volume 24/7 orders through WhatsApp alone has limitations in tracking, prioritization, and professional branding.
+              </p>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                By establishing an official digital home and an integrated operating layer, Chikini Monie moves from a "popular spot" to a "premium food system" that can scale to multiple branches with total control.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="glass p-8 rounded-3xl border border-white/5 space-y-4">
+                <TrendingUp className="text-green-500 w-8 h-8" />
+                <h4 className="font-bold">Growth Potential</h4>
+                <p className="text-xs text-gray-500">Capture 100% of digital traffic with a professional storefront.</p>
+              </div>
+              <div className="glass p-8 rounded-3xl border border-white/5 space-y-4 mt-8">
+                <Zap className="text-primary w-8 h-8" />
+                <h4 className="font-bold">Efficiency</h4>
+                <p className="text-xs text-gray-500">Reduce manual order processing time by up to 60%.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What This System Solves */}
+        <section className="mb-32 py-24 border-y border-white/5">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase italic">WHAT WE <span className="text-primary">SOLVE.</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">Bridging the gap between cravings and completion.</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Globe, title: "Official Website", desc: "A premium digital storefront that builds trust and makes ordering a breeze." },
-              { icon: Smartphone, title: "Mobile Ordering", desc: "Optimized for the mobile generation. WhatsApp integration for friction-less orders." },
-              { icon: LayoutDashboard, title: "Staff Board", desc: "Clean, efficient order management for front-of-house teams." },
-              { icon: ChefHat, title: "Kitchen Display", desc: "Real-time kitchen queue to reduce wait times and eliminate errors." },
-              { icon: BarChart3, title: "Manager Intel", desc: "Data-driven insights to monitor sales, branch performance, and trends." },
-              { icon: Database, title: "Demo Engine", desc: "A fully working prototype using local storage to demonstrate real-world usage." },
-            ].map((feature, idx) => (
-              <div key={idx} className="glass p-10 rounded-[3rem] border border-white/5 hover:border-primary/20 transition-all group">
-                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-gray-400 group-hover:bg-primary/20 group-hover:text-primary mb-8 transition-all">
-                  <feature.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 italic uppercase tracking-tight">{feature.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{feature.desc}</p>
+              { title: "Unified Ordering", desc: "Customers view the full menu and order directly, reducing chat noise and order errors." },
+              { title: "Staff Visibility", desc: "Front-of-house staff see exactly what's pending, preparing, and ready in one view." },
+              { title: "Kitchen Precision", desc: "The kitchen gets a prioritized digital queue, eliminating paper slips and confusion." },
+              { title: "Owner Oversight", desc: "Understand sales, branch performance, and trends without being physically present." },
+              { title: "Brand Authority", desc: "An official platform builds high trust, especially for new customers and large orders." },
+              { title: "24/7 Readiness", desc: "A system that never sleeps, perfectly built for Akure's late-night food culture." },
+            ].map((sol, idx) => (
+              <div key={idx} className="p-8 border-l-2 border-primary/20 hover:border-primary transition-all">
+                <h3 className="text-xl font-black italic mb-3 uppercase">{sol.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{sol.desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* 24/7 Context */}
+        <section className="mb-32">
+          <div className="glass rounded-[3rem] p-12 md:p-20 border border-white/10 relative overflow-hidden">
+            <div className="absolute inset-0 bg-primary/5" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+              <div className="space-y-8">
+                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center">
+                  <Clock className="w-8 h-8 text-primary" />
+                </div>
+                <h2 className="text-4xl md:text-6xl font-black italic uppercase leading-tight">
+                  BUILT FOR <br />THE <span className="gold-text">NIGHT.</span>
+                </h2>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="text-primary w-5 h-5 shrink-0 mt-1" />
+                    <p className="text-gray-300 font-medium">Handles late-night student surges effortlessly.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="text-primary w-5 h-5 shrink-0 mt-1" />
+                    <p className="text-gray-300 font-medium">Optimizes takeaway and delivery coordination.</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="text-primary w-5 h-5 shrink-0 mt-1" />
+                    <p className="text-gray-300 font-medium">Syncs multi-branch operations in real-time.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2070&auto=format&fit=crop"
+                  alt="Late Night Food"
+                  className="rounded-3xl shadow-2xl rotate-2 grayscale hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Roadmap */}
         <section className="mb-32">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-black mb-6 italic uppercase">THE ROAD <span className="text-primary">AHEAD.</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">From breathtaking prototype to Akure's leading food platform.</p>
+            <h2 className="text-4xl md:text-6xl font-black mb-6 italic uppercase">THE <span className="text-primary">ROADMAP.</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">From breathtaking prototype to Akure's leading food enterprise.</p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
-            <div className="absolute top-1/2 left-0 w-full h-1 bg-white/5 -translate-y-1/2 hidden lg:block z-0" />
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {phases.map((phase, idx) => (
-              <div key={idx} className="glass p-10 rounded-[3rem] border border-white/10 relative z-10 flex flex-col h-full hover:bg-black/40 transition-colors">
+              <div key={idx} className="glass p-8 rounded-[2.5rem] border border-white/10 flex flex-col h-full hover:bg-black/40 transition-colors">
                 <div className="mb-6 flex justify-between items-start">
-                  <span className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-white font-black text-xl">
+                  <span className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary font-black">
                     {idx + 1}
                   </span>
-                  <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border ${
+                  <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full border ${
                     idx === 0 ? "bg-green-500/10 text-green-500 border-green-500/20" :
                     idx === 1 ? "bg-blue-500/10 text-blue-500 border-blue-500/20" :
                     "bg-gray-500/10 text-gray-500 border-gray-500/20"
@@ -131,11 +213,11 @@ export default function PitchPage() {
                     {phase.status}
                   </span>
                 </div>
-                <h3 className="text-2xl font-black italic mb-8 uppercase tracking-tighter">{phase.title}</h3>
-                <ul className="space-y-4 mb-10 flex-grow">
+                <h3 className="text-xl font-black italic mb-6 uppercase tracking-tighter">{phase.title}</h3>
+                <ul className="space-y-3 mb-8 flex-grow">
                   {phase.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-400 text-sm">
-                      <CheckCircle2 className={`w-4 h-4 shrink-0 ${idx === 0 ? "text-green-500" : "text-gray-600"}`} />
+                    <li key={i} className="flex items-center gap-3 text-gray-500 text-[11px] font-medium leading-tight">
+                      <div className={`w-1 h-1 rounded-full ${idx === 0 ? "bg-green-500" : "bg-gray-700"}`} />
                       {item}
                     </li>
                   ))}
@@ -146,26 +228,20 @@ export default function PitchPage() {
         </section>
 
         {/* Closing CTA */}
-        <section className="glass rounded-[4rem] p-12 md:p-20 border border-primary/20 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/5" />
-          <div className="relative z-10 max-w-3xl mx-auto">
-            <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center text-white mx-auto mb-10 shadow-2xl shadow-primary/40">
-              <Lock className="w-8 h-8" />
-            </div>
-            <h2 className="text-3xl md:text-6xl font-black italic mb-8 uppercase">READY FOR <br />DEPLOYMENT.</h2>
-            <p className="text-gray-400 text-lg mb-12">
-              The foundational system is ready. We are awaiting final menu, branch, and workflow confirmation to transition from preview to production.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="premium-gradient px-12 py-6 rounded-2xl text-white font-black text-xl hover:scale-105 transition-all">
-                APPROVE PROJECT
-              </button>
-              <button className="bg-white/5 border border-white/10 px-12 py-6 rounded-2xl text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3">
-                <Layers className="w-5 h-5" />
-                Technical Docs
-              </button>
-            </div>
+        <section className="text-center max-w-4xl mx-auto py-20">
+          <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-12 border border-primary/30">
+            <Lock className="w-10 h-10 text-primary" />
           </div>
+          <h2 className="text-3xl md:text-6xl font-black italic mb-8 uppercase">A SYSTEM FOR THE <br /><span className="gold-text">NEW ERA.</span></h2>
+          <p className="text-gray-500 text-lg mb-12 leading-relaxed">
+            The foundation is built. We are ready to transition this preview into a live, production-grade system that powers the next chapter of the Chikini Monie story.
+          </p>
+          <Link
+            href="/demo"
+            className="premium-gradient px-12 py-6 rounded-2xl text-white font-black text-xl hover:scale-105 transition-all inline-block shadow-2xl shadow-primary/30"
+          >
+            Explore the Demo System
+          </Link>
         </section>
       </main>
 

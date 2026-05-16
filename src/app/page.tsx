@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import FoodCard from "@/components/FoodCard";
 import BranchCard from "@/components/BranchCard";
 import { menuItems, branches, testimonials } from "@/lib/demo-data";
-import { ArrowRight, Star, Clock, ShieldCheck, Zap, UtensilsCrossed } from "lucide-react";
+import { ArrowRight, Star, Clock, ShieldCheck, Zap, UtensilsCrossed, Smartphone, LayoutDashboard, ChefHat, BarChart3 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -26,6 +26,9 @@ export default function Home() {
               alt="Premium Food"
               className="w-full h-full object-cover scale-105 animate-slow-zoom"
             />
+            <div className="absolute bottom-10 right-10 z-20">
+              <span className="text-[10px] text-white/20 uppercase tracking-[0.5em] font-black">Official Media Pending Confirmation</span>
+            </div>
           </div>
 
           <div className="relative z-20 text-center px-4 max-w-4xl mx-auto">
@@ -164,6 +167,46 @@ export default function Home() {
               </p>
               <Link href="/about" className="inline-flex items-center gap-2 font-bold text-white hover:text-primary transition-colors">
                 Learn more about our heritage <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Demo Story Workflow */}
+        <section className="py-24 px-4 bg-dark border-b border-white/5 relative overflow-hidden">
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-white/5 -translate-y-1/2 hidden lg:block" />
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="text-center mb-20">
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-4 block">The Digital Workflow</span>
+              <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase italic">From Craving to <span className="text-primary">Completion.</span></h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">Experience the full digital lifecycle of a Chikini Monie order.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { title: "Browse & Order", step: "01", desc: "Customer chooses their craving from the interactive digital menu.", icon: Smartphone },
+                { title: "Staff Confirmation", step: "02", desc: "Order appears instantly on the staff board for verification.", icon: LayoutDashboard },
+                { title: "Kitchen Prep", step: "03", desc: "Kitchen receives the digital ticket and begins preparation.", icon: ChefHat },
+                { title: "Manager Intel", step: "04", desc: "Owner tracks the sale and performance in real-time.", icon: BarChart3 },
+              ].map((item, idx) => (
+                <div key={idx} className="glass p-10 rounded-[3rem] border border-white/10 relative hover:bg-black transition-colors group">
+                  <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <span className="absolute top-10 right-10 text-4xl font-black text-white/5">{item.step}</span>
+                  <h3 className="text-xl font-black italic mb-4 uppercase">{item.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-16 text-center">
+              <Link
+                href="/demo"
+                className="bg-white text-black px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all inline-flex items-center gap-2 shadow-2xl shadow-white/10"
+              >
+                Open Demo Command Center
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>
