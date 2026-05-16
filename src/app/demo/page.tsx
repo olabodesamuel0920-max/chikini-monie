@@ -14,7 +14,8 @@ import {
   MousePointer2,
   CheckCircle2,
   Info,
-  Presentation
+  Presentation,
+  Cloud
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -71,6 +72,14 @@ export default function DemoCommandCenter() {
     },
     {
       id: "07",
+      title: "Sync Test Center",
+      desc: "Verify multi-device real-time cloud synchronization status.",
+      route: "/sync-test",
+      icon: Cloud,
+      value: "Ensures operational reliability across all branch hardware."
+    },
+    {
+      id: "08",
       title: "Growth Roadmap",
       desc: "See the long-term vision for scaling Chikini Monie digitally.",
       route: "/pitch",

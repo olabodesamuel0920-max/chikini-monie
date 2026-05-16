@@ -212,7 +212,8 @@ export default function Home() {
         {/* Testimonials - Elegant Cards */}
         <section className="py-40 px-6 bg-black overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-7xl font-black mb-24 text-center uppercase italic leading-none">What the <span className="text-primary">Streets</span> Say.</h2>
+            <h2 className="text-4xl md:text-7xl font-black mb-6 text-center uppercase italic leading-none">What the <span className="text-primary">Streets</span> Say.</h2>
+            <p className="text-gray-600 text-center text-xs font-black uppercase tracking-[0.3em] mb-24">Sample customer review layout — final testimonials pending Chikini Monie approval.</p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               {testimonials.map((t, idx) => (
                 <motion.div

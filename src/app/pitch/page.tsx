@@ -37,7 +37,7 @@ export default function PitchPage() {
       title: "Phase 2: Operational Flow",
       status: "Implemented",
       items: [
-        "Cloud Demo Sync (Supabase)",
+        "Cloud demo sync implemented",
         "Staff Order Management Board",
         "Kitchen Display System (KDS)",
         "Mobile-First Workflows",
@@ -48,19 +48,19 @@ export default function PitchPage() {
       title: "Phase 3: Operational Hardening",
       status: "Next Steps",
       items: [
-        "Production Backend Hardening",
-        "Secure Staff Authentication",
-        "Controlled Database Access",
+        "Production backend hardening",
+        "Staff login and controlled database access",
         "Branch Inventory Logic",
-        "Advanced Analytics Hub"
+        "Advanced Analytics Hub",
+        "Operational Security Pass"
       ]
     },
     {
       title: "Phase 4: Scaling & Integration",
       status: "Future Vision",
       items: [
-        "Payment integration after approval",
-        "Delivery workflow confirmation",
+        "Payment integration after management approval",
+        "Delivery workflow after business process confirmation",
         "Multi-branch Centralized Hub",
         "Automated Receipt Printing",
         "AI-driven Demand Forecasting"

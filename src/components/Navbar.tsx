@@ -3,9 +3,10 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, ShoppingCart, Utensils, ChevronDown, LayoutDashboard, Cloud, ChefHat, BarChart3, Presentation } from "lucide-react";
+import { Menu, X, ShoppingCart, Utensils, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { publicLinks, demoTools } from "@/lib/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,22 +20,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const publicLinks = [
-    { name: "Home", href: "/" },
-    { name: "Menu", href: "/menu" },
-    { name: "Branches", href: "/branches" },
-    { name: "About", href: "/about" },
-  ];
-
-  const demoTools = [
-    { name: "Demo Command Center", href: "/demo", icon: Presentation },
-    { name: "Staff Dashboard", href: "/staff", icon: LayoutDashboard },
-    { name: "Kitchen Display", href: "/kitchen", icon: ChefHat },
-    { name: "Manager Analytics", href: "/manager", icon: BarChart3 },
-    { name: "Sync Test Center", href: "/sync-test", icon: Cloud },
-    { name: "Pitch Deck", href: "/pitch", icon: Presentation },
-  ];
 
   return (
     <nav
@@ -54,7 +39,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop Links */}
+        {/* Desktop Links - Exact specification */}
         <div className="hidden lg:flex items-center gap-10">
           {publicLinks.map((link) => (
             <Link
@@ -67,16 +52,16 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Demo Tools Dropdown */}
+          {/* Demo Center - Dropdown contains the internal tools */}
           <div className="relative">
-            <button 
+            <div 
               onMouseEnter={() => setShowDemoTools(true)}
               onMouseLeave={() => setShowDemoTools(false)}
-              className="flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-accent hover:text-accent/80 transition-all"
+              className="flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-accent hover:text-accent/80 transition-all cursor-pointer"
             >
-              Demo Center
+              <Link href="/demo">Demo Center</Link>
               <ChevronDown className={cn("w-4 h-4 transition-transform", showDemoTools && "rotate-180")} />
-            </button>
+            </div>
 
             <AnimatePresence>
               {showDemoTools && (
@@ -153,11 +138,18 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                 ))}
+                <Link
+                  href="/demo"
+                  onClick={() => setIsOpen(false)}
+                  className="text-4xl font-black italic uppercase tracking-tighter text-accent hover:text-accent/80"
+                >
+                  Demo Center
+                </Link>
               </div>
 
               <div className="space-y-6">
                 <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-accent border-b border-white/5 pb-4">
-                  Presentation & Admin Tools
+                  Internal Demo Tools
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
                   {demoTools.map((tool) => (
@@ -168,7 +160,7 @@ const Navbar = () => {
                       className="flex items-center gap-4 p-4 bg-white/5 rounded-[2rem] border border-white/5"
                     >
                       <tool.icon className="w-6 h-6 text-primary" />
-                      <span className="text-sm font-black uppercase tracking-widest">{tool.name}</span>
+                      <span className="text-sm font-black uppercase tracking-widest text-gray-300">{tool.name}</span>
                     </Link>
                   ))}
                 </div>

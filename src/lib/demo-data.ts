@@ -124,7 +124,7 @@ export const branches: Branch[] = [
     name: "FUTA South Gate",
     address: "Opposite FUTA South Gate, Akure",
     status: "24/7 Service",
-    phone: "Phone pending confirmation",
+    phone: "Phone pending management confirmation",
     is247: true,
   },
   {
@@ -132,7 +132,7 @@ export const branches: Branch[] = [
     name: "Agape Junction",
     address: "Agape Junction, Akure",
     status: "24/7 Service",
-    phone: "Phone pending confirmation",
+    phone: "Phone pending management confirmation",
     is247: true,
   },
   {
@@ -140,7 +140,7 @@ export const branches: Branch[] = [
     name: "Branch 3 (Coming Soon)",
     address: "Details pending confirmation",
     status: "Opening Soon",
-    phone: "Phone pending confirmation",
+    phone: "Phone pending management confirmation",
     is247: false,
   },
 ];
