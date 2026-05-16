@@ -3,13 +3,14 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, ShoppingCart, User, Utensils } from "lucide-react";
+import { Menu, X, ShoppingCart, Utensils, ChevronDown, LayoutDashboard, Cloud, ChefHat, BarChart3, Presentation } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showDemoTools, setShowDemoTools] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,57 +20,113 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
+  const publicLinks = [
     { name: "Home", href: "/" },
-    { name: "Demo Center", href: "/demo" },
     { name: "Menu", href: "/menu" },
-    { name: "Staff", href: "/staff" },
-    { name: "Kitchen", href: "/kitchen" },
-    { name: "Manager", href: "/manager" },
     { name: "About", href: "/about" },
+    { name: "Branches", href: "/branches" },
+  ];
+
+  const demoTools = [
+    { name: "Demo Command Center", href: "/demo", icon: Presentation },
+    { name: "Staff Dashboard", href: "/staff", icon: LayoutDashboard },
+    { name: "Kitchen Display", href: "/kitchen", icon: ChefHat },
+    { name: "Manager Analytics", href: "/manager", icon: BarChart3 },
+    { name: "Sync Test Center", href: "/sync-test", icon: Cloud },
+    { name: "Pitch Deck", href: "/pitch", icon: Presentation },
   ];
 
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 py-3",
-        scrolled ? "bg-dark/80 backdrop-blur-md border-b border-white/10 shadow-lg" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4",
+        scrolled ? "bg-dark/80 backdrop-blur-xl border-b border-white/5 shadow-2xl py-3" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20">
-            <Utensils className="text-white w-6 h-6" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/30 group-hover:rotate-12 transition-transform duration-500">
+            <Utensils className="text-white w-7 h-7" />
           </div>
-          <span className="font-bold text-xl tracking-tighter gold-text">CHIKINI MONIE</span>
+          <div className="flex flex-col">
+            <span className="font-black text-xl tracking-tighter italic gold-text leading-none">CHIKINI</span>
+            <span className="font-black text-xl tracking-tighter italic text-white leading-none">MONIE</span>
+          </div>
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+        <div className="hidden lg:flex items-center gap-10">
+          {publicLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-[13px] font-black uppercase tracking-widest text-white/70 hover:text-primary transition-all relative group"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
             </Link>
           ))}
+
+          {/* Demo Tools Dropdown */}
+          <div className="relative">
+            <button 
+              onMouseEnter={() => setShowDemoTools(true)}
+              onMouseLeave={() => setShowDemoTools(false)}
+              className="flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-accent hover:text-accent/80 transition-all"
+            >
+              Demo Tools
+              <ChevronDown className={cn("w-4 h-4 transition-transform", showDemoTools && "rotate-180")} />
+            </button>
+
+            <AnimatePresence>
+              {showDemoTools && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  onMouseEnter={() => setShowDemoTools(true)}
+                  onMouseLeave={() => setShowDemoTools(false)}
+                  className="absolute top-full right-0 mt-4 w-72 glass-premium rounded-[2rem] border border-white/10 p-4 shadow-2xl backdrop-blur-2xl"
+                >
+                  <div className="grid gap-2">
+                    {demoTools.map((tool) => (
+                      <Link
+                        key={tool.name}
+                        href={tool.href}
+                        className="flex items-center gap-3 p-3 rounded-2xl hover:bg-white/5 transition-all group"
+                      >
+                        <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/10 transition-all">
+                          <tool.icon className="w-5 h-5" />
+                        </div>
+                        <span className="text-[11px] font-black uppercase tracking-wider text-gray-300 group-hover:text-white">
+                          {tool.name}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           <Link
             href="/menu"
-            className="premium-gradient px-6 py-2 rounded-full text-white text-sm font-bold shadow-lg shadow-primary/30 hover:scale-105 transition-transform"
+            className="premium-gradient px-8 py-3 rounded-2xl text-white text-[12px] font-black uppercase tracking-widest shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
           >
             Order Now
           </Link>
         </div>
 
         {/* Mobile Icons */}
-        <div className="flex items-center gap-4 md:hidden">
-          <Link href="/menu" className="relative p-2">
+        <div className="flex items-center gap-3 lg:hidden">
+          <Link href="/menu" className="relative w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-white">
             <ShoppingCart className="w-6 h-6" />
-            <span className="absolute top-0 right-0 w-4 h-4 bg-primary text-[10px] flex items-center justify-center rounded-full text-white">0</span>
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-[10px] font-black flex items-center justify-center rounded-lg text-white shadow-lg">0</span>
           </Link>
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-white"
+          >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -79,28 +136,50 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-dark/95 backdrop-blur-xl border-b border-white/10 p-6 md:hidden"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            className="fixed inset-0 top-0 h-screen bg-dark/98 backdrop-blur-3xl z-[60] lg:hidden overflow-y-auto"
           >
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-semibold"
-                >
-                  {link.name}
-                </Link>
-              ))}
+            <div className="p-8 pt-24 space-y-12">
+              <div className="grid gap-8">
+                {publicLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-4xl font-black italic uppercase tracking-tighter text-white hover:text-primary"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="space-y-6">
+                <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-accent border-b border-white/5 pb-4">
+                  Presentation & Admin Tools
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {demoTools.map((tool) => (
+                    <Link
+                      key={tool.name}
+                      href={tool.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-4 p-4 bg-white/5 rounded-[2rem] border border-white/5"
+                    >
+                      <tool.icon className="w-6 h-6 text-primary" />
+                      <span className="text-sm font-black uppercase tracking-widest">{tool.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
               <Link
                 href="/menu"
                 onClick={() => setIsOpen(false)}
-                className="premium-gradient w-full py-4 rounded-xl text-white text-center font-bold"
+                className="premium-gradient block w-full py-6 rounded-[2rem] text-white text-center font-black text-xl uppercase tracking-widest"
               >
-                Start Order
+                Start Your Order
               </Link>
             </div>
           </motion.div>

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Clock, Phone, MapPin, ChevronRight } from "lucide-react";
+import { Clock, Phone, MapPin, User, ChevronRight } from "lucide-react";
 import { Order, updateOrderStatus, OrderStatus } from "@/lib/order-utils";
 import StatusBadge from "./StatusBadge";
 import { formatPrice } from "@/lib/utils";
@@ -30,69 +30,75 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      className="glass rounded-2xl overflow-hidden border border-white/10"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="glass-premium rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl"
     >
-      <div className="p-5 border-b border-white/5 flex items-center justify-between">
+      <div className="p-8 border-b border-white/5 flex items-center justify-between">
         <div>
-          <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold block mb-1">Order ID</span>
-          <h3 className="font-bold text-white tracking-tight">{order.id}</h3>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-black block mb-1">Order Identifier</span>
+          <h3 className="font-black text-xl text-white tracking-tighter italic">{order.id}</h3>
         </div>
         <StatusBadge status={order.status} />
       </div>
 
-      <div className="p-5 space-y-4">
+      <div className="p-8 space-y-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center">
-              <span className="font-bold text-primary">{order.customerName[0]}</span>
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5">
+              <User className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <p className="font-bold text-sm">{order.customerName}</p>
-              <p className="text-xs text-gray-400">{order.phone}</p>
+              <p className="font-black text-lg uppercase italic tracking-tighter leading-none mb-1">{order.customerName}</p>
+              <p className="text-xs text-gray-500 font-bold tracking-widest">{order.phone}</p>
             </div>
           </div>
           <div className="text-right">
-            <p className="text-xs text-gray-500 flex items-center justify-end gap-1">
-              <Clock className="w-3 h-3" />
-              {timeAgo(order.createdAt)}
-            </p>
-            <p className="text-sm font-bold text-accent">{order.orderType}</p>
-          </div>
-        </div>
-
-        <div className="bg-black/20 rounded-xl p-4 space-y-2">
-          {order.items.map((item, idx) => (
-            <div key={idx} className="flex justify-between items-center text-sm">
-              <span className="text-gray-300">
-                <span className="text-primary font-bold mr-2">{item.quantity}x</span>
-                {item.name}
-              </span>
-              <span className="font-medium text-gray-400">{formatPrice(item.price * item.quantity)}</span>
+            <div className="flex items-center justify-end gap-2 text-primary mb-1">
+              <Clock className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-black uppercase tracking-widest">{timeAgo(order.createdAt)}</span>
             </div>
-          ))}
-          <div className="pt-2 border-t border-white/5 flex justify-between items-center mt-2">
-            <span className="font-bold text-white">Total</span>
-            <span className="font-bold gold-text text-lg">{formatPrice(order.total)}</span>
+            <span className="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-black uppercase tracking-widest text-accent border border-accent/20">
+              {order.orderType}
+            </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-xs text-gray-400">
-          <MapPin className="w-3 h-3 text-primary" />
-          <span>{order.branch}</span>
-          <span className="mx-1">•</span>
-          <span className={order.paymentStatus.includes("Transfer") ? "text-orange-400" : "text-green-400"}>
-            {order.paymentStatus}
-          </span>
+        <div className="bg-black/40 rounded-3xl p-6 space-y-4 border border-white/5">
+          <div className="space-y-3">
+            {order.items.map((item, idx) => (
+              <div key={idx} className="flex justify-between items-center text-sm">
+                <span className="text-gray-300 font-medium">
+                  <span className="text-primary font-black mr-3">{item.quantity}×</span>
+                  {item.name}
+                </span>
+                <span className="font-bold text-gray-500">{formatPrice(item.price * item.quantity)}</span>
+              </div>
+            ))}
+          </div>
+          <div className="pt-4 border-t border-white/5 flex justify-between items-center">
+            <span className="text-xs font-black uppercase tracking-widest text-gray-500">Subtotal</span>
+            <span className="text-2xl font-black gold-text italic">{formatPrice(order.total)}</span>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+            <MapPin className="w-4 h-4 text-primary" />
+            <span>{order.branch}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className={`w-2 h-2 rounded-full ${order.paymentStatus.includes("Transfer") ? "bg-orange-500 animate-pulse" : "bg-green-500"}`} />
+            <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">{order.paymentStatus}</span>
+          </div>
         </div>
 
         {showActions && (
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div className="grid grid-cols-2 gap-3 pt-4">
             {order.status === "Pending" && (
               <button
                 onClick={() => handleStatusUpdate("Confirmed")}
-                className="px-4 py-2 bg-blue-600 rounded-lg text-xs font-bold text-white hover:bg-blue-500 transition-colors"
+                className="px-4 py-4 bg-blue-600/20 border border-blue-600/30 rounded-2xl text-[10px] font-black uppercase tracking-widest text-blue-400 hover:bg-blue-600 hover:text-white transition-all"
               >
                 Confirm
               </button>
@@ -100,7 +106,7 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
             {(order.status === "Confirmed" || order.status === "Pending") && (
               <button
                 onClick={() => handleStatusUpdate("Preparing")}
-                className="px-4 py-2 bg-orange-600 rounded-lg text-xs font-bold text-white hover:bg-orange-500 transition-colors"
+                className="px-4 py-4 bg-orange-600/20 border border-orange-600/30 rounded-2xl text-[10px] font-black uppercase tracking-widest text-orange-400 hover:bg-orange-600 hover:text-white transition-all"
               >
                 Prepare
               </button>
@@ -108,7 +114,7 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
             {order.status === "Preparing" && (
               <button
                 onClick={() => handleStatusUpdate("Ready")}
-                className="px-4 py-2 bg-green-600 rounded-lg text-xs font-bold text-white hover:bg-green-500 transition-colors"
+                className="px-4 py-4 bg-green-600/20 border border-green-600/30 rounded-2xl text-[10px] font-black uppercase tracking-widest text-green-400 hover:bg-green-600 hover:text-white transition-all"
               >
                 Mark Ready
               </button>
@@ -116,7 +122,7 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
             {order.status === "Ready" && (
               <button
                 onClick={() => handleStatusUpdate("Completed")}
-                className="px-4 py-2 bg-purple-600 rounded-lg text-xs font-bold text-white hover:bg-purple-500 transition-colors"
+                className="px-4 py-4 bg-purple-600/20 border border-purple-600/30 rounded-2xl text-[10px] font-black uppercase tracking-widest text-purple-400 hover:bg-purple-600 hover:text-white transition-all"
               >
                 Complete
               </button>
@@ -124,7 +130,7 @@ const OrderCard = ({ order, onUpdate, showActions = true }: OrderCardProps) => {
             {order.status !== "Completed" && order.status !== "Cancelled" && (
               <button
                 onClick={() => handleStatusUpdate("Cancelled")}
-                className="px-4 py-2 bg-red-900/50 rounded-lg text-xs font-bold text-red-200 hover:bg-red-800 transition-colors"
+                className="px-4 py-4 bg-red-900/20 border border-red-900/30 rounded-2xl text-[10px] font-black uppercase tracking-widest text-red-400 hover:bg-red-900 hover:text-white transition-all"
               >
                 Cancel
               </button>

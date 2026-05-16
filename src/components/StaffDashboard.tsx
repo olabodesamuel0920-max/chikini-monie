@@ -4,8 +4,8 @@
 import { useState, useEffect } from "react";
 import OrderCard from "@/components/OrderCard";
 import { getOrders, Order, OrderStatus, loadSampleOrders, resetOrders, getDemoMode } from "@/lib/order-utils";
-import { Search, Trash2, Database, LayoutDashboard, RefreshCw, Cloud, WifiOff } from "lucide-react";
-import { AnimatePresence } from "framer-motion";
+import { Search, Trash2, Database, LayoutDashboard, RefreshCw, Cloud, WifiOff, Filter } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase-client";
 import { fetchSupabaseOrders } from "@/lib/supabase-orders";
 
@@ -67,67 +67,69 @@ export default function StaffDashboard() {
   const demoMode = getDemoMode();
 
   return (
-    <main className="max-w-7xl mx-auto px-4 pt-32 pb-24">
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+    <main className="max-w-7xl mx-auto px-6 pt-48 pb-32">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
         <div>
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
-              <LayoutDashboard className="w-6 h-6" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-14 h-14 bg-primary/10 rounded-[1.5rem] flex items-center justify-center text-primary border border-primary/20 shadow-2xl shadow-primary/20">
+              <LayoutDashboard className="w-7 h-7" />
             </div>
-            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-lg border text-[10px] font-black uppercase tracking-widest ${
+            <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-2xl border text-[11px] font-black uppercase tracking-[0.2em] ${
               demoMode === "Cloud Demo Active" 
               ? "bg-green-500/10 border-green-500/20 text-green-500" 
               : "bg-blue-500/10 border-blue-500/20 text-blue-500"
             }`}>
-              {demoMode === "Cloud Demo Active" ? <Cloud className="w-3 h-3" /> : <WifiOff className="w-3 h-3" />}
+              {demoMode === "Cloud Demo Active" ? <Cloud className="w-4 h-4" /> : <WifiOff className="w-4 h-4" />}
               {demoMode}
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white uppercase italic">Staff Dashboard</h1>
-          <p className="text-gray-500 mt-2">Manage customer orders and workflow in real-time.</p>
+          <h1 className="text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">Staff <span className="gold-text">Board.</span></h1>
+          <p className="text-gray-500 mt-4 text-xl font-medium max-w-xl">Manage the live digital order stream and update fulfillment status.</p>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-4">
           <button
             onClick={handleLoadSample}
-            className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-white/10 transition-all"
+            className="px-8 py-4 bg-white/5 border border-white/10 rounded-[2rem] text-[11px] font-black uppercase tracking-widest flex items-center gap-3 hover:bg-white/10 transition-all"
           >
-            <Database className="w-4 h-4 text-blue-400" />
+            <Database className="w-4 h-4 text-accent" />
             Load Samples
           </button>
           <button
             onClick={handleReset}
-            className="px-6 py-3 bg-red-900/20 border border-red-900/30 rounded-xl text-sm font-bold text-red-400 flex items-center gap-2 hover:bg-red-900/40 transition-all"
+            className="px-8 py-4 bg-red-900/10 border border-red-900/20 rounded-[2rem] text-[11px] font-black uppercase tracking-widest text-red-400 flex items-center gap-3 hover:bg-red-900/30 transition-all"
           >
             <Trash2 className="w-4 h-4" />
-            Reset Local
+            Reset Data
           </button>
           <button
             onClick={fetchAllOrders}
-            className={`p-3 bg-primary rounded-xl text-white shadow-lg shadow-primary/20 transition-transform active:scale-95 ${isRefreshing ? "animate-spin" : ""}`}
+            className={`w-14 h-14 bg-primary rounded-[1.5rem] text-white shadow-2xl shadow-primary/30 flex items-center justify-center active:scale-95 transition-all ${isRefreshing ? "animate-spin" : ""}`}
           >
             <RefreshCw className="w-6 h-6" />
           </button>
         </div>
       </div>
 
-      <div className="glass p-6 rounded-3xl border border-white/10 mb-12 flex flex-col md:flex-row gap-6">
-        <div className="flex-grow relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+      <div className="glass-premium p-10 rounded-[3.5rem] border border-white/5 mb-20 flex flex-col lg:flex-row gap-10 items-center">
+        <div className="flex-grow relative w-full group">
+          <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors w-6 h-6" />
           <input
             type="text"
-            placeholder="Search ID or Customer..."
-            className="w-full bg-black/40 border border-white/10 rounded-xl py-4 pl-12 pr-6 focus:border-primary transition-colors focus:outline-none text-sm"
+            placeholder="Search Order ID or Customer Name..."
+            className="w-full bg-black/40 border border-white/10 rounded-[2rem] py-6 pl-16 pr-8 focus:border-primary focus:bg-black/60 transition-all focus:outline-none text-lg font-bold"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
 
-        <div className="flex gap-4">
-          <div className="flex flex-col gap-1.5">
-            <label className="text-[10px] font-bold text-gray-500 uppercase ml-1">Branch</label>
+        <div className="flex gap-6 w-full lg:w-auto shrink-0">
+          <div className="flex flex-col gap-3 w-full sm:w-48">
+            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1 flex items-center gap-2">
+              <Filter className="w-3 h-3" /> Branch
+            </label>
             <select
-              className="bg-black/40 border border-white/10 rounded-xl py-3 px-4 focus:border-primary transition-colors focus:outline-none text-sm"
+              className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 focus:border-primary transition-colors focus:outline-none text-sm font-bold appearance-none cursor-pointer"
               value={filterBranch}
               onChange={(e) => setFilterBranch(e.target.value)}
             >
@@ -136,10 +138,12 @@ export default function StaffDashboard() {
               <option>Agape Junction</option>
             </select>
           </div>
-          <div className="flex flex-col gap-1.5">
-            <label className="text-[10px] font-bold text-gray-500 uppercase ml-1">Status</label>
+          <div className="flex flex-col gap-3 w-full sm:w-48">
+            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1 flex items-center gap-2">
+              <Filter className="w-3 h-3" /> Status
+            </label>
             <select
-              className="bg-black/40 border border-white/10 rounded-xl py-3 px-4 focus:border-primary transition-colors focus:outline-none text-sm"
+              className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 px-6 focus:border-primary transition-colors focus:outline-none text-sm font-bold appearance-none cursor-pointer"
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value as any)}
             >
@@ -155,17 +159,17 @@ export default function StaffDashboard() {
         </div>
       </div>
 
-      <div className="min-h-[400px]">
+      <div className="min-h-[500px]">
         {filteredOrders.length === 0 ? (
-          <div className="text-center py-32 glass rounded-[3rem] border border-dashed border-white/10">
-            <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="text-center py-40 glass-premium rounded-[4rem] border border-dashed border-white/10">
+            <div className="w-24 h-24 bg-white/5 rounded-[2rem] flex items-center justify-center mx-auto mb-8 border border-white/5">
               <LayoutDashboard className="w-10 h-10 text-gray-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">No orders found</h3>
-            <p className="text-gray-500 mb-8">Try clearing filters or check your cloud connection.</p>
+            <h3 className="text-3xl font-black uppercase italic text-gray-400 mb-4 tracking-tighter">No live orders.</h3>
+            <p className="text-gray-600 text-lg">Waiting for the next craving to arrive...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
             <AnimatePresence mode="popLayout">
               {filteredOrders.map((order) => (
                 <OrderCard key={order.id} order={order} onUpdate={fetchAllOrders} />

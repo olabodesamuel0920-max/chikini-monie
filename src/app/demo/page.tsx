@@ -13,7 +13,8 @@ import {
   ArrowRight,
   MousePointer2,
   CheckCircle2,
-  Info
+  Info,
+  Presentation
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -73,7 +74,7 @@ export default function DemoCommandCenter() {
       title: "Growth Roadmap",
       desc: "See the long-term vision for scaling Chikini Monie digitally.",
       route: "/pitch",
-      icon: Rocket,
+      icon: Presentation,
       value: "Outlines the path from prototype to real-world deployment."
     }
   ];
@@ -82,90 +83,92 @@ export default function DemoCommandCenter() {
     <div className="min-h-screen bg-dark">
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-4 pt-32 pb-24">
-        {/* Header */}
-        <section className="mb-20 text-center max-w-4xl mx-auto">
+      <main className="max-w-7xl mx-auto px-6 pt-48 pb-40">
+        {/* Header - More Spacing */}
+        <section className="mb-32 text-center max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center text-primary">
-                <Rocket className="w-6 h-6" />
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="w-16 h-16 bg-primary/10 rounded-[1.5rem] flex items-center justify-center text-primary border border-primary/20 shadow-2xl">
+                <Rocket className="w-8 h-8" />
               </div>
-              <span className="text-xs font-black uppercase tracking-[0.3em] text-accent">Demo Command Center</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-accent">Demo Command Center</span>
             </div>
-            <h1 className="text-4xl md:text-7xl font-black italic gold-text mb-8 uppercase leading-tight">
-              FROM SOCIAL TO <br />SYSTEMS.
+            <h1 className="text-6xl md:text-[8rem] font-black italic gold-text mb-12 uppercase tracking-tighter leading-[0.85]">
+              FROM SOCIAL <br />TO SYSTEMS.
             </h1>
-            <p className="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-              See how Chikini Monie can move from social orders to a full digital food system. A premium preview of the customer website, order flow, staff board, kitchen queue, and manager dashboard.
+            <p className="text-gray-500 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto font-medium">
+              A high-fidelity presentation of the Chikini Monie digital food system. From customer website to kitchen display.
             </p>
           </motion.div>
         </section>
 
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        {/* Steps Grid - Luxurious Spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-40">
           {steps.map((step, idx) => (
             <motion.div
               key={step.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="glass p-10 rounded-[3rem] border border-white/5 flex flex-col h-full group hover:border-primary/30 transition-all"
+              className="glass-premium p-12 rounded-[4rem] border border-white/5 flex flex-col h-full group hover:border-primary/20 transition-all duration-500 shadow-2xl"
             >
-              <div className="flex justify-between items-start mb-8">
-                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-gray-500 group-hover:bg-primary/20 group-hover:text-primary transition-all">
-                  <step.icon className="w-7 h-7" />
+              <div className="flex justify-between items-start mb-10">
+                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-gray-500 group-hover:bg-primary/20 group-hover:text-primary transition-all border border-white/5">
+                  <step.icon className="w-8 h-8" />
                 </div>
-                <span className="text-4xl font-black text-white/5 group-hover:text-primary/10 transition-colors">{step.id}</span>
+                <span className="text-6xl font-black text-white/[0.03] group-hover:text-primary/10 transition-colors leading-none italic">{step.id}</span>
               </div>
               
-              <h3 className="text-2xl font-black italic mb-4 uppercase tracking-tight">{step.title}</h3>
-              <p className="text-gray-400 text-sm mb-8 leading-relaxed flex-grow">{step.desc}</p>
+              <h3 className="text-3xl font-black italic mb-6 uppercase tracking-tighter group-hover:text-white transition-colors">{step.title}</h3>
+              <p className="text-gray-500 text-lg mb-10 leading-relaxed flex-grow">{step.desc}</p>
               
-              <div className="mb-8 p-4 bg-primary/5 rounded-2xl border border-primary/10">
-                <p className="text-[10px] font-black text-primary uppercase tracking-widest mb-2 flex items-center gap-2">
-                  <CheckCircle2 className="w-3 h-3" />
+              <div className="mb-10 p-6 bg-primary/[0.03] rounded-3xl border border-primary/5 group-hover:bg-primary/[0.06] transition-all">
+                <p className="text-[10px] font-black text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4" />
                   Business Value
                 </p>
-                <p className="text-xs text-gray-300 font-medium">{step.value}</p>
+                <p className="text-sm text-gray-400 font-bold leading-relaxed italic">{step.value}</p>
               </div>
 
               <Link
                 href={step.route}
-                className="w-full py-4 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-center group-hover:bg-primary transition-all flex items-center justify-center gap-2"
+                className="w-full py-6 rounded-[2rem] bg-white/5 border border-white/10 text-white font-black text-center group-hover:bg-primary group-hover:border-transparent transition-all flex items-center justify-center gap-3 uppercase tracking-widest text-[12px] shadow-xl"
               >
                 Open {step.title}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </Link>
             </motion.div>
           ))}
         </div>
 
-        {/* Final CTA */}
-        <section className="bg-gradient-to-br from-primary/20 to-black rounded-[4rem] p-12 md:p-20 border border-primary/10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 opacity-5 scale-150">
-            <Rocket className="w-64 h-64 text-primary" />
+        {/* Final CTA - Premium Banner */}
+        <section className="glass-premium rounded-[5rem] p-16 md:p-32 border border-primary/10 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 p-24 opacity-[0.02] scale-150 rotate-12">
+            <Rocket className="w-96 h-96 text-primary" />
           </div>
-          <div className="max-w-3xl relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black italic mb-8 uppercase leading-tight">
-              Ready to <br /><span className="text-primary">Operationalize?</span>
+          <div className="max-w-4xl relative z-10">
+            <span className="text-primary font-black text-xs uppercase tracking-[0.5em] mb-8 block">Operational Readiness</span>
+            <h2 className="text-5xl md:text-[6rem] font-black italic mb-10 uppercase tracking-tighter leading-none">
+              Ready to <br /><span className="text-primary">Operationalise?</span>
             </h2>
-            <p className="text-gray-300 text-lg mb-10 leading-relaxed">
-              This digital system is built to handle the intensity of Akure's 24/7 food cravings. Move beyond WhatsApp chats into a scalable, high-trust business hub.
+            <p className="text-gray-400 text-xl md:text-2xl mb-16 leading-relaxed font-medium">
+              This digital ecosystem is engineered to handle the intensity of Akure's 24/7 food landscape. Move beyond fragmented social orders into a unified, high-trust system.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-8">
               <Link
                 href="/pitch"
-                className="premium-gradient px-10 py-5 rounded-xl font-bold text-white shadow-xl shadow-primary/20 hover:scale-105 transition-all text-center"
+                className="premium-gradient px-12 py-6 rounded-[2rem] font-black text-xl text-white shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all text-center uppercase tracking-widest"
               >
-                View Full Proposal
+                View Vision Roadmap
               </Link>
               <Link
                 href="/contact"
-                className="bg-white/5 border border-white/10 px-10 py-5 rounded-xl font-bold text-white hover:bg-white/10 transition-all text-center"
+                className="glass-premium border border-white/10 px-12 py-6 rounded-[2rem] font-black text-xl text-white hover:bg-white/10 transition-all text-center uppercase tracking-widest"
               >
                 Discuss Deployment
               </Link>
@@ -173,13 +176,17 @@ export default function DemoCommandCenter() {
           </div>
         </section>
 
-        {/* Disclaimer */}
-        <div className="mt-16 flex items-start gap-4 p-8 glass rounded-[2rem] border border-white/5 max-w-4xl mx-auto">
-          <Info className="text-gray-500 w-6 h-6 shrink-0 mt-1" />
-          <p className="text-xs text-gray-500 leading-relaxed">
-            <span className="font-bold uppercase tracking-widest text-gray-400 block mb-2">Technical Disclaimer</span>
-            This Command Center is a business review prototype. No real customer data, live payments, or actual kitchen hardware are used. All operational logic (order flow, kitchen queue, analytics) is simulated using browser-based storage for demonstration purposes.
-          </p>
+        {/* Technical Notice - More Subtle */}
+        <div className="mt-32 glass-premium p-12 rounded-[3.5rem] border border-white/5 max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center text-center md:text-left">
+          <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center text-gray-700 shrink-0 border border-white/5">
+            <Info className="w-10 h-10" />
+          </div>
+          <div>
+            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.4em] mb-4">Technical Architecture Disclaimer</h4>
+            <p className="text-sm text-gray-600 leading-relaxed font-medium">
+              The Chikini Monie Command Center is a high-fidelity business review prototype. Operational logic (real-time sync, kitchen queue, analytics) is implemented using browser-based storage and Supabase Realtime for demonstration purposes. No live payments are processed in this session.
+            </p>
+          </div>
         </div>
       </main>
 
