@@ -73,6 +73,22 @@
   animation: slow-zoom 20s ease-in-out infinite alternate;
 }
 
+.hospitality-glow {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 102, 0, 0.05);
+}
+
+.hospitality-glow-gold {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.05);
+}
+
+.cinematic-overlay {
+  background: linear-gradient(to bottom, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0.4) 50%, rgba(5, 5, 5, 0.9) 100%);
+}
+
+.category-chip {
+  @apply px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/10 backdrop-blur-md;
+}
+
 /* Custom Scrollbar for dashboards */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
