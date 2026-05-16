@@ -48,7 +48,7 @@ export default function ContactPage() {
                 <div>
                   <h4 className="font-black text-2xl uppercase italic tracking-tighter mb-2 group-hover:text-primary transition-colors">Voice Hotline</h4>
                   <p className="text-gray-500 text-sm font-medium mb-3 uppercase tracking-widest">Direct branch line.</p>
-                  <p className="text-white font-black text-xl italic leading-none tracking-widest">0800-CHIKINI-1</p>
+                  <p className="text-white font-black text-xl italic leading-none tracking-widest">Phone pending confirmation</p>
                 </div>
               </div>
 

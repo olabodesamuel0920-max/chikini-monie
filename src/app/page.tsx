@@ -70,21 +70,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Bottom Indicators - Simplified & Spaced */}
-          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 hidden md:flex gap-16 text-[10px] font-black uppercase tracking-[0.4em] text-white/30">
-            <div className="flex items-center gap-3">
-              <Clock className="w-4 h-4 text-primary" />
-              24/7 Delivery
-            </div>
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="w-4 h-4 text-primary" />
-              Premium Taste
-            </div>
-            <div className="flex items-center gap-3">
-              <Zap className="w-4 h-4 text-primary" />
-              Fast Prep
-            </div>
-          </div>
+
         </section>
 
         {/* Popular Categories - More Spacing */}

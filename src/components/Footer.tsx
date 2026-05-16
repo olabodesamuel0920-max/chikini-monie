@@ -54,7 +54,7 @@ const Footer = () => {
           <ul className="space-y-6 text-[12px] font-black uppercase tracking-widest text-gray-500">
             <li className="flex gap-4 items-center">
               <Phone className="w-5 h-5 text-primary shrink-0" />
-              <span className="text-white">0800-CHIKINI-1</span>
+              <span className="text-white">Phone pending confirmation</span>
             </li>
             <li className="flex gap-4 items-center">
               <MessageCircle className="w-5 h-5 text-primary shrink-0" />

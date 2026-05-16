@@ -35,35 +35,35 @@ export default function PitchPage() {
     },
     {
       title: "Phase 2: Operational Flow",
-      status: "In Development",
+      status: "Implemented",
       items: [
+        "Cloud Demo Sync (Supabase)",
         "Staff Order Management Board",
         "Kitchen Display System (KDS)",
-        "Real-time Cloud Sync (Supabase)",
         "Mobile-First Workflows",
         "Manager Reporting Preview"
       ]
     },
     {
-      title: "Phase 3: Scale & Integration",
+      title: "Phase 3: Operational Hardening",
       status: "Next Steps",
       items: [
-        "Secure Online Payments",
-        "Live Delivery Tracking",
-        "Inventory Management",
-        "Advanced Branch Analytics",
-        "Customer Loyalty Hub"
+        "Production Backend Hardening",
+        "Secure Staff Authentication",
+        "Controlled Database Access",
+        "Branch Inventory Logic",
+        "Advanced Analytics Hub"
       ]
     },
     {
-      title: "Phase 4: Enterprise Operations",
+      title: "Phase 4: Scaling & Integration",
       status: "Future Vision",
       items: [
+        "Payment integration after approval",
+        "Delivery workflow confirmation",
         "Multi-branch Centralized Hub",
         "Automated Receipt Printing",
-        "AI-driven Demand Forecasting",
-        "Enterprise API Integrations",
-        "Full POS Hardware Sync"
+        "AI-driven Demand Forecasting"
       ]
     }
   ];
@@ -195,7 +195,7 @@ export default function PitchPage() {
                 <ul className="space-y-4 mb-10 flex-grow">
                   {phase.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-4 text-gray-500 text-sm font-bold leading-relaxed uppercase tracking-widest group-hover:text-gray-400 transition-colors">
-                      <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${idx === 0 ? "bg-green-500" : "bg-gray-700"}`} />
+                      <div className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${idx === 0 || idx === 1 ? "bg-green-500" : "bg-gray-700"}`} />
                       {item}
                     </li>
                   ))}

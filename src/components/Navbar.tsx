@@ -23,8 +23,8 @@ const Navbar = () => {
   const publicLinks = [
     { name: "Home", href: "/" },
     { name: "Menu", href: "/menu" },
-    { name: "About", href: "/about" },
     { name: "Branches", href: "/branches" },
+    { name: "About", href: "/about" },
   ];
 
   const demoTools = [
@@ -74,7 +74,7 @@ const Navbar = () => {
               onMouseLeave={() => setShowDemoTools(false)}
               className="flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-accent hover:text-accent/80 transition-all"
             >
-              Demo Tools
+              Demo Center
               <ChevronDown className={cn("w-4 h-4 transition-transform", showDemoTools && "rotate-180")} />
             </button>
 
