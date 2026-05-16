@@ -74,7 +74,7 @@ export default function MenuPage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-16">
             <div className="max-w-3xl">
               <span className="text-primary font-bold text-xs uppercase tracking-[0.5em] mb-8 block">The Collection</span>
-              <h1 className="text-6xl md:text-[8rem] font-extrabold mb-8 uppercase tracking-tighter leading-none font-heading text-white">
+              <h1 className="text-5xl md:text-7xl font-extrabold mb-6 uppercase tracking-tighter leading-none font-heading text-white">
                 EXPLORE <br /><span className="gold-text italic text-white/90">OUR MENU.</span>
               </h1>
               <p className="text-gray-500 text-2xl font-medium max-w-2xl leading-relaxed">Crafted with passion by Akure's finest chefs. Every selection is an investment in big enjoyment.</p>
@@ -103,7 +103,7 @@ export default function MenuPage() {
                 <Star className="w-6 h-6 text-accent fill-accent" />
               </div>
               <div>
-                <h2 className="text-3xl font-bold uppercase tracking-tight font-heading text-white">Recommended Picks</h2>
+                <h2 className="text-2xl font-bold uppercase tracking-tight font-heading text-white">Recommended Picks</h2>
                 <p className="text-[10px] font-bold text-gray-600 uppercase tracking-widest mt-1">
                   Sample highlighted picks pending final menu confirmation.
                 </p>
@@ -197,13 +197,13 @@ export default function MenuPage() {
       <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[45] w-full px-8 md:hidden">
         <button
           onClick={() => setIsCartOpen(true)}
-          className="w-full premium-gradient h-24 rounded-[2.5rem] flex items-center justify-between px-12 text-white font-bold shadow-[0_30px_70px_rgba(255,102,0,0.5)] active:scale-95 transition-all hospitality-glow"
+          className="w-full premium-gradient h-20 rounded-[2rem] flex items-center justify-between px-10 text-white font-bold shadow-[0_30px_70px_rgba(255,102,0,0.5)] active:scale-95 transition-all hospitality-glow"
         >
           <div className="flex items-center gap-6">
             <ShoppingBag className="w-8 h-8" />
-            <span className="uppercase tracking-widest text-sm font-black">Review Order ({cartCount})</span>
+            <span className="uppercase tracking-widest text-[10px] font-black">Review Order ({cartCount})</span>
           </div>
-          <span className="text-3xl font-heading">{formatPrice(cartTotal)}</span>
+          <span className="text-2xl font-heading">{formatPrice(cartTotal)}</span>
         </button>
       </div>
 
@@ -231,7 +231,7 @@ export default function MenuPage() {
                     <ShoppingBag className="w-8 h-8" />
                   </div>
                   <div>
-                    <h2 className="text-4xl font-bold gold-text uppercase font-heading tracking-tighter">ORDER REVIEW</h2>
+                    <h2 className="text-3xl font-bold gold-text uppercase font-heading tracking-tighter">ORDER REVIEW</h2>
                     <p className="text-[11px] font-bold text-gray-600 uppercase tracking-[0.3em] mt-1">Hospitality Verification Required</p>
                   </div>
                 </div>
@@ -288,8 +288,8 @@ export default function MenuPage() {
                       <span className="text-green-500">Free (Demo)</span>
                     </div>
                     <div className="flex justify-between items-end pt-8 border-t border-white/5">
-                      <span className="text-3xl font-bold uppercase font-heading tracking-tighter text-white">Grand Total</span>
-                      <span className="text-5xl font-bold gold-text italic font-heading tracking-tighter">{formatPrice(cartTotal)}</span>
+                      <span className="text-2xl font-bold uppercase font-heading tracking-tighter text-white">Grand Total</span>
+                      <span className="text-4xl font-bold gold-text italic font-heading tracking-tighter">{formatPrice(cartTotal)}</span>
                     </div>
                   </div>
                   
