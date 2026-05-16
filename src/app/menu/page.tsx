@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FoodCard from "@/components/FoodCard";
 import { categories, menuItems, MenuItem, Category } from "@/lib/demo-data";
-import { ShoppingBag, X, Search, ChevronRight, Info, Filter, Sparkles, Utensils } from "lucide-react";
+import { ShoppingBag, X, Search, ChevronRight, Info, Filter } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
@@ -62,88 +62,62 @@ export default function MenuPage() {
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-dark font-body selection:bg-primary/30">
+    <div className="min-h-screen bg-dark font-body">
       <Navbar />
       
-      {/* Cinematic Menu Header */}
-      <div className="relative pt-64 pb-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=2070&auto=format&fit=crop" 
-            className="w-full h-full object-cover opacity-30 scale-105 animate-slow-zoom" 
-            alt="Menu Ambience"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/60 to-dark" />
-          <div className="absolute inset-0 cinematic-vignette" />
-        </div>
-
+      {/* Menu Header - Deep & Premium */}
+      <div className="pt-48 pb-24 px-6 relative overflow-hidden bg-black">
+        <div className="absolute inset-0 bg-primary/5 blur-[120px] rounded-full -top-40 -left-40" />
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col lg:flex-row lg:items-end justify-between gap-16"
-          >
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-[0.4em] mb-10 backdrop-blur-3xl">
-                <Sparkles className="w-4 h-4" />
-                The Master Selection
-              </div>
-              <h1 className="text-7xl md:text-[9rem] font-extrabold mb-8 uppercase tracking-tighter leading-none font-heading text-white">
-                THE <span className="gold-text italic">MENU.</span>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+            <div className="max-w-2xl">
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-6 block">Premium Cravings</span>
+              <h1 className="text-6xl md:text-8xl font-extrabold mb-6 uppercase tracking-tighter leading-none font-heading">
+                OUR <span className="gold-text italic">MENU.</span>
               </h1>
-              <p className="text-gray-400 text-2xl md:text-3xl font-medium leading-relaxed">
-                A curated digital library of Akure's finest flavors. <br className="hidden md:block" /> 
-                Crafted for big enjoyment, engineered for small money.
-              </p>
+              <p className="text-gray-500 text-xl font-medium">Crafted with passion, served with soul. Every bite is a story.</p>
             </div>
             
-            <div className="relative w-full lg:w-[500px] group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[2.5rem] blur opacity-0 group-hover:opacity-100 transition duration-1000 group-focus-within:opacity-100" />
-              <div className="relative bg-black/60 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-2 flex items-center shadow-2xl">
-                <div className="pl-6 pr-4">
-                  <Search className="text-gray-500 group-focus-within:text-primary transition-colors w-7 h-7" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Search your cravings..."
-                  className="flex-grow bg-transparent py-6 pr-8 focus:outline-none text-white font-bold text-xl placeholder:text-gray-600"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-              </div>
+            <div className="relative w-full lg:w-[450px] group font-body">
+              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors w-6 h-6" />
+              <input
+                type="text"
+                placeholder="Search for cravings..."
+                className="w-full bg-white/5 border border-white/10 rounded-3xl py-6 pl-16 pr-8 focus:outline-none focus:border-primary focus:bg-white/[0.08] transition-all text-white font-bold text-lg shadow-2xl"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
             </div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Modern Filter Bar - Sticky */}
-      <div className="sticky top-20 z-30 bg-dark/90 backdrop-blur-3xl border-y border-white/5 py-8 px-6 shadow-2xl">
-        <div className="max-w-7xl mx-auto flex items-center gap-8 overflow-x-auto no-scrollbar scroll-smooth">
-          <div className="flex items-center gap-4 shrink-0 text-gray-500 border-r border-white/10 pr-8">
-            <Filter className="w-5 h-5 text-primary" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.3em]">Cuisine</span>
-          </div>
-          <div className="flex items-center gap-5">
-            {["All", ...categories].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat as any)}
-                className={`whitespace-nowrap px-10 py-4 rounded-[1.5rem] text-[13px] font-bold uppercase tracking-wider transition-all duration-500 ${
-                  activeCategory === cat
-                    ? "premium-gradient text-white shadow-[0_15px_35px_rgba(255,102,0,0.3)] scale-110 hospitality-glow"
-                    : "bg-white/5 text-gray-500 hover:bg-white/10 hover:text-white hover:scale-105"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
           </div>
         </div>
       </div>
 
-      {/* Menu Grid - Cinematic Layout */}
-      <main className="max-w-7xl mx-auto px-6 py-32 pb-64">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-16">
+      {/* Categories Scroller - Modern & Sticky */}
+      <div className="sticky top-20 z-30 bg-dark/80 backdrop-blur-2xl border-y border-white/5 py-6 px-6">
+        <div className="max-w-7xl mx-auto flex items-center gap-6 overflow-x-auto no-scrollbar font-body">
+          <div className="flex items-center gap-3 shrink-0 text-gray-500 mr-4">
+            <Filter className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Filter</span>
+          </div>
+          {["All", ...categories].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat as any)}
+              className={`whitespace-nowrap px-8 py-3 rounded-2xl text-[12px] font-bold uppercase tracking-wider transition-all ${
+                activeCategory === cat
+                  ? "premium-gradient text-white shadow-2xl shadow-primary/30 scale-105"
+                  : "bg-white/5 text-gray-500 hover:bg-white/10 hover:text-white"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Menu Grid - Generous Spacing */}
+      <main className="max-w-7xl mx-auto px-6 py-24 pb-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <FoodCard key={item.id} item={item} onAddToCart={addToCart} />
@@ -152,74 +126,60 @@ export default function MenuPage() {
         </div>
 
         {filteredItems.length === 0 && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-64 glass-premium rounded-[5rem] border border-dashed border-white/10"
-          >
-            <div className="w-32 h-32 bg-white/5 rounded-[3rem] flex items-center justify-center mx-auto mb-10 border border-white/5">
-              <Utensils className="w-16 h-16 text-gray-700" />
-            </div>
-            <h3 className="text-4xl font-bold uppercase text-gray-400 font-heading tracking-tight mb-4">No cravings matched.</h3>
-            <p className="text-gray-500 text-xl font-medium max-w-md mx-auto leading-relaxed">
-              Our digital chefs couldn't find that specific item. Try another search or explore all categories.
-            </p>
-          </motion.div>
+          <div className="text-center py-40 bg-white/5 rounded-[4rem] border border-dashed border-white/10 font-body">
+            <Search className="w-16 h-16 text-gray-700 mx-auto mb-6" />
+            <h3 className="text-2xl font-bold uppercase text-gray-400 font-heading tracking-tight">No cravings found.</h3>
+            <p className="text-gray-600 mt-2 font-medium">Try searching for something else or browse all categories.</p>
+          </div>
         )}
 
-        {/* Hospitality Disclaimer */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-48 glass-dark p-16 rounded-[4rem] border border-accent/20 flex flex-col lg:flex-row items-center gap-12 text-center lg:text-left hospitality-glow-gold"
-        >
-          <div className="w-24 h-24 bg-accent/10 rounded-[2.5rem] flex items-center justify-center text-accent shrink-0 border border-accent/10 shadow-2xl">
-            <Info className="w-12 h-12" />
+        {/* Demo Footer Notice */}
+        <div className="mt-40 glass-premium p-12 rounded-[3.5rem] border border-white/5 flex flex-col md:flex-row items-center gap-8 text-center md:text-left font-body">
+          <div className="w-20 h-20 bg-accent/20 rounded-[2rem] flex items-center justify-center text-accent shrink-0 border border-accent/10">
+            <Info className="w-10 h-10" />
           </div>
           <div>
-            <h4 className="text-3xl font-bold uppercase gold-text mb-4 font-heading tracking-tight">Hospitality Verification Notice</h4>
-            <p className="text-gray-400 text-xl leading-relaxed max-w-4xl font-medium">
-              Menu selections, sensory descriptions, and investment values are presented for high-fidelity business demonstration. 
-              Final operational specifications are pending Chikini Monie management confirmation.
+            <h4 className="text-2xl font-bold uppercase gold-text mb-2 font-heading tracking-tight">Business Review Notice</h4>
+            <p className="text-gray-500 text-lg leading-relaxed max-w-3xl font-medium">
+              Menu items, descriptions, and pricing are part of a high-fidelity demonstration and are subject to change pending final business confirmation.
             </p>
           </div>
-        </motion.div>
+        </div>
       </main>
 
-      {/* Hospitality Cart - Desktop Float */}
+      {/* Cart Float (Desktop) */}
       <AnimatePresence>
         {cartCount > 0 && !isCartOpen && (
           <motion.button
-            initial={{ opacity: 0, scale: 0.8, y: 50 }}
+            initial={{ opacity: 0, scale: 0.5, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 50 }}
+            exit={{ opacity: 0, scale: 0.5, y: 50 }}
             onClick={() => setIsCartOpen(true)}
-            className="fixed bottom-16 right-16 z-[45] w-24 h-24 bg-primary rounded-[2.5rem] flex items-center justify-center text-white shadow-[0_25px_60px_rgba(255,102,0,0.5)] hover:scale-110 active:scale-95 transition-all hidden md:flex group hospitality-glow"
+            className="fixed bottom-12 right-12 z-[45] w-20 h-20 bg-primary rounded-[2rem] flex items-center justify-center text-white shadow-[0_20px_50px_rgba(255,102,0,0.4)] hover:scale-110 active:scale-95 transition-all hidden md:flex group font-body"
           >
-            <ShoppingBag className="w-10 h-10 group-hover:rotate-12 transition-transform" />
-            <span className="absolute -top-3 -right-3 w-10 h-10 bg-white text-primary rounded-2xl flex items-center justify-center text-lg font-bold shadow-2xl border-4 border-dark">
+            <ShoppingBag className="w-8 h-8 group-hover:rotate-12 transition-transform" />
+            <span className="absolute -top-2 -right-2 w-8 h-8 bg-white text-primary rounded-xl flex items-center justify-center text-sm font-bold shadow-lg">
               {cartCount}
             </span>
           </motion.button>
         )}
       </AnimatePresence>
 
-      {/* Mobile Cart Experience */}
-      <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[45] w-full px-8 md:hidden">
+      {/* Cart Toggle (Mobile) */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 w-full px-6 md:hidden">
         <button
           onClick={() => setIsCartOpen(true)}
-          className="w-full premium-gradient h-24 rounded-[2.5rem] flex items-center justify-between px-10 text-white font-bold shadow-[0_20px_50px_rgba(255,102,0,0.4)] active:scale-95 transition-all hospitality-glow"
+          className="w-full premium-gradient h-20 rounded-3xl flex items-center justify-between px-10 text-white font-bold shadow-2xl shadow-primary/40 active:scale-95 transition-transform font-body"
         >
-          <div className="flex items-center gap-5">
-            <ShoppingBag className="w-8 h-8" />
-            <span className="uppercase tracking-[0.2em] text-[13px]">Your Cart ({cartCount})</span>
+          <div className="flex items-center gap-4">
+            <ShoppingBag className="w-6 h-6" />
+            <span className="uppercase tracking-wider text-sm">Cart ({cartCount})</span>
           </div>
-          <span className="text-3xl font-heading">{formatPrice(cartTotal)}</span>
+          <span className="text-2xl font-heading">{formatPrice(cartTotal)}</span>
         </button>
       </div>
 
-      {/* Premium Cart Sidebar */}
+      {/* Cart Sidebar / Modal */}
       <AnimatePresence>
         {isCartOpen && (
           <>
@@ -228,74 +188,74 @@ export default function MenuPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsCartOpen(false)}
-              className="fixed inset-0 bg-black/90 backdrop-blur-3xl z-[60]"
+              className="fixed inset-0 bg-black/80 backdrop-blur-xl z-[60]"
             />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 40, stiffness: 400 }}
-              className="fixed top-0 right-0 h-full w-full max-w-2xl bg-dark border-l border-white/5 z-[70] flex flex-col shadow-[-100px_0_200px_rgba(0,0,0,0.9)]"
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 h-full w-full max-w-xl bg-dark border-l border-white/5 z-[70] flex flex-col shadow-[-50px_0_100px_rgba(0,0,0,0.5)] font-body"
             >
-              <div className="p-16 border-b border-white/10 flex items-center justify-between bg-black/40">
-                <div className="flex items-center gap-8">
-                  <div className="w-20 h-20 bg-primary/10 rounded-[2rem] flex items-center justify-center text-primary border border-primary/20 shadow-2xl">
-                    <ShoppingBag className="w-10 h-10" />
+              <div className="p-10 border-b border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-5">
+                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                    <ShoppingBag className="w-7 h-7" />
                   </div>
                   <div>
-                    <h2 className="text-5xl font-extrabold gold-text leading-none uppercase font-heading tracking-tight">CRAVING HUB.</h2>
-                    <p className="text-[11px] font-bold text-gray-500 uppercase tracking-[0.4em] mt-3">Refining your digital ticket</p>
+                    <h2 className="text-3xl font-bold italic gold-text leading-none uppercase font-heading tracking-tight">YOUR ORDER</h2>
+                    <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">Review your selection</p>
                   </div>
                 </div>
                 <button 
                   onClick={() => setIsCartOpen(false)} 
-                  className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center hover:bg-red-500 hover:text-white transition-all border border-white/10"
+                  className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-white/10 transition-colors"
                 >
-                  <X className="w-10 h-10" />
+                  <X className="w-8 h-8" />
                 </button>
               </div>
 
-              <div className="flex-grow overflow-y-auto p-16 space-y-12 custom-scrollbar">
+              <div className="flex-grow overflow-y-auto p-10 space-y-10 custom-scrollbar">
                 {cart.length === 0 ? (
-                  <div className="h-full flex flex-col items-center justify-center text-center space-y-10 opacity-20">
-                    <div className="w-48 h-48 bg-white/5 rounded-full flex items-center justify-center border border-white/5">
-                      <ShoppingBag className="w-24 h-24" />
+                  <div className="h-full flex flex-col items-center justify-center text-center space-y-6 opacity-30">
+                    <div className="w-32 h-32 bg-white/5 rounded-full flex items-center justify-center">
+                      <ShoppingBag className="w-16 h-16" />
                     </div>
                     <div>
-                      <h4 className="text-4xl font-bold uppercase font-heading tracking-tight mb-4">Cart is clear.</h4>
-                      <p className="text-xl font-medium">Your next big enjoyment experience starts here.</p>
+                      <h4 className="text-2xl font-bold uppercase font-heading tracking-tight mb-2">Cart is empty.</h4>
+                      <p className="text-sm font-medium">Your next big enjoyment starts here.</p>
                     </div>
                   </div>
                 ) : (
                   cart.map((item) => (
-                    <div key={item.id} className="flex gap-10 group items-center bg-white/[0.02] p-8 rounded-[3rem] border border-white/5 hover:border-primary/20 transition-all duration-500">
-                      <div className="w-32 h-32 bg-white/5 rounded-[2.5rem] overflow-hidden shrink-0 border border-white/10 shadow-2xl">
-                        <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div key={item.id} className="flex gap-6 group items-center">
+                      <div className="w-24 h-24 bg-white/5 rounded-[2rem] overflow-hidden shrink-0 border border-white/10">
+                        <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                       </div>
                       <div className="flex-grow">
-                        <div className="flex justify-between items-start mb-4">
-                          <h4 className="font-bold text-2xl uppercase font-heading tracking-tight text-white">{item.name}</h4>
-                          <button onClick={() => removeFromCart(item.id)} className="text-gray-600 hover:text-red-500 transition-colors p-2">
-                            <X className="w-6 h-6" />
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-bold text-xl uppercase font-heading tracking-tight">{item.name}</h4>
+                          <button onClick={() => removeFromCart(item.id)} className="text-gray-600 hover:text-red-500 transition-colors p-1">
+                            <X className="w-5 h-5" />
                           </button>
                         </div>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center bg-black/40 rounded-2xl p-2 border border-white/10 shadow-inner">
+                          <div className="flex items-center bg-white/5 rounded-xl p-1.5 border border-white/10">
                             <button
                               onClick={() => updateQuantity(item.id, -1)}
-                              className="w-10 h-10 flex items-center justify-center hover:bg-primary rounded-xl transition-all font-bold text-xl"
+                              className="w-8 h-8 flex items-center justify-center hover:bg-primary rounded-lg transition-colors font-bold"
                             >
                               -
                             </button>
-                            <span className="w-16 text-center text-lg font-bold font-heading">{item.quantity}</span>
+                            <span className="w-12 text-center text-sm font-bold italic">{item.quantity}</span>
                             <button
                               onClick={() => updateQuantity(item.id, 1)}
-                              className="w-10 h-10 flex items-center justify-center hover:bg-primary rounded-xl transition-all font-bold text-xl"
+                              className="w-8 h-8 flex items-center justify-center hover:bg-primary rounded-lg transition-colors font-bold"
                             >
                               +
                             </button>
                           </div>
-                          <span className="font-bold text-2xl text-primary font-heading">{formatPrice(item.price * item.quantity)}</span>
+                          <span className="font-bold text-xl text-primary">{formatPrice(item.price * item.quantity)}</span>
                         </div>
                       </div>
                     </div>
@@ -304,27 +264,27 @@ export default function MenuPage() {
               </div>
 
               {cart.length > 0 && (
-                <div className="p-16 border-t border-white/10 bg-black/60 space-y-12 shadow-[0_-30px_100px_rgba(0,0,0,0.5)]">
-                  <div className="space-y-6">
-                    <div className="flex justify-between text-gray-500 font-bold uppercase tracking-[0.3em] text-[11px]">
-                      <span>Operational Subtotal</span>
+                <div className="p-10 border-t border-white/5 bg-black/40 space-y-10">
+                  <div className="space-y-4">
+                    <div className="flex justify-between text-gray-500 font-bold uppercase tracking-wider text-[10px]">
+                      <span>Subtotal</span>
                       <span>{formatPrice(cartTotal)}</span>
                     </div>
-                    <div className="flex justify-between text-gray-500 font-bold uppercase tracking-[0.3em] text-[11px]">
-                      <span>Hospitality Fee</span>
+                    <div className="flex justify-between text-gray-500 font-bold uppercase tracking-wider text-[10px]">
+                      <span>Service Fee</span>
                       <span className="text-green-500">Free (Demo)</span>
                     </div>
-                    <div className="flex justify-between items-end pt-10 border-t border-white/10">
-                      <span className="text-3xl font-extrabold uppercase font-heading tracking-tight text-white">Investment</span>
-                      <span className="text-5xl font-extrabold gold-text font-heading">{formatPrice(cartTotal)}</span>
+                    <div className="flex justify-between items-end pt-6 border-t border-white/5">
+                      <span className="text-2xl font-bold uppercase font-heading tracking-tight">Total</span>
+                      <span className="text-4xl font-bold gold-text italic font-heading">{formatPrice(cartTotal)}</span>
                     </div>
                   </div>
                   
                   <Link
                     href="/order"
-                    className="w-full premium-gradient py-10 rounded-[2.5rem] text-white font-bold text-3xl text-center block shadow-[0_25px_60px_rgba(255,102,0,0.5)] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider hospitality-glow"
+                    className="w-full premium-gradient py-8 rounded-[2rem] text-white font-bold text-2xl text-center block shadow-2xl shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider"
                   >
-                    Confirm Selection
+                    Checkout Now
                   </Link>
                 </div>
               )}

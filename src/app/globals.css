@@ -10,7 +10,6 @@
   --color-accent: #D4AF37;
   --color-cream: #FFFDD0;
   --color-dark: #050505;
-  --color-gold: #D4AF37;
   
   --color-background: var(--color-dark);
   --color-foreground: var(--color-cream);
@@ -26,7 +25,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
-    @apply antialiased selection:bg-primary/30;
+    @apply antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -47,12 +46,6 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.glass-dark {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 .premium-gradient {
   background: linear-gradient(135deg, #FF6600 0%, #FF3300 100%);
 }
@@ -63,22 +56,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine 3s linear infinite;
-}
-
-.hospitality-glow {
-  box-shadow: 0 0 50px -12px rgba(255, 102, 0, 0.2);
-}
-
-.hospitality-glow-gold {
-  box-shadow: 0 0 50px -12px rgba(212, 175, 55, 0.2);
-}
-
-.cinematic-overlay {
-  background: linear-gradient(to bottom, transparent 0%, rgba(5, 5, 5, 0.4) 50%, rgba(5, 5, 5, 0.8) 100%);
-}
-
-.cinematic-vignette {
-  box-shadow: inset 0 0 150px rgba(0,0,0,0.8);
 }
 
 @keyframes shine {
@@ -94,16 +71,6 @@
 
 .animate-slow-zoom {
   animation: slow-zoom 20s ease-in-out infinite alternate;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
 }
 
 /* Custom Scrollbar for dashboards */

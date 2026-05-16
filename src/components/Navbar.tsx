@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, ShoppingCart, Utensils, ChevronDown, Sparkles } from "lucide-react";
+import { Menu, X, ShoppingCart, Utensils, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { publicLinks, demoTools } from "@/lib/navigation";
@@ -24,66 +24,66 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-6 py-8",
-        scrolled ? "bg-dark/80 backdrop-blur-3xl border-b border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] py-5" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4",
+        scrolled ? "bg-dark/80 backdrop-blur-xl border-b border-white/5 shadow-2xl py-3" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-4 group">
-          <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/30 group-hover:rotate-12 transition-transform duration-700 hospitality-glow">
-            <Utensils className="text-white w-8 h-8" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/30 group-hover:rotate-12 transition-transform duration-500">
+            <Utensils className="text-white w-7 h-7" />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-2xl tracking-tighter gold-text leading-none font-heading">CHIKINI</span>
-            <span className="font-extrabold text-2xl tracking-tighter text-white leading-none font-heading">MONIE</span>
+            <span className="font-extrabold text-xl tracking-tighter gold-text leading-none font-heading">CHIKINI</span>
+            <span className="font-extrabold text-xl tracking-tighter text-white leading-none font-heading">MONIE</span>
           </div>
         </Link>
 
-        {/* Desktop Links - Premium Hospitality Style */}
-        <div className="hidden lg:flex items-center gap-12 font-body">
+        {/* Desktop Links - Exact specification */}
+        <div className="hidden lg:flex items-center gap-10 font-body">
           {publicLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/60 hover:text-primary transition-all relative group"
+              className="text-[13px] font-bold uppercase tracking-wider text-white/70 hover:text-primary transition-all relative group"
             >
               {link.name}
-              <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-1 bg-primary rounded-full transition-all group-hover:w-4" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
             </Link>
           ))}
 
-          {/* Demo Center Dropdown */}
+          {/* Demo Center - Dropdown contains the internal tools */}
           <div className="relative">
             <div 
               onMouseEnter={() => setShowDemoTools(true)}
               onMouseLeave={() => setShowDemoTools(false)}
-              className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.3em] text-accent hover:text-accent/80 transition-all cursor-pointer"
+              className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-all cursor-pointer"
             >
               <Link href="/demo">Demo Center</Link>
-              <ChevronDown className={cn("w-4 h-4 transition-transform duration-500", showDemoTools && "rotate-180")} />
+              <ChevronDown className={cn("w-4 h-4 transition-transform", showDemoTools && "rotate-180")} />
             </div>
 
             <AnimatePresence>
               {showDemoTools && (
                 <motion.div
-                  initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 15, scale: 0.98 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   onMouseEnter={() => setShowDemoTools(true)}
                   onMouseLeave={() => setShowDemoTools(false)}
-                  className="absolute top-full right-0 mt-6 w-80 glass-dark rounded-[2.5rem] border border-white/10 p-5 shadow-[0_30px_70px_rgba(0,0,0,0.8)] backdrop-blur-3xl hospitality-glow-gold"
+                  className="absolute top-full right-0 mt-4 w-72 glass-premium rounded-[2rem] border border-white/10 p-4 shadow-2xl backdrop-blur-2xl"
                 >
-                  <div className="grid gap-3">
+                  <div className="grid gap-2">
                     {demoTools.map((tool) => (
                       <Link
                         key={tool.name}
                         href={tool.href}
-                        className="flex items-center gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all group/tool"
+                        className="flex items-center gap-3 p-3 rounded-2xl hover:bg-white/5 transition-all group"
                       >
-                        <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-gray-500 group-hover/tool:text-primary group-hover/tool:bg-primary/10 transition-all border border-white/5 shadow-inner">
-                          <tool.icon className="w-6 h-6" />
+                        <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/10 transition-all">
+                          <tool.icon className="w-5 h-5" />
                         </div>
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover/tool:text-white transition-colors">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-gray-300 group-hover:text-white">
                           {tool.name}
                         </span>
                       </Link>
@@ -96,46 +96,44 @@ const Navbar = () => {
 
           <Link
             href="/menu"
-            className="premium-gradient px-10 py-4 rounded-[1.5rem] text-white text-[12px] font-bold uppercase tracking-widest shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all hospitality-glow flex items-center gap-3"
+            className="premium-gradient px-8 py-3 rounded-2xl text-white text-[12px] font-bold uppercase tracking-wider shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
           >
-            <Sparkles className="w-4 h-4" />
             Order Now
           </Link>
         </div>
 
-        {/* Mobile Navigation Toggle */}
-        <div className="flex items-center gap-4 lg:hidden">
-          <Link href="/menu" className="relative w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-white backdrop-blur-xl">
-            <ShoppingCart className="w-7 h-7" />
-            <span className="absolute -top-2 -right-2 w-7 h-7 bg-primary text-[11px] font-bold flex items-center justify-center rounded-xl text-white shadow-2xl border-2 border-dark">0</span>
+        {/* Mobile Icons */}
+        <div className="flex items-center gap-3 lg:hidden font-body">
+          <Link href="/menu" className="relative w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-white">
+            <ShoppingCart className="w-6 h-6" />
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-[10px] font-bold flex items-center justify-center rounded-lg text-white shadow-lg">0</span>
           </Link>
           <button 
             onClick={() => setIsOpen(!isOpen)} 
-            className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-white backdrop-blur-xl"
+            className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-white"
           >
-            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Fullscreen Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className="fixed inset-0 h-screen bg-dark/98 backdrop-blur-3xl z-[60] lg:hidden overflow-y-auto"
+            className="fixed inset-0 top-0 h-screen bg-dark/98 backdrop-blur-3xl z-[60] lg:hidden overflow-y-auto"
           >
-            <div className="p-10 pt-32 space-y-16">
-              <div className="grid gap-12">
+            <div className="p-8 pt-24 space-y-12 font-body">
+              <div className="grid gap-8">
                 {publicLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-5xl font-extrabold uppercase tracking-tighter text-white hover:text-primary font-heading"
+                    className="text-4xl font-extrabold uppercase tracking-tighter text-white hover:text-primary font-heading"
                   >
                     {link.name}
                   </Link>
@@ -143,26 +141,26 @@ const Navbar = () => {
                 <Link
                   href="/demo"
                   onClick={() => setIsOpen(false)}
-                  className="text-5xl font-extrabold uppercase tracking-tighter text-accent hover:text-accent/80 font-heading"
+                  className="text-4xl font-extrabold uppercase tracking-tighter text-accent hover:text-accent/80 font-heading"
                 >
                   Demo Center
                 </Link>
               </div>
 
-              <div className="space-y-8">
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.4em] text-accent/50 border-b border-white/5 pb-6">
-                  Internal Demo Engine
+              <div className="space-y-6">
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent border-b border-white/5 pb-4">
+                  Internal Demo Tools
                 </h3>
-                <div className="grid grid-cols-1 gap-5">
+                <div className="grid grid-cols-1 gap-4">
                   {demoTools.map((tool) => (
                     <Link
                       key={tool.name}
                       href={tool.href}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-6 p-6 bg-white/5 rounded-[2.5rem] border border-white/5 shadow-inner"
+                      className="flex items-center gap-4 p-4 bg-white/5 rounded-[2rem] border border-white/5"
                     >
-                      <tool.icon className="w-8 h-8 text-primary" />
-                      <span className="text-sm font-bold uppercase tracking-widest text-gray-300">{tool.name}</span>
+                      <tool.icon className="w-6 h-6 text-primary" />
+                      <span className="text-sm font-bold uppercase tracking-wider text-gray-300">{tool.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -171,9 +169,9 @@ const Navbar = () => {
               <Link
                 href="/menu"
                 onClick={() => setIsOpen(false)}
-                className="premium-gradient block w-full py-8 rounded-[2.5rem] text-white text-center font-bold text-2xl uppercase tracking-widest shadow-2xl hospitality-glow"
+                className="premium-gradient block w-full py-6 rounded-[2rem] text-white text-center font-bold text-xl uppercase tracking-wider"
               >
-                Explore Collection
+                Start Your Order
               </Link>
             </div>
           </motion.div>
