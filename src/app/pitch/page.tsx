@@ -148,7 +148,7 @@ export default function PitchPage() {
                   <h4 className="font-bold text-2xl uppercase tracking-tight font-heading text-white">Operational Power</h4>
                 </div>
                 <p className="text-sm font-bold text-gray-500 uppercase tracking-wider leading-relaxed">
-                  Reduce order friction and kitchen errors by centralizing everything into a high-fidelity digital workflow.
+                  Designed to reduce ordering friction and make order handling faster and clearer.
                 </p>
               </div>
             </div>
