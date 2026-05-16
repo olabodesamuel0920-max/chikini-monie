@@ -94,7 +94,7 @@ export default function ContactPage() {
                 
                 <div className="bg-white/5 border border-white/10 p-8 rounded-3xl mb-12">
                   <p className="text-xs text-gray-500 font-bold leading-relaxed italic">
-                    "This preview form is for structural demonstration only. It is not connected to live restaurant operations yet. Data submitted here will not be processed."
+                    This preview form is for structural demonstration only. It is not connected to live restaurant operations yet. Data submitted here will not be processed.
                   </p>
                 </div>
                 
