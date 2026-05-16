@@ -67,14 +67,14 @@ export default function StaffDashboard() {
   const demoMode = getDemoMode();
 
   return (
-    <main className="max-w-7xl mx-auto px-6 pt-48 pb-32">
+    <main className="max-w-7xl mx-auto px-6 pt-48 pb-32 font-body">
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
         <div>
           <div className="flex items-center gap-4 mb-6">
             <div className="w-14 h-14 bg-primary/10 rounded-[1.5rem] flex items-center justify-center text-primary border border-primary/20 shadow-2xl shadow-primary/20">
               <LayoutDashboard className="w-7 h-7" />
             </div>
-            <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-2xl border text-[11px] font-black uppercase tracking-[0.2em] ${
+            <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-2xl border text-[11px] font-bold uppercase tracking-wider ${
               demoMode === "Cloud Demo Active" 
               ? "bg-green-500/10 border-green-500/20 text-green-500" 
               : "bg-blue-500/10 border-blue-500/20 text-blue-500"
@@ -83,21 +83,21 @@ export default function StaffDashboard() {
               {demoMode}
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">Staff <span className="gold-text">Board.</span></h1>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white uppercase leading-none font-heading tracking-tight">Staff <span className="gold-text italic">Board.</span></h1>
           <p className="text-gray-500 mt-4 text-xl font-medium max-w-xl">Manage the live digital order stream and update fulfillment status.</p>
         </div>
 
         <div className="flex flex-wrap gap-4">
           <button
             onClick={handleLoadSample}
-            className="px-8 py-4 bg-white/5 border border-white/10 rounded-[2rem] text-[11px] font-black uppercase tracking-widest flex items-center gap-3 hover:bg-white/10 transition-all"
+            className="px-8 py-4 bg-white/5 border border-white/10 rounded-[2rem] text-[11px] font-bold uppercase tracking-wider flex items-center gap-3 hover:bg-white/10 transition-all"
           >
             <Database className="w-4 h-4 text-accent" />
             Load Samples
           </button>
           <button
             onClick={handleReset}
-            className="px-8 py-4 bg-red-900/10 border border-red-900/20 rounded-[2rem] text-[11px] font-black uppercase tracking-widest text-red-400 flex items-center gap-3 hover:bg-red-900/30 transition-all"
+            className="px-8 py-4 bg-red-900/10 border border-red-900/20 rounded-[2rem] text-[11px] font-bold uppercase tracking-wider text-red-400 flex items-center gap-3 hover:bg-red-900/30 transition-all"
           >
             <Trash2 className="w-4 h-4" />
             Reset Data
@@ -125,7 +125,7 @@ export default function StaffDashboard() {
 
         <div className="flex gap-6 w-full lg:w-auto shrink-0">
           <div className="flex flex-col gap-3 w-full sm:w-48">
-            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wider ml-1 flex items-center gap-2">
               <Filter className="w-3 h-3" /> Branch
             </label>
             <select
@@ -139,7 +139,7 @@ export default function StaffDashboard() {
             </select>
           </div>
           <div className="flex flex-col gap-3 w-full sm:w-48">
-            <label className="text-[10px] font-black text-gray-500 uppercase tracking-widest ml-1 flex items-center gap-2">
+            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-wider ml-1 flex items-center gap-2">
               <Filter className="w-3 h-3" /> Status
             </label>
             <select
@@ -161,12 +161,12 @@ export default function StaffDashboard() {
 
       <div className="min-h-[500px]">
         {filteredOrders.length === 0 ? (
-          <div className="text-center py-40 glass-premium rounded-[4rem] border border-dashed border-white/10">
+          <div className="text-center py-40 glass-premium rounded-[4rem] border border-dashed border-white/10 font-body">
             <div className="w-24 h-24 bg-white/5 rounded-[2rem] flex items-center justify-center mx-auto mb-8 border border-white/5">
               <LayoutDashboard className="w-10 h-10 text-gray-600" />
             </div>
-            <h3 className="text-3xl font-black uppercase italic text-gray-400 mb-4 tracking-tighter">No live orders.</h3>
-            <p className="text-gray-600 text-lg">Waiting for the next craving to arrive...</p>
+            <h3 className="text-3xl font-bold uppercase text-gray-400 mb-4 tracking-tight font-heading">No live orders.</h3>
+            <p className="text-gray-600 text-lg font-medium">Waiting for the next craving to arrive...</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">

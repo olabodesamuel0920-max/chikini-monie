@@ -4,14 +4,14 @@ import { Utensils, Instagram, Phone, MessageCircle, MapPin, Twitter, Facebook } 
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-white/5 pt-32 pb-16 px-6">
+    <footer className="bg-black border-t border-white/5 pt-32 pb-16 px-6 font-body">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
         <div className="space-y-8">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 bg-primary rounded-2xl flex items-center justify-center shadow-2xl shadow-primary/20 group-hover:scale-110 transition-transform">
               <Utensils className="text-white w-6 h-6" />
             </div>
-            <span className="font-black text-2xl tracking-tighter gold-text italic uppercase">CHIKINI MONIE.</span>
+            <span className="font-extrabold text-2xl tracking-tighter gold-text uppercase font-heading">CHIKINI MONIE.</span>
           </Link>
           <p className="text-gray-500 font-medium leading-relaxed">
             Akure's premium 24/7 digital food destination. Uncompromising taste for every craving. Built for the bold.
@@ -26,8 +26,8 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-black text-sm uppercase tracking-[0.4em] mb-10 text-white italic">The Menu</h4>
-          <ul className="space-y-4 text-[12px] font-black uppercase tracking-widest text-gray-500">
+          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-10 text-white font-heading">The Menu</h4>
+          <ul className="space-y-4 text-[12px] font-bold uppercase tracking-wider text-gray-500">
             <li><Link href="/menu" className="hover:text-primary transition-colors">Digital Menu</Link></li>
             <li><Link href="/order" className="hover:text-primary transition-colors">Start Order</Link></li>
             <li><Link href="/branches" className="hover:text-primary transition-colors">Branch Locator</Link></li>
@@ -36,8 +36,8 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-black text-sm uppercase tracking-[0.4em] mb-10 text-white italic">Global Presence</h4>
-          <ul className="space-y-6 text-[12px] font-black uppercase tracking-widest text-gray-500">
+          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-10 text-white font-heading">Global Presence</h4>
+          <ul className="space-y-6 text-[12px] font-bold uppercase tracking-wider text-gray-500">
             <li className="flex gap-4 items-start">
               <MapPin className="w-5 h-5 text-primary shrink-0" />
               <span className="leading-relaxed">FUTA South Gate,<br /> Akure Hub</span>
@@ -50,8 +50,8 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-black text-sm uppercase tracking-[0.4em] mb-10 text-white italic">Operational Hub</h4>
-          <ul className="space-y-6 text-[12px] font-black uppercase tracking-widest text-gray-500">
+          <h4 className="font-bold text-xs uppercase tracking-[0.2em] mb-10 text-white font-heading">Operational Hub</h4>
+          <ul className="space-y-6 text-[12px] font-bold uppercase tracking-wider text-gray-500">
             <li className="flex gap-4 items-center">
               <Phone className="w-5 h-5 text-primary shrink-0" />
               <span className="text-white">Phone pending management confirmation</span>
@@ -71,7 +71,7 @@ const Footer = () => {
         </p>
         <div className="mt-10 flex items-center justify-center gap-4 opacity-20">
           <div className="h-[1px] w-20 bg-white" />
-          <p className="text-[9px] uppercase tracking-[0.6em] font-black text-white">Engineering Premium Cravings</p>
+          <p className="text-[9px] uppercase tracking-[0.4em] font-bold text-white">Engineering Premium Cravings</p>
           <div className="h-[1px] w-20 bg-white" />
         </div>
       </div>

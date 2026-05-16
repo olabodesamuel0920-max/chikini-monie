@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow font-body">
         {/* Hero Section - Luxurious & Spacious */}
         <section className="relative min-h-[110vh] flex items-center justify-center overflow-hidden py-40">
           <div className="absolute inset-0 z-0">
@@ -36,15 +36,15 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-accent text-[11px] font-black uppercase tracking-[0.3em] mb-10 backdrop-blur-2xl">
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-accent text-[11px] font-bold uppercase tracking-[0.2em] mb-10 backdrop-blur-2xl">
                 <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
                 Akure's 24/7 Food Spot
               </div>
               
-              <h1 className="text-6xl md:text-9xl font-black mb-10 tracking-tighter leading-[0.85] uppercase italic">
-                Big enjoyment <br />
+              <h1 className="text-6xl md:text-9xl font-extrabold mb-10 tracking-tighter leading-[0.85] uppercase font-heading">
+                Big <span className="italic">enjoyment</span> <br />
                 <span className="text-white">with </span>
-                <span className="gold-text">small money.</span>
+                <span className="gold-text italic">small money.</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-400 mb-16 max-w-3xl mx-auto leading-relaxed font-medium">
@@ -55,22 +55,20 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                 <Link
                   href="/menu"
-                  className="premium-gradient w-full sm:w-auto px-12 py-6 rounded-[2rem] text-white font-black text-xl shadow-[0_20px_50px_rgba(255,102,0,0.3)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 uppercase tracking-widest"
+                  className="premium-gradient w-full sm:w-auto px-12 py-6 rounded-[2rem] text-white font-bold text-xl shadow-[0_20px_50px_rgba(255,102,0,0.3)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 uppercase tracking-wider"
                 >
                   Start Order
                   <ArrowRight className="w-6 h-6" />
                 </Link>
                 <Link
                   href="/branches"
-                  className="glass-premium w-full sm:w-auto px-12 py-6 rounded-[2rem] text-white font-black text-xl hover:bg-white/10 transition-all border border-white/10 uppercase tracking-widest"
+                  className="glass-premium w-full sm:w-auto px-12 py-6 rounded-[2rem] text-white font-bold text-xl hover:bg-white/10 transition-all border border-white/10 uppercase tracking-wider"
                 >
                   Find Branch
                 </Link>
               </div>
             </motion.div>
           </div>
-
-
         </section>
 
         {/* Popular Categories - More Spacing */}
@@ -78,10 +76,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
               <div className="max-w-2xl">
-                <h2 className="text-4xl md:text-7xl font-black mb-6 tracking-tighter uppercase italic leading-none">Crave it. <span className="text-primary">Get it.</span></h2>
-                <p className="text-gray-500 text-xl">Our most requested satisfaction boosters, crafted for your delight.</p>
+                <h2 className="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight uppercase font-heading leading-none">Crave it. <span className="text-primary italic">Get it.</span></h2>
+                <p className="text-gray-500 text-xl font-medium">Our most requested satisfaction boosters, crafted for your delight.</p>
               </div>
-              <Link href="/menu" className="text-primary font-black uppercase tracking-widest text-sm flex items-center gap-3 hover:gap-5 transition-all group">
+              <Link href="/menu" className="text-primary font-bold uppercase tracking-wider text-sm flex items-center gap-3 hover:gap-5 transition-all group">
                 View full menu <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -100,9 +98,9 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
               <div>
-                <h2 className="text-4xl md:text-7xl font-black mb-12 leading-[0.9] tracking-tighter uppercase italic">
+                <h2 className="text-4xl md:text-7xl font-extrabold mb-12 leading-[0.9] tracking-tight uppercase font-heading">
                   Why Akure <br />
-                  <span className="text-primary">Loves Us.</span>
+                  <span className="text-primary italic">Loves Us.</span>
                 </h2>
                 <div className="space-y-12">
                   {[
@@ -115,8 +113,8 @@ export default function Home() {
                         <feature.icon className={`text-${feature.color} w-8 h-8`} />
                       </div>
                       <div>
-                        <h4 className="font-black text-2xl mb-3 uppercase italic">{feature.title}</h4>
-                        <p className="text-gray-500 text-lg leading-relaxed">{feature.desc}</p>
+                        <h4 className="font-bold text-2xl mb-3 uppercase font-heading">{feature.title}</h4>
+                        <p className="text-gray-500 text-lg leading-relaxed font-medium">{feature.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -143,12 +141,12 @@ export default function Home() {
               <UtensilsCrossed className="w-80 h-80" />
             </div>
             <div className="relative z-10 lg:max-w-3xl">
-              <span className="text-primary font-black text-xs uppercase tracking-[0.4em] mb-6 block">Sister Concept</span>
-              <h2 className="text-4xl md:text-7xl font-black mb-8 uppercase italic leading-none">Abula Backyard</h2>
-              <p className="text-gray-400 text-xl md:text-2xl mb-12 leading-relaxed">
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.3em] mb-6 block">Sister Concept</span>
+              <h2 className="text-4xl md:text-7xl font-extrabold mb-8 uppercase font-heading leading-none">Abula <span className="italic">Backyard</span></h2>
+              <p className="text-gray-400 text-xl md:text-2xl mb-12 leading-relaxed font-medium">
                 Experience authentic local flavors at our sister brand, Abula Backyard. The traditional soul of Akure, served with premium hospitality.
               </p>
-              <Link href="/about" className="inline-flex items-center gap-4 font-black uppercase tracking-widest text-white hover:text-primary transition-all group">
+              <Link href="/about" className="inline-flex items-center gap-4 font-bold uppercase tracking-wider text-white hover:text-primary transition-all group">
                 Discover our heritage <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
               </Link>
             </div>
@@ -159,9 +157,9 @@ export default function Home() {
         <section className="py-40 px-6 bg-dark border-b border-white/5 relative overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-24">
-              <span className="text-primary font-black text-xs uppercase tracking-[0.5em] mb-6 block">Digital Infrastructure</span>
-              <h2 className="text-4xl md:text-7xl font-black mb-8 uppercase italic leading-none">From Craving to <span className="text-primary">Completion.</span></h2>
-              <p className="text-gray-500 text-xl max-w-3xl mx-auto">Experience the seamless digital lifecycle of a Chikini Monie order, powered by Supabase Realtime.</p>
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-6 block">Digital Infrastructure</span>
+              <h2 className="text-4xl md:text-7xl font-extrabold mb-8 uppercase font-heading leading-none tracking-tight">From Craving to <span className="text-primary italic">Completion.</span></h2>
+              <p className="text-gray-500 text-xl max-w-3xl mx-auto font-medium">Experience the seamless digital lifecycle of a Chikini Monie order, powered by Supabase Realtime.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -175,9 +173,9 @@ export default function Home() {
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform">
                     <item.icon className="w-8 h-8" />
                   </div>
-                  <span className="absolute top-12 right-12 text-6xl font-black text-white/[0.03] group-hover:text-white/[0.05] transition-colors">{item.step}</span>
-                  <h3 className="text-2xl font-black italic mb-4 uppercase tracking-tighter">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  <span className="absolute top-12 right-12 text-6xl font-bold text-white/[0.03] group-hover:text-primary/10 transition-colors leading-none italic font-heading">{item.step}</span>
+                  <h3 className="text-2xl font-bold mb-4 uppercase font-heading tracking-tight">{item.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed font-medium">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -185,7 +183,7 @@ export default function Home() {
             <div className="mt-24 text-center">
               <Link
                 href="/demo"
-                className="bg-white text-black px-12 py-6 rounded-[2rem] font-black text-xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-4 shadow-2xl shadow-white/10 uppercase tracking-widest"
+                className="bg-white text-black px-12 py-6 rounded-[2rem] font-bold text-xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-4 shadow-2xl shadow-white/10 uppercase tracking-wider"
               >
                 Open Demo Center
                 <ArrowRight className="w-6 h-6" />
@@ -198,7 +196,7 @@ export default function Home() {
         <section className="py-40 px-6 bg-dark">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-24">
-              <h2 className="text-4xl md:text-7xl font-black mb-6 uppercase italic leading-none">Always <span className="gold-text">Nearby.</span></h2>
+              <h2 className="text-4xl md:text-7xl font-extrabold mb-6 uppercase font-heading leading-none tracking-tight">Always <span className="gold-text italic">Nearby.</span></h2>
               <p className="text-gray-500 text-xl max-w-2xl mx-auto font-medium">Pick up your order or dine with us at any of our strategically located branches across Akure.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -212,8 +210,8 @@ export default function Home() {
         {/* Testimonials - Elegant Cards */}
         <section className="py-40 px-6 bg-black overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-7xl font-black mb-6 text-center uppercase italic leading-none">What the <span className="text-primary">Streets</span> Say.</h2>
-            <p className="text-gray-600 text-center text-xs font-black uppercase tracking-[0.3em] mb-24">Sample customer review layout — final testimonials pending Chikini Monie approval.</p>
+            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 text-center uppercase font-heading leading-none tracking-tight">What the <span className="text-primary italic">Streets</span> Say.</h2>
+            <p className="text-gray-600 text-center text-xs font-bold uppercase tracking-[0.2em] mb-24 font-body">Sample customer review layout — final testimonials pending Chikini Monie approval.</p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               {testimonials.map((t, idx) => (
                 <motion.div
@@ -230,14 +228,14 @@ export default function Home() {
                         <Star key={s} className="w-4 h-4 fill-current" />
                       ))}
                     </div>
-                    <p className="text-gray-300 text-xl leading-relaxed italic mb-12">"{t.content}"</p>
+                    <p className="text-gray-300 text-xl leading-relaxed italic mb-12 font-medium">"{t.content}"</p>
                   </div>
                   <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center font-black text-xl text-primary border border-white/10">
+                    <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center font-bold text-xl text-primary border border-white/10 font-heading">
                       {t.name[0]}
                     </div>
                     <div>
-                      <h4 className="font-black text-lg uppercase tracking-tight">{t.name}</h4>
+                      <h4 className="font-bold text-lg uppercase tracking-tight font-heading">{t.name}</h4>
                       <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">{t.role}</p>
                     </div>
                   </div>
@@ -251,15 +249,15 @@ export default function Home() {
         <section className="py-56 px-6 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="max-w-5xl mx-auto text-center relative z-10">
-            <h2 className="text-6xl md:text-[10rem] font-black text-white mb-12 tracking-tighter uppercase italic leading-[0.8]">
-              Ready for big <br /> enjoyment?
+            <h2 className="text-6xl md:text-[10rem] font-extrabold text-white mb-12 tracking-tighter uppercase font-heading leading-[0.8]">
+              Ready for big <br /> <span className="italic">enjoyment?</span>
             </h2>
             <p className="text-white/80 text-xl md:text-3xl mb-20 max-w-2xl mx-auto font-medium">
               Join thousands of Akure food lovers today. Your cravings don't have to wait.
             </p>
             <Link
               href="/menu"
-              className="bg-white text-primary px-16 py-8 rounded-[2.5rem] font-black text-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all inline-block uppercase tracking-widest"
+              className="bg-white text-primary px-16 py-8 rounded-[2.5rem] font-bold text-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all inline-block uppercase tracking-wider"
             >
               Order Now
             </Link>

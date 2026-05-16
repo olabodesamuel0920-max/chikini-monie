@@ -17,7 +17,7 @@ const FoodCard = ({ item, onAddToCart }: FoodCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="glass-premium group rounded-[2.5rem] overflow-hidden flex flex-col h-full border border-white/5 hover:border-primary/20 transition-all duration-500 shadow-2xl"
+      className="glass-premium group rounded-[2.5rem] overflow-hidden flex flex-col h-full border border-white/5 hover:border-primary/20 transition-all duration-500 shadow-2xl font-body"
     >
       <div className="relative h-64 w-full overflow-hidden">
         <img
@@ -36,7 +36,7 @@ const FoodCard = ({ item, onAddToCart }: FoodCardProps) => {
         {item.popular && (
           <div className="absolute top-4 left-4 bg-primary px-4 py-1.5 rounded-xl flex items-center gap-2 shadow-xl border border-white/10">
             <Flame className="w-3 h-3 text-white fill-white" />
-            <span className="text-[10px] font-black text-white uppercase tracking-[0.2em]">Hottest</span>
+            <span className="text-[10px] font-bold text-white uppercase tracking-wider">Hottest</span>
           </div>
         )}
       </div>
@@ -44,15 +44,15 @@ const FoodCard = ({ item, onAddToCart }: FoodCardProps) => {
       <div className="p-8 flex flex-col flex-grow">
         <div className="mb-4">
           <div className="flex justify-between items-start mb-2">
-            <h3 className="font-black text-2xl leading-tight italic uppercase tracking-tighter group-hover:text-primary transition-colors">{item.name}</h3>
+            <h3 className="font-bold text-2xl leading-tight font-heading tracking-tight group-hover:text-primary transition-colors">{item.name}</h3>
           </div>
-          <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{item.description}</p>
+          <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 font-medium">{item.description}</p>
         </div>
         
         <div className="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
           <div className="flex flex-col">
-            <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Price</span>
-            <span className="text-2xl font-black gold-text">{formatPrice(item.price)}</span>
+            <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mb-1">Price</span>
+            <span className="text-2xl font-bold gold-text font-heading">{formatPrice(item.price)}</span>
           </div>
           <button
             onClick={() => onAddToCart?.(item)}

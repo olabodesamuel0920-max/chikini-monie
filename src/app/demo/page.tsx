@@ -89,7 +89,7 @@ export default function DemoCommandCenter() {
   ];
 
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-dark font-body">
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-6 pt-48 pb-40">
@@ -104,10 +104,10 @@ export default function DemoCommandCenter() {
               <div className="w-16 h-16 bg-primary/10 rounded-[1.5rem] flex items-center justify-center text-primary border border-primary/20 shadow-2xl">
                 <Rocket className="w-8 h-8" />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-accent">Demo Command Center</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent">Demo Command Center</span>
             </div>
-            <h1 className="text-6xl md:text-[8rem] font-black italic gold-text mb-12 uppercase tracking-tighter leading-[0.85]">
-              FROM SOCIAL <br />TO SYSTEMS.
+            <h1 className="text-6xl md:text-[8rem] font-extrabold gold-text mb-12 uppercase tracking-tighter leading-[0.85] font-heading">
+              FROM <span className="italic">SOCIAL</span> <br /><span className="italic text-white">TO SYSTEMS.</span>
             </h1>
             <p className="text-gray-500 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto font-medium">
               A high-fidelity presentation of the Chikini Monie digital food system. From customer website to kitchen display.
@@ -130,14 +130,14 @@ export default function DemoCommandCenter() {
                 <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-gray-500 group-hover:bg-primary/20 group-hover:text-primary transition-all border border-white/5">
                   <step.icon className="w-8 h-8" />
                 </div>
-                <span className="text-6xl font-black text-white/[0.03] group-hover:text-primary/10 transition-colors leading-none italic">{step.id}</span>
+                <span className="text-6xl font-bold text-white/[0.03] group-hover:text-primary/10 transition-colors leading-none font-heading">{step.id}</span>
               </div>
               
-              <h3 className="text-3xl font-black italic mb-6 uppercase tracking-tighter group-hover:text-white transition-colors">{step.title}</h3>
-              <p className="text-gray-500 text-lg mb-10 leading-relaxed flex-grow">{step.desc}</p>
+              <h3 className="text-3xl font-bold mb-6 uppercase tracking-tight group-hover:text-white transition-colors font-heading">{step.title}</h3>
+              <p className="text-gray-500 text-lg mb-10 leading-relaxed flex-grow font-medium">{step.desc}</p>
               
               <div className="mb-10 p-6 bg-primary/[0.03] rounded-3xl border border-primary/5 group-hover:bg-primary/[0.06] transition-all">
-                <p className="text-[10px] font-black text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+                <p className="text-[10px] font-bold text-primary uppercase tracking-wider mb-3 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4" />
                   Business Value
                 </p>
@@ -146,7 +146,7 @@ export default function DemoCommandCenter() {
 
               <Link
                 href={step.route}
-                className="w-full py-6 rounded-[2rem] bg-white/5 border border-white/10 text-white font-black text-center group-hover:bg-primary group-hover:border-transparent transition-all flex items-center justify-center gap-3 uppercase tracking-widest text-[12px] shadow-xl"
+                className="w-full py-6 rounded-[2rem] bg-white/5 border border-white/10 text-white font-bold text-center group-hover:bg-primary group-hover:border-transparent transition-all flex items-center justify-center gap-3 uppercase tracking-wider text-[12px] shadow-xl"
               >
                 Open {step.title}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -156,14 +156,14 @@ export default function DemoCommandCenter() {
         </div>
 
         {/* Final CTA - Premium Banner */}
-        <section className="glass-premium rounded-[5rem] p-16 md:p-32 border border-primary/10 relative overflow-hidden shadow-2xl">
+        <section className="glass-premium rounded-[5rem] p-16 md:p-32 border border-primary/10 relative overflow-hidden shadow-2xl font-body">
           <div className="absolute top-0 right-0 p-24 opacity-[0.02] scale-150 rotate-12">
             <Rocket className="w-96 h-96 text-primary" />
           </div>
           <div className="max-w-4xl relative z-10">
-            <span className="text-primary font-black text-xs uppercase tracking-[0.5em] mb-8 block">Operational Readiness</span>
-            <h2 className="text-5xl md:text-[6rem] font-black italic mb-10 uppercase tracking-tighter leading-none">
-              Ready to <br /><span className="text-primary">Operationalise?</span>
+            <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Operational Readiness</span>
+            <h2 className="text-5xl md:text-[6rem] font-extrabold mb-10 uppercase tracking-tight leading-none font-heading">
+              Ready to <br /><span className="text-primary italic">Operationalise?</span>
             </h2>
             <p className="text-gray-400 text-xl md:text-2xl mb-16 leading-relaxed font-medium">
               This digital ecosystem is engineered to handle the intensity of Akure's 24/7 food landscape. Move beyond fragmented social orders into a unified, high-trust system.
@@ -171,13 +171,13 @@ export default function DemoCommandCenter() {
             <div className="flex flex-col sm:flex-row gap-8">
               <Link
                 href="/pitch"
-                className="premium-gradient px-12 py-6 rounded-[2rem] font-black text-xl text-white shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all text-center uppercase tracking-widest"
+                className="premium-gradient px-12 py-6 rounded-[2rem] font-bold text-xl text-white shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all text-center uppercase tracking-wider"
               >
                 View Vision Roadmap
               </Link>
               <Link
                 href="/contact"
-                className="glass-premium border border-white/10 px-12 py-6 rounded-[2rem] font-black text-xl text-white hover:bg-white/10 transition-all text-center uppercase tracking-widest"
+                className="glass-premium border border-white/10 px-12 py-6 rounded-[2rem] font-bold text-xl text-white hover:bg-white/10 transition-all text-center uppercase tracking-wider"
               >
                 Discuss Deployment
               </Link>
@@ -186,13 +186,13 @@ export default function DemoCommandCenter() {
         </section>
 
         {/* Technical Notice - More Subtle */}
-        <div className="mt-32 glass-premium p-12 rounded-[3.5rem] border border-white/5 max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center text-center md:text-left">
+        <div className="mt-32 glass-premium p-12 rounded-[3.5rem] border border-white/5 max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center text-center md:text-left font-body">
           <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center text-gray-700 shrink-0 border border-white/5">
             <Info className="w-10 h-10" />
           </div>
           <div>
-            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.4em] mb-4">Technical Architecture Disclaimer</h4>
-            <p className="text-sm text-gray-600 leading-relaxed font-medium">
+            <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.4em] mb-4">Technical Architecture Disclaimer</h4>
+            <p className="text-sm text-gray-600 leading-relaxed font-bold">
               The Chikini Monie Command Center is a high-fidelity business review prototype. Operational logic (real-time sync, kitchen queue, analytics) is implemented using browser-based storage and Supabase Realtime for demonstration purposes. No live payments are processed in this session.
             </p>
           </div>

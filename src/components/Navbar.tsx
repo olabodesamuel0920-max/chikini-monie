@@ -34,18 +34,18 @@ const Navbar = () => {
             <Utensils className="text-white w-7 h-7" />
           </div>
           <div className="flex flex-col">
-            <span className="font-black text-xl tracking-tighter italic gold-text leading-none">CHIKINI</span>
-            <span className="font-black text-xl tracking-tighter italic text-white leading-none">MONIE</span>
+            <span className="font-extrabold text-xl tracking-tighter gold-text leading-none font-heading">CHIKINI</span>
+            <span className="font-extrabold text-xl tracking-tighter text-white leading-none font-heading">MONIE</span>
           </div>
         </Link>
 
         {/* Desktop Links - Exact specification */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-10 font-body">
           {publicLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[13px] font-black uppercase tracking-widest text-white/70 hover:text-primary transition-all relative group"
+              className="text-[13px] font-bold uppercase tracking-wider text-white/70 hover:text-primary transition-all relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
@@ -57,7 +57,7 @@ const Navbar = () => {
             <div 
               onMouseEnter={() => setShowDemoTools(true)}
               onMouseLeave={() => setShowDemoTools(false)}
-              className="flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-accent hover:text-accent/80 transition-all cursor-pointer"
+              className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-wider text-accent hover:text-accent/80 transition-all cursor-pointer"
             >
               <Link href="/demo">Demo Center</Link>
               <ChevronDown className={cn("w-4 h-4 transition-transform", showDemoTools && "rotate-180")} />
@@ -83,7 +83,7 @@ const Navbar = () => {
                         <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-400 group-hover:text-primary group-hover:bg-primary/10 transition-all">
                           <tool.icon className="w-5 h-5" />
                         </div>
-                        <span className="text-[11px] font-black uppercase tracking-wider text-gray-300 group-hover:text-white">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-gray-300 group-hover:text-white">
                           {tool.name}
                         </span>
                       </Link>
@@ -96,17 +96,17 @@ const Navbar = () => {
 
           <Link
             href="/menu"
-            className="premium-gradient px-8 py-3 rounded-2xl text-white text-[12px] font-black uppercase tracking-widest shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
+            className="premium-gradient px-8 py-3 rounded-2xl text-white text-[12px] font-bold uppercase tracking-wider shadow-2xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
           >
             Order Now
           </Link>
         </div>
 
         {/* Mobile Icons */}
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-3 lg:hidden font-body">
           <Link href="/menu" className="relative w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-white">
             <ShoppingCart className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-[10px] font-black flex items-center justify-center rounded-lg text-white shadow-lg">0</span>
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-[10px] font-bold flex items-center justify-center rounded-lg text-white shadow-lg">0</span>
           </Link>
           <button 
             onClick={() => setIsOpen(!isOpen)} 
@@ -126,14 +126,14 @@ const Navbar = () => {
             exit={{ opacity: 0, x: "100%" }}
             className="fixed inset-0 top-0 h-screen bg-dark/98 backdrop-blur-3xl z-[60] lg:hidden overflow-y-auto"
           >
-            <div className="p-8 pt-24 space-y-12">
+            <div className="p-8 pt-24 space-y-12 font-body">
               <div className="grid gap-8">
                 {publicLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-4xl font-black italic uppercase tracking-tighter text-white hover:text-primary"
+                    className="text-4xl font-extrabold uppercase tracking-tighter text-white hover:text-primary font-heading"
                   >
                     {link.name}
                   </Link>
@@ -141,14 +141,14 @@ const Navbar = () => {
                 <Link
                   href="/demo"
                   onClick={() => setIsOpen(false)}
-                  className="text-4xl font-black italic uppercase tracking-tighter text-accent hover:text-accent/80"
+                  className="text-4xl font-extrabold uppercase tracking-tighter text-accent hover:text-accent/80 font-heading"
                 >
                   Demo Center
                 </Link>
               </div>
 
               <div className="space-y-6">
-                <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-accent border-b border-white/5 pb-4">
+                <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent border-b border-white/5 pb-4">
                   Internal Demo Tools
                 </h3>
                 <div className="grid grid-cols-1 gap-4">
@@ -160,7 +160,7 @@ const Navbar = () => {
                       className="flex items-center gap-4 p-4 bg-white/5 rounded-[2rem] border border-white/5"
                     >
                       <tool.icon className="w-6 h-6 text-primary" />
-                      <span className="text-sm font-black uppercase tracking-widest text-gray-300">{tool.name}</span>
+                      <span className="text-sm font-bold uppercase tracking-wider text-gray-300">{tool.name}</span>
                     </Link>
                   ))}
                 </div>
@@ -169,7 +169,7 @@ const Navbar = () => {
               <Link
                 href="/menu"
                 onClick={() => setIsOpen(false)}
-                className="premium-gradient block w-full py-6 rounded-[2rem] text-white text-center font-black text-xl uppercase tracking-widest"
+                className="premium-gradient block w-full py-6 rounded-[2rem] text-white text-center font-bold text-xl uppercase tracking-wider"
               >
                 Start Your Order
               </Link>

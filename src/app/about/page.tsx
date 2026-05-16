@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-dark font-body">
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-6 pt-48 pb-40">
@@ -21,9 +21,9 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-primary font-black text-xs uppercase tracking-[0.5em] mb-8 block">Our Journey</span>
-              <h1 className="text-6xl md:text-8xl font-black italic gold-text mb-10 uppercase tracking-tighter leading-none">
-                BUILT FOR <br />CRAVINGS.
+              <span className="text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Our Journey</span>
+              <h1 className="text-6xl md:text-8xl font-extrabold gold-text mb-10 uppercase tracking-tighter leading-none font-heading">
+                BUILT FOR <br /><span className="italic text-white">CRAVINGS.</span>
               </h1>
               <div className="space-y-8 text-gray-400 text-xl leading-relaxed font-medium">
                 <p>
@@ -33,7 +33,7 @@ export default function AboutPage() {
                   Whether you're a student burning the midnight oil or a professional on a tight schedule, we deliver a digital-first food experience that values your taste as much as your time.
                 </p>
                 <div className="p-8 glass-premium rounded-[2rem] border border-primary/10 inline-block">
-                  <p className="font-black text-white italic text-2xl">
+                  <p className="font-bold text-white italic text-2xl font-heading">
                     "Big satisfaction isn't a luxury—it's your right."
                   </p>
                 </div>
@@ -55,8 +55,8 @@ export default function AboutPage() {
                     <Heart className="w-8 h-8 fill-primary" />
                   </div>
                   <div>
-                    <h4 className="font-black text-4xl italic gold-text leading-none mb-1">100%</h4>
-                    <p className="text-[10px] text-gray-500 uppercase font-black tracking-[0.3em]">Passion Infused</p>
+                    <h4 className="font-extrabold text-4xl gold-text leading-none mb-1 font-heading">100%</h4>
+                    <p className="text-[10px] text-gray-500 uppercase font-bold tracking-[0.2em]">Passion Infused</p>
                   </div>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
         {/* Values Section - Premium Cards */}
         <section className="mb-40 py-40 border-y border-white/5">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-7xl font-black mb-6 uppercase italic tracking-tighter">THE <span className="text-primary">CHIKINI</span> WAY.</h2>
+            <h2 className="text-4xl md:text-7xl font-extrabold mb-6 uppercase tracking-tight font-heading">THE <span className="text-primary italic">CHIKINI</span> WAY.</h2>
             <p className="text-gray-500 text-xl font-medium">Core principles that define every digital ticket we fulfill.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 <div className="w-20 h-20 bg-primary/10 rounded-[2rem] flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform shadow-2xl">
                   <value.icon className="w-10 h-10" />
                 </div>
-                <h3 className="text-3xl font-black mb-6 italic uppercase tracking-tighter">{value.title}</h3>
+                <h3 className="text-3xl font-bold mb-6 uppercase tracking-tight font-heading">{value.title}</h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">{value.desc}</p>
               </motion.div>
             ))}
@@ -107,43 +107,43 @@ export default function AboutPage() {
         </section>
 
         {/* Sister Brand Section - Elegant & Massive */}
-        <section className="glass-premium rounded-[5rem] p-16 md:p-32 border border-white/5 relative overflow-hidden mb-40 shadow-2xl">
+        <section className="glass-premium rounded-[5rem] p-16 md:p-32 border border-white/5 relative overflow-hidden mb-40 shadow-2xl font-body">
           <div className="absolute top-0 right-0 p-24 opacity-[0.02] scale-150 rotate-12">
             <UtensilsCrossed className="w-96 h-96" />
           </div>
           <div className="max-w-4xl relative z-10">
-            <span className="text-accent font-black text-xs uppercase tracking-[0.5em] mb-8 block">Heritage & Lineage</span>
-            <h2 className="text-5xl md:text-[6rem] font-black italic mb-10 uppercase tracking-tighter leading-none">
-              ABULA <br /><span className="text-accent">BACKYARD.</span>
+            <span className="text-accent font-bold text-xs uppercase tracking-[0.4em] mb-8 block">Heritage & Lineage</span>
+            <h2 className="text-5xl md:text-[6rem] font-extrabold mb-10 uppercase tracking-tight leading-none font-heading">
+              ABULA <br /><span className="text-accent italic">BACKYARD.</span>
             </h2>
             <p className="text-gray-400 text-xl md:text-2xl mb-12 leading-relaxed font-medium">
-              Chikini Monie is the energetic sibling of Akure's legendary <span className="text-accent font-black">Abula Backyard</span>. 
+              Chikini Monie is the energetic sibling of Akure's legendary <span className="text-accent font-bold">Abula Backyard</span>. 
               While we focus on fast/casual cravings, Abula Backyard remains the sanctuary of deep tradition and local mastery.
             </p>
             <div className="bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] flex items-start gap-6 mb-12 max-w-2xl">
               <Info className="text-gray-600 w-8 h-8 shrink-0 mt-1" />
-              <p className="text-sm text-gray-500 font-medium uppercase tracking-widest leading-relaxed">
+              <p className="text-sm text-gray-500 font-bold uppercase tracking-wider leading-relaxed">
                 Sister-brand ecosystem and shared loyalty integrations are currently in the final modeling phase.
               </p>
             </div>
-            <button className="bg-accent text-black px-12 py-6 rounded-[2rem] font-black text-xl hover:scale-105 active:scale-95 transition-all uppercase tracking-widest shadow-2xl shadow-accent/20">
+            <button className="bg-accent text-black px-12 py-6 rounded-[2rem] font-bold text-xl hover:scale-105 active:scale-95 transition-all uppercase tracking-wider shadow-2xl shadow-accent/20">
               Explore Our Roots
             </button>
           </div>
         </section>
 
         {/* Vision Quote - Final Impact */}
-        <section className="text-center max-w-5xl mx-auto">
+        <section className="text-center max-w-5xl mx-auto font-body">
           <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-16 border border-primary/20 shadow-2xl">
             <Target className="text-primary w-10 h-10" />
           </div>
-          <h2 className="text-4xl md:text-7xl font-black italic mb-12 leading-[0.9] tracking-tighter uppercase">
-            "REDEFINING HOW <br />AKURE EATS, 
-            <span className="gold-text block mt-4">ONE CRAVING AT A TIME.</span>"
+          <h2 className="text-4xl md:text-7xl font-extrabold mb-12 leading-[0.9] tracking-tight uppercase font-heading">
+            "REDEFINING HOW <br /><span className="italic">AKURE EATS,</span> 
+            <span className="gold-text block mt-4 italic">ONE CRAVING AT A TIME.</span>"
           </h2>
           <div className="flex items-center justify-center gap-4">
             <div className="h-[1px] w-12 bg-white/10" />
-            <p className="text-gray-600 font-black uppercase tracking-[0.4em] text-[10px]">
+            <p className="text-gray-600 font-bold uppercase tracking-[0.3em] text-[10px]">
               Chikini Monie Strategy Group
             </p>
             <div className="h-[1px] w-12 bg-white/10" />
