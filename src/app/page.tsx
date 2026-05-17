@@ -1,4 +1,4 @@
-// Verified safe preview copywriting
+// Verified safe preview copywriting - Phase 2L-B Polish
 "use client";
 
 import Navbar from "@/components/Navbar";
