@@ -103,7 +103,7 @@ export default function Home() {
                   {[
                     { icon: UtensilsCrossed, color: "primary", title: "Designed for speed.", desc: "Designed to make ordering faster, clearer, and easier to manage." },
                     { icon: Star, color: "accent", title: "Quality for everyone.", desc: "From students to CEOs, we serve premium meals at prices that make perfect sense." },
-                    { icon: Clock, color: "white", title: "Always awake for you.", desc: "Midnight cravings? Early morning breakfast? Our kitchen never sleeps." },
+                    { icon: Clock, color: "white", title: "Always awake for you.", desc: "Designed around late-night cravings, early meals, and flexible food demand." },
                   ].map((feature, idx) => (
                     <div key={idx} className="flex gap-8 group">
                       <div className="w-16 h-16 shrink-0 bg-white/[0.03] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform border border-white/[0.05]">
@@ -162,9 +162,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { title: "Order", step: "01", desc: "Choose your craving from the interactive digital menu.", icon: Smartphone },
-                { title: "Confirm", step: "02", desc: "Order appears instantly on the staff board for verification.", icon: LayoutDashboard },
+                { title: "Confirm", step: "02", desc: "Demo orders can appear on the staff board for workflow preview.", icon: LayoutDashboard },
                 { title: "Prepare", step: "03", desc: "Kitchen receives the digital ticket and begins preparation.", icon: ChefHat },
-                { title: "Analyze", step: "04", desc: "Track performance and sales trends in real-time.", icon: BarChart3 },
+                { title: "Analyze", step: "04", desc: "Preview performance and sales-style insights from demo orders.", icon: BarChart3 },
               ].map((item, idx) => (
                 <div key={idx} className="glass p-10 rounded-[2.5rem] relative group hover:bg-white/[0.05] transition-all">
                   <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-10 group-hover:scale-110 transition-transform border border-primary/20">

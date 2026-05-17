@@ -147,17 +147,17 @@ export const branches: Branch[] = [
 
 export const testimonials = [
   {
-    name: "Tobi Adeyemi",
+    name: "Sample Customer A",
     role: "FUTA Student",
     content: "The best jollof rice in Akure. Fast delivery even at 2 AM!",
   },
   {
-    name: "Sarah Johnson",
+    name: "Sample Customer B",
     role: "Digital Marketer",
     content: "Chikini Monie is my go-to for healthy swallow and soups. Premium quality!",
   },
   {
-    name: "David Okafor",
+    name: "Sample Business Reviewer",
     role: "Tech Lead",
     content: "The digital management suite looks impressive. It's exactly the digital engine a growing restaurant needs.",
   },

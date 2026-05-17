@@ -58,7 +58,7 @@ const BranchCard = ({ branch }: BranchCardProps) => {
           <div className="flex items-center gap-3 text-gray-500">
             <Clock className="w-4 h-4 text-primary/70" />
             <span className="text-[11px] font-bold uppercase tracking-widest">
-              {branch.is247 ? "Active 24/7 Service" : "Operational hours pending"}
+              {branch.is247 ? "Preview Service Hub" : "Operational hours pending"}
             </span>
           </div>
           <div className="flex items-start gap-3 text-gray-400">
