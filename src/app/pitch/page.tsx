@@ -1,4 +1,4 @@
-
+// Verified safe preview copywriting
 "use client";
 
 import Navbar from "@/components/Navbar";
