@@ -77,7 +77,7 @@ This guide is designed to help you present the Chikini Monie digital food orderi
 ### Introduction (1 Minute)
 > *"Thank you for your time, Sheriff. Today we are reviewing the Chikini Monie Digital Hub prototype. Our goal is to solve the operational intensity of taking hundreds of high-volume orders, keeping our staff coordinated, and giving you absolute visibility of your business.*
 >
-> *This is a live, cloud-synchronized review environment. Let's walk through the entire lifecycle of an order to see how it works."*
+> *This is a preview environment with demo order sync. Let's walk through the entire lifecycle of a test order to see how the workflow preview works."*
 
 ### Phase A: Customer Experience (3 Minutes)
 > *"Let's look at the customer landing page. We designed a clean, premium, modern look that matches the bold flavor of Chikini Monie. We’ve highlighted the 24/7 service model and the heritage of our sister brand, Abula Backyard.*
@@ -85,11 +85,11 @@ This guide is designed to help you present the Chikini Monie digital food orderi
 > *Now, let's open the **Digital Menu**. A customer arrives, browses categories, and selects their meal—like our signature Jollof Rice or a Chicken Shawarma. They can customize their order, input their name and phone, and click 'Submit Order'. The order is instantly given a unique code, and the customer is instructed that staff will contact them to verify."*
 
 ### Phase B: Operational Flow (4 Minutes)
-> *"Now, let's look behind the counter. I’ll open the **Staff Dashboard** on a separate screen. Look at that—the order we just placed has already appeared instantly in the 'Pending Verification' column. The database synced it via the cloud in milliseconds.*
+> *"Now, let's look behind the counter. I’ll open the **Staff Dashboard** on a separate screen. Look at that—the order we just placed has already appeared on the staff board. The database shows a demo order sync.*
 >
 > *Our staff clicks 'Confirm' after verifying. Let's watch the **Kitchen Display Board** now. The moment staff confirmed the order, it instantly moved onto the Kitchen screen under 'Preparing'. The kitchen staff see the exact meal and any custom notes. When the food is packaged, they click 'Complete'.*
 >
-> *Finally, let's check the **Manager Reporting Hub**. Under the manager screen, you can see the completed order registered in the live database, updating our sales charts, average preparation times, and branch metrics. You have absolute transparency over every single naira."*
+> *Finally, let's check the **Manager Reporting Hub**. Under the manager screen, you can see the completed order registered as a preview order record, updating our preview charts and branch metrics. You have workflow visibility for demo review."*
 
 ### Phase C: Review and Next Steps (2 Minutes)
 > *"To make this a fully live, high-traffic production system, we have a clear, structured roadmap. The software engine is completely built and tested. The next steps are simply to collect your official operational details—like your final prices, branch locations, and staff roles—so we can configure the system, secure it, and launch it to the public."*
@@ -142,7 +142,7 @@ This guide is designed to help you present the Chikini Monie digital food orderi
 * **❌ NEVER say:** *"Payment is live and you can collect money online right now."*
   * **Instead say:** *"The checkout page is fully designed and prepared to connect to a payment gateway like Paystack during the production integration phase."*
 * **❌ NEVER say:** *"Staff logins are fully locked down and ready."*
-  * **Instead say:** *"We have built the open workflow to make testing easy for you today. In the next phase, we will lock each dashboard behind secure individual passwords."*
+  * **Instead say:** *"We have built the open workflow to make testing easy for you today. In the next phase, we will configure a future production login setup for secure passwords."*
 * **❌ NEVER say:** *"The site is officially launched to the public."*
   * **Instead say:** *"The live preview is online so you can review it on your own phone. We will launch the official public site after content confirmation and final hardening."*
 
