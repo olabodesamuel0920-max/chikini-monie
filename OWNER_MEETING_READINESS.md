@@ -1,15 +1,15 @@
 # Chikini Monie — Owner Meeting Readiness Guide
 
-This readiness pack helps you prepare for the face-to-face or video presentation of the Chikini Monie platform to the business owner, Sheriff. It serves as your final checklist, field guide, and objection-handling playbook.
+This readiness pack helps you prepare for the face-to-face or video presentation of the Chikini Monie platform to the business owner. It serves as your final checklist, field guide, and objection-handling playbook.
 
 ---
 
 ## 1. Meeting Objective
 Your mission for this meeting is clear, strategic, and professional:
-1. **Demonstrate Business Value:** Show Sheriff how the unified digital prototype solves order loss, speeds up prep times, and provides management visibility.
-2. **Obtain Directional Sign-off:** Confirm that Sheriff is excited about the visual and functional design direction.
+1. **Demonstrate Business Value:** Show the owner how the unified digital prototype solves order loss, speeds up prep times, and provides management visibility.
+2. **Obtain Directional Sign-off:** Confirm that the owner is excited about the visual and functional design direction.
 3. **Collect Content & Settings:** Gather the missing official operational details to prepare for launch.
-4. **Approve a Paid Upgrade Package:** Help Sheriff select the optimal paid pricing package (Option 1, 2, or 3) to move into production.
+4. **Approve a Paid Upgrade Package:** Help the owner select the optimal paid pricing package (Option 1, 2, or 3) to move into production.
 5. **Agree on Timelines & Financials:** Secure the upfront payment deposit to kick off custom domain deployment and security hardening.
 
 ---
@@ -29,13 +29,13 @@ Your mission for this meeting is clear, strategic, and professional:
   - Tab 9: Contact Page (`/contact`)
 * [ ] **Pre-test the Workflow:**
   - Submit a test order from the menu and watch it synchronize instantly to the staff, kitchen, and manager dashboards.
-  - Complete the test order to clear the screen before Sheriff arrives.
+  - Complete the test order to clear the screen before the owner arrives.
 * [ ] **Hardware Readiness:**
   - Confirm both your presentation laptop and mobile testing phone are charged to 100%.
   - Verify your mobile data / Wi-Fi internet connection is stable and fast.
 * [ ] **Materials Checklist:**
   - Have the **Pricing Packages** ready (Option 1, 2, and 3 details).
-  - Print or have open the **Owner Information Checklist** to write down Sheriff's answers.
+  - Print or have open the **Owner Information Checklist** to write down the owner's answers.
 
 ---
 
@@ -46,7 +46,7 @@ Your mission for this meeting is clear, strategic, and professional:
    - *What to Show:* The premium, modern dark-luxury aesthetic.
    - *What to Say:* *"This is the premium face of Chikini Monie. It builds instant authority, loads immediately on mobile, and proves we are a world-class restaurant brand."*
    - *Business Value:* Brand trust and elite local positioning.
-   - *What Not to Overclaim:* Do not state that the locations or phone numbers are final—clarify they are pending Sheriff's confirmation.
+   - *What Not to Overclaim:* Do not state that the locations or phone numbers are final—clarify they are pending the owner's confirmation.
 
 2. **Customer Order Path (`/menu` $\rightarrow$ `/order`)**
    - *What to Show:* Swiping menu categories, adding a meal to the cart, and viewing checkout fields.
@@ -76,7 +76,7 @@ Your mission for this meeting is clear, strategic, and professional:
 ---
 
 ## 4. Owner Information to Collect
-*Use this checklist to write down Sheriff's confirmed data:*
+*Use this checklist to write down the owner's confirmed data:*
 
 * **Official Branding:**
   - [ ] Correct spelling of the restaurant/hub name.
@@ -103,9 +103,9 @@ Your mission for this meeting is clear, strategic, and professional:
 ---
 
 ## 5. Decision Questions
-*Keep these specific questions ready to help Sheriff select a package:*
+*Keep these specific questions ready to help the owner select a package:*
 
-1. *"Sheriff, do you want this to remain a cloud prototype for testing, or are you ready to launch this live on your own custom domain for real public ordering?"*
+1. *"Sir, do you want this to remain a cloud prototype for testing, or are you ready to launch this live on your own custom domain for real public ordering?"*
 2. *"Which level of operational control fits your immediate budget: Option 1 (Launch Polish), Option 2 (Production Core), or Option 3 (Full Operations Platform with live Paystack card payments and WhatsApp notifications)?"*
 3. *"Do you want to integrate Paystack card/bank payments immediately at launch, or do you prefer collecting manual bank transfers on delivery first?"*
 4. *"Do you want automated WhatsApp receipts sent to customers at launch, or should we add that workflow integration later?"*
@@ -121,7 +121,7 @@ Your mission for this meeting is clear, strategic, and professional:
 ### 🎙️ The Dialogue Playbook
 
 * **Opening the Meeting:**
-  > *"Sheriff, thank you for your time. Today, I'm thrilled to show you the digital operations suite we have built for Chikini Monie. This is not just a standard, static website. It is an active business hub designed to take the brand from a popular local spot to a highly coordinated digital food operation."*
+  > *"Sir, thank you for your time. Today, I'm thrilled to show you the digital operations suite we have built for Chikini Monie. This is not just a standard, static website. It is an active business hub designed to take the brand from a popular local spot to a highly coordinated digital food operation."*
 
 * **The Core Walkthrough (Connecting the Dots):**
   > *"First, our customer page at `chikini-monie-one.vercel.app` is built to load instantly on mobile devices, immediately positioning us as Akure's premier brand. When customers visit `/menu`, they experience a modern, interactive checkout. They select their food and customize toppings in a few taps.
@@ -136,10 +136,10 @@ Your mission for this meeting is clear, strategic, and professional:
 ---
 
 ## 7. Objection Handling
-*Smart, professional answers to potential concerns Sheriff might raise.*
+*Smart, professional answers to potential concerns the owner might raise.*
 
 * **Objection: "Why is this not priced like a normal website?"**
-  - *Response:* *"Sheriff, a normal website is just a static digital brochure—it doesn't do any work for your business. What we have built is a unified digital operations system. It connects your customers, staff, kitchen, and management through a live cloud database. It is a business tool designed to prevent lost tickets, stop revenue leakage, and enable you to scale to multiple branches."*
+  - *Response:* *"Sir, a normal website is just a static digital brochure—it doesn't do any work for your business. What we have built is a unified digital operations system. It connects your customers, staff, kitchen, and management through a live cloud database. It is a business tool designed to prevent lost tickets, stop revenue leakage, and enable you to scale to multiple branches."*
 
 * **Objection: "Can we start small?"**
   - *Response:* *"Yes, absolutely! That is why we structured this into options. We can start with the **Launch Polish Package ($400-$600)** to connect your domain and set up your menu, or the **Production Core System ($900-$1,200)** to secure staff dashboards with passwords."*
@@ -181,9 +181,9 @@ Your mission for this meeting is clear, strategic, and professional:
 ---
 
 ## 9. After-Meeting Follow-Up Message
-*Copy and paste this message to Sheriff’s WhatsApp within 1 hour after the meeting.*
+*Copy and paste this message to the owner’s WhatsApp within 1 hour after the meeting.*
 
-> *"Hi Sheriff, thank you for your time today! I really enjoyed walking you through the Chikini Monie digital operations prototype. I'm excited to hear how much you liked the instant order sync, staff dashboard, and kitchen display.
+> *"Hi, thank you for your time today! I really enjoyed walking you through the Chikini Monie digital operations prototype. I'm excited to hear how much you liked the instant order sync, staff dashboard, and kitchen display.
 >
 > To take this from our successful preview to a secure, live production site on your custom domain, we are ready to take the next step. As discussed, the **Production Core Package ($900-$1,200)** is our smartest path to configure secure staff passwords and prepare the production database.
 >
