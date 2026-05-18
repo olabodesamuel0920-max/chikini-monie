@@ -16,7 +16,7 @@
 | **`/`** (Brand Portal) | Landing aesthetic, Abula Backyard | *"This is our premium brand presence. It builds massive customer trust and positions us as Akure's digital leader."* |
 | **`/menu`** (Digital Menu) | Category browsing, food custom toppings | *"Customers select precisely what swallow or chicken size they want, preventing manual order errors."* |
 | **`/order`** (Checkout Path) | Cart review, checkout form details | *"Instead of Instagram back-and-forth, the customer reviews their total and submits checkout details directly."* |
-| **`/staff`** (Staff Board) | Test order popping up | *"Front-desk staff see details and accept the order immediately. This stops order leakage."* |
+| **`/staff`** (Staff Board) | Test order popping up | *"Front-desk staff see details and accept the order immediately. This reduces missed handoffs."* |
 | **`/kitchen`** (Kitchen KDS) | Active preparing column queue | *"Kitchen staff see digital tickets instantly. No more paper, no missed dishes, absolute prep control."* |
 | **`/manager`** (Insights) | Peak hour charts, sales logs | *"As the owner, you get high-level visibility of sales, peak hours, and branch metrics from any phone."* |
 | **`/demo`** (Control Hub) | Interactive system simulator | *"This is our sandbox control center, allowing us to simulate full order operations without breaking live data."* |
@@ -29,7 +29,7 @@
 ## 3. Main Value Points (Pitch Core)
 * **Better Brand Authority:** Instantly positions Chikini Monie as Akure's elite food destination.
 * **Frictionless Digital Menu:** Direct category browsing reduces customer wait times.
-* **Zero-Leak Order Flow:** Automatically digitizes orders instead of messy social media typing.
+* **Clearer Order Tracking Preview:** Automatically digitizes orders instead of messy social media typing.
 * **Desk Verification Control:** Front desk accepted orders coordinate instantly.
 * **Chefs KDS Visibility:** Kitchen staff see active tickets clearly on wall screens.
 * **Executive Performance Tracking:** Owner gets real-world metrics oversight from anywhere.
