@@ -76,28 +76,38 @@ const BranchCard = ({ branch }: BranchCardProps) => {
         </div>
       </div>
 
-      <div className="relative z-10 mt-auto">
-        <button 
-          disabled={isComingSoon || isPending}
-          className={cn(
-            "w-full py-4 rounded-xl border transition-all duration-300 font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-2",
-            isActive 
-              ? "premium-gradient text-white border-transparent shadow-lg shadow-primary/10 hover:scale-[1.02]" 
-              : "bg-white/[0.03] border-white/[0.05] text-white hover:bg-white/[0.08]",
-            (isComingSoon || isPending) && "cursor-not-allowed opacity-50"
-          )}
-        >
-          {isComingSoon 
-            ? "Hub Expansion Planned" 
-            : isActive 
-              ? "View Hub Preview" 
-              : "Location Pending Confirmation"}
-          {isActive && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
-        </button>
+      <div className="relative z-10 mt-auto space-y-4">
+        {!isComingSoon ? (
+          <a
+            href={
+              branch.id === "futa-south"
+                ? "https://www.google.com/maps/search/?api=1&query=FUTA+South+Gate+Akure"
+                : "https://www.google.com/maps/search/?api=1&query=Agape+Junction+Akure"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "w-full py-4 rounded-xl border transition-all duration-300 font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer",
+              isActive 
+                ? "premium-gradient text-white border-transparent shadow-lg shadow-primary/10" 
+                : "bg-white/[0.03] border-white/[0.05] text-white hover:bg-white/[0.08]"
+            )}
+          >
+            <span>View Map Search</span>
+            <Navigation className="w-4 h-4 text-white" />
+          </a>
+        ) : (
+          <button 
+            disabled
+            className="w-full py-4 rounded-xl border border-white/[0.05] bg-white/[0.03] text-gray-500 font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed opacity-50"
+          >
+            Hub Expansion Planned
+          </button>
+        )}
 
-        {!isActive && !isComingSoon && (
-          <p className="text-[8px] text-gray-600 font-bold uppercase tracking-widest text-center mt-4">
-            Pending management approval
+        {!isComingSoon && (
+          <p className="text-[8px] text-gray-500 font-bold uppercase tracking-widest text-center leading-relaxed">
+            * Final map pins and official directions pending management confirmation.
           </p>
         )}
       </div>

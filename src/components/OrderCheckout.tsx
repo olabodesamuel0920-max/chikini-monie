@@ -213,11 +213,33 @@ export default function OrderCheckout() {
                 </div>
               </div>
 
-              <div className="p-6 bg-white/5 rounded-3xl border border-white/5 flex items-start gap-4">
-                <Info className="w-5 h-5 text-gray-500 mt-1 shrink-0" />
-                <p className="text-[10px] text-gray-500 font-bold leading-relaxed uppercase tracking-wider">
-                  This is a demonstration of the Chikini Monie digital hub. No real payments are processed and no physical food will be delivered in this session.
-                </p>
+              <div className="space-y-6">
+                <div className="p-6 bg-[#ff6600]/5 border border-[#ff6600]/20 rounded-3xl space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Info className="w-5 h-5 text-primary shrink-0" />
+                    <h4 className="font-extrabold text-sm text-primary uppercase tracking-wider font-heading">Payment Preview</h4>
+                  </div>
+                  <p className="text-[10px] text-gray-400 font-bold leading-relaxed uppercase tracking-wider">
+                    Payment is NOT active in this business review preview. No real customer banking or card data should be used in this demo mode.
+                  </p>
+                  <div className="pt-3 border-t border-white/5">
+                    <p className="text-[9px] text-gray-500 font-bold uppercase tracking-wider mb-2">Production Options (Pending CEO Selection):</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[9px] text-gray-400 font-bold uppercase tracking-wider">
+                      <li className="flex items-center gap-1.5"><span className="text-primary">•</span> Pay on Delivery</li>
+                      <li className="flex items-center gap-1.5"><span className="text-primary">•</span> Bank transfer confirmation workflow</li>
+                      <li className="flex items-center gap-1.5"><span className="text-primary">•</span> POS / Counter Payment</li>
+                      <li className="flex items-center gap-1.5"><span className="text-primary">•</span> Paystack Online Pay</li>
+                      <li className="flex items-center gap-1.5 sm:col-span-2"><span className="text-primary">•</span> WhatsApp Payment Confirm</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-white/5 rounded-3xl border border-white/5 flex items-start gap-4">
+                  <Info className="w-5 h-5 text-gray-500 mt-1 shrink-0" />
+                  <p className="text-[10px] text-gray-500 font-bold leading-relaxed uppercase tracking-wider">
+                    This is a business review prototype. Demo orders will appear instantly on the operational dashboards for workflow preview.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

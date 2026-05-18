@@ -230,6 +230,109 @@ export default function PitchPage() {
           </div>
         </section>
 
+        {/* Today's Showcase / Counter Display Workflow */}
+        <section className="mb-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7 space-y-10">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary border border-primary/20">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <span className="text-primary font-bold text-[10px] uppercase tracking-[0.4em] font-heading">Counter & Showcase Workflow</span>
+              </div>
+              <h2 className="text-4xl md:text-7xl font-extrabold uppercase tracking-tight leading-none font-heading">PHYSICAL <span className="italic text-white">GLASS</span> <br /><span className="text-primary italic">SHOWCASE INTEGRATION.</span></h2>
+              <p className="text-gray-500 text-lg leading-relaxed font-medium">
+                Chikini Monie operates with a gorgeous physical showcase style, where customers view available meals in a glass counter display upon entering. The future production platform can layer directly over this physical experience, keeping in-store and online systems beautifully aligned.
+              </p>
+              
+              <div className="p-8 bg-[#ff6600]/5 border border-[#ff6600]/20 rounded-3xl space-y-4">
+                <span className="text-[10px] font-bold text-[#ff6600] uppercase tracking-wider block">Real-World Counter Logic (Future Upgrade):</span>
+                <p className="text-gray-400 text-sm leading-relaxed font-medium italic">
+                  "Food Displayed → Customer Chooses → Staff Packs/Serves → Order is Digitally Recorded → Manager Sees In-Store & Online Activity Sync."
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 space-y-8">
+              <div className="glass-premium p-10 rounded-[3rem] border border-white/5 space-y-6 shadow-2xl">
+                <h4 className="font-extrabold text-xl uppercase tracking-tight font-heading text-white">Future Production Upgrades</h4>
+                <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Enhancing in-store glass showcase operations:</p>
+                <ul className="space-y-4 text-xs font-bold text-gray-400 uppercase tracking-widest leading-relaxed">
+                  <li className="flex items-center gap-3"><span className="text-primary text-lg">•</span> Daily "Today's Showcase" Board</li>
+                  <li className="flex items-center gap-3"><span className="text-primary text-lg">•</span> Available / Limited / Sold Out Status</li>
+                  <li className="flex items-center gap-3"><span className="text-primary text-lg">•</span> Internal Counter Order Mode</li>
+                  <li className="flex items-center gap-3"><span className="text-primary text-lg">•</span> Real-time Portion Tracking</li>
+                  <li className="flex items-center gap-3"><span className="text-primary text-lg">•</span> In-Store Digital Showcase Screen</li>
+                  <li className="flex items-center gap-3"><span className="text-primary text-lg">•</span> Manager Food Availability Insights</li>
+                </ul>
+                <div className="p-4 bg-white/5 rounded-2xl text-[9px] text-gray-500 font-bold uppercase tracking-widest text-center">
+                  * Optional production upgrade subject to CEO approval
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Production Activation Checklist */}
+        <section className="mb-40">
+          <div className="glass-premium p-16 md:p-24 rounded-[4rem] border border-white/5 relative overflow-hidden shadow-2xl font-body bg-white/[0.01]">
+            <div className="absolute top-0 left-0 w-full h-full bg-white/[0.01] pointer-events-none" />
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <div className="text-center mb-16">
+                <span className="text-[#d4af37] font-bold text-xs uppercase tracking-[0.4em] mb-4 block font-heading">Launch Readiness</span>
+                <h2 className="text-4xl md:text-7xl font-extrabold uppercase tracking-tight leading-none font-heading text-white">PRODUCTION <span className="italic text-primary">ACTIVATION CHECKLIST.</span></h2>
+                <p className="text-gray-500 text-lg mt-4 font-medium">To transition the prototype into a fully secured, live public system on your own custom domain, we will need the following details from management:</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-xs font-bold text-gray-400 uppercase tracking-widest leading-relaxed">
+                <div className="space-y-6">
+                  <h4 className="text-lg font-bold uppercase tracking-tight font-heading text-white border-b border-white/5 pb-2 text-primary">1. Content & Branding</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> Final Menu Items & Category Names</li>
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> Official Menu Pricing Sheet</li>
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> High-Resolution Food & Signature Photos</li>
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> Official Corporate Logos & Brand Palette</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-6">
+                  <h4 className="text-lg font-bold uppercase tracking-tight font-heading text-white border-b border-white/5 pb-2 text-primary">2. Operations & Branch Setup</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> Confirmed Branch Addresses & Maps Links</li>
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> Hub Opening Hours (24/7 Service Confirmation)</li>
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> Staff & Kitchen Access Authorization List</li>
+                    <li className="flex items-center gap-3"><span className="text-[#d4af37]">✔</span> Delivery Dispatch Zones & Pricing Matrix</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-6 md:col-span-2">
+                  <h4 className="text-lg font-bold uppercase tracking-tight font-heading text-white border-b border-white/5 pb-2 text-primary text-center">3. Infrastructure & Payments</h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2">
+                    <li className="flex flex-col items-center text-center gap-2 p-4 bg-white/5 border border-white/5 rounded-2xl">
+                      <span className="text-lg text-primary">🌐</span>
+                      <span>Preferred Domain Name<br /><span className="text-[10px] text-gray-500">(Pending domain selection & approval)</span></span>
+                    </li>
+                    <li className="flex flex-col items-center text-center gap-2 p-4 bg-white/5 border border-white/5 rounded-2xl">
+                      <span className="text-lg text-primary">💳</span>
+                      <span>Approved Payment Flow<br /><span className="text-[10px] text-gray-500">(Paystack/POD/Bank Transfer)</span></span>
+                    </li>
+                    <li className="flex flex-col items-center text-center gap-2 p-4 bg-white/5 border border-white/5 rounded-2xl">
+                      <span className="text-lg text-primary">💬</span>
+                      <span>WhatsApp Notification Lines<br /><span className="text-[10px] text-gray-500">(For automated order alerts)</span></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-16 p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
+                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed">
+                  * All infrastructure elements will be secured, hardened, and locked with password-protected staff dashboards in the final production upgrade stage.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Why This Matters */}
         <section className="mb-40 py-24 glass-premium rounded-[5rem] border border-primary/10 relative overflow-hidden shadow-2xl font-body bg-primary/[0.01]">
           <div className="max-w-4xl mx-auto px-10">
