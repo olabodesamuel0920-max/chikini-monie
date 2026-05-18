@@ -169,12 +169,12 @@ Your mission for this meeting is clear, strategic, and professional:
 |   - Final menu loading, custom domain connection, and basic demo polish.      |
 +--------------------------------------------------------------------------------+
 | OPTION 2: Production Core System (RECOMMENDED)       | $900 - $1,200            |
-|   - Hardened database setup, private password logins for staff & kitchen,     |
-|     and full operational flow with bank transfer/cash on delivery support.     |
+|   - Hardened database, private passwords, and bank/cash delivery support.     |
+|   - Basic "Today's Showcase" (Available / Limited / Sold Out display).        |
 +--------------------------------------------------------------------------------+
 | OPTION 3: Full Operations Platform                  | $1,800 - $2,500          |
-|   - Direct Paystack integration, automated WhatsApp notifications, live       |
-|     menu editing controls, and full multi-branch routing systems.              |
+|   - Option 2 + direct Paystack payments, automated WhatsApp receipts, and     |
+|     full Counter Display System (portion tracking and counter order mode).     |
 +--------------------------------------------------------------------------------+
 ```
 
@@ -201,3 +201,29 @@ Your mission for this meeting is clear, strategic, and professional:
 * **Do NOT say** staff login dashboards are secure. Explain that **private password configurations** are included in the Option 2 package.
 * **Do NOT say** delivery riders are integrated. State that **delivery rules** are finalized during the content setup.
 * **Do NOT say** this software guarantees a specific sales increase. Pitch it as a tool for **maximum operational control, order leak prevention, and brand authority**.
+
+---
+
+## 11. Today's Showcase & Counter Display Workflow (Future Upgrade Option)
+*Translating Chikini Monie’s physical food showcase into a digital system.*
+
+* **Why we recommend it:**
+  Chikini Monie operates in a showcase style, where walk-in customers look inside the glass counter display to choose their meals. A direct online ordering page can be enhanced to match this dynamic physical style.
+
+* **How to present this concept to the owner:**
+  Use the dedicated showcase meeting script:
+
+  > *"Sir, one thing I noticed about Chikini Monie is that the business already works with a physical display/counter style. When customers enter, they can already see many of the available meals inside the glass showcase.
+  >
+  > So this platform should not just work like a normal restaurant website where every order goes straight to kitchen preparing. The better production version should match how Chikini Monie actually operates.
+  >
+  > We can add what I call a Today’s Showcase or Counter Display System. This means staff can update what is available today, what is limited, what is sold out, and what is coming later.
+  >
+  > For example, if Jollof Rice is available, Chicken is limited, or Turkey is sold out, the system can show that clearly. This can help customers understand what is available before ordering, and it can help staff avoid confusion.
+  >
+  > For the internal side, staff can also have a Counter Order Mode, where they quickly tap the items a customer picks from the showcase, record the order, and mark it as served or completed.
+  >
+  > So the future version is not just online ordering. It can support your real in-store workflow: food displayed → customer chooses → staff packs or serves → order is recorded → manager sees activity.
+  >
+  > This is why I see the platform as more than a website. It can become a digital layer around how Chikini Monie already works physically."*
+

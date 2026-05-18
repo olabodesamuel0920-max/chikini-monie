@@ -106,6 +106,7 @@ This guide provides a comprehensive selling blueprint to present the Chikini Mon
 |   - Security hardening: private passwords for staff & manager dashboards.      |
 |   - Controlled production database setup.                                      |
 |   - Standard delivery pricing & branch dispatch configuration.                 |
+|   - Basic "Today's Showcase" (Available / Limited / Sold Out status display).  |
 +--------------------------------------------------------------------------------+
 | OPTION 3: Full Operations Platform                  | $1,800 - $2,500          |
 |   - All Option 2 features included.                                            |
@@ -113,6 +114,8 @@ This guide provides a comprehensive selling blueprint to present the Chikini Mon
 |   - WhatsApp automated order receipt notifications.                            |
 |   - Full management admin controls to edit menu/prices in real-time.           |
 |   - Premium multi-branch dispatch routing.                                     |
+|   - Full Counter Display System (portion tracking, counter order mode, digital |
+|     showcase screen integration, and manager availability insights).           |
 +--------------------------------------------------------------------------------+
 | MONTHLY MAINTENANCE & CLOUD HOSTING                 | $100 - $250 / month      |
 |   - Secure Supabase database maintenance and Vercel hosting management.       |
@@ -183,3 +186,30 @@ This guide provides a comprehensive selling blueprint to present the Chikini Mon
 > I have attached the quick confirmation checklist for final menu items and prices. Let me know which package you’d like to go with, and we can initiate setup this week!
 >
 > Preview link for reference: https://chikini-monie-one.vercel.app/"*
+
+---
+
+## 11. Physical Glass Showcase & Counter Workflow (Future Upgrade Option)
+*Integrating Chikini Monie's in-store display aesthetic with a digital layer.*
+
+* **The Concept:**
+  Chikini Monie operates with a physical food showcase/counter style, where customers can see available meals inside a glass display when they enter. The future production system can match this real-world workflow with a **“Today’s Showcase”** or **“Counter Display System”** feature.
+
+* **Meeting Script to Show the Digital Layer Strategy:**
+  > *"Sir, one thing I noticed about Chikini Monie is that the business already works with a physical display/counter style. When customers enter, they can already see many of the available meals inside the glass showcase.
+  >
+  > So this platform should not just work like a normal restaurant website where every order goes straight to kitchen preparing. The better production version should match how Chikini Monie actually operates.
+  >
+  > We can add what I call a Today’s Showcase or Counter Display System. This means staff can update what is available today, what is limited, what is sold out, and what is coming later.
+  >
+  > For example, if Jollof Rice is available, Chicken is limited, or Turkey is sold out, the system can show that clearly. This can help customers understand what is available before ordering, and it can help staff avoid confusion.
+  >
+  > For the internal side, staff can also have a Counter Order Mode, where they quickly tap the items a customer picks from the showcase, record the order, and mark it as served or completed.
+  >
+  > So the future version is not just online ordering. It can support your real in-store workflow: food displayed → customer chooses → staff packs or serves → order is recorded → manager sees activity.
+  >
+  > This is why I see the platform as more than a website. It can become a digital layer around how Chikini Monie already works physically."*
+
+* **Safety Compliance Note:**
+  This feature is entirely a future production upgrade. Do not claim it is currently active in the review prototype. Explain it as an optional operational addition to be configured upon upgrading to Option 2 or Option 3.
+

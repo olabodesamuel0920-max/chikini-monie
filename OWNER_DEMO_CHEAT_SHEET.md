@@ -52,9 +52,9 @@
 * **Option 1: Launch Polish Package** ($400 - $600)
   * Final menu, prices, brand assets loaded + custom domain connected.
 * **Option 2: Production Core System** ($900 - $1,200) *(RECOMMENDED)*
-  * Hardened database, private staff/kitchen passwords, active desk dispatch.
+  * Hardened database, private staff/kitchen passwords, active desk dispatch, and basic Today's Showcase (Available / Limited / Sold Out status display).
 * **Option 3: Full Operations Platform** ($1,800 - $2,500)
-  * Live card/bank payments via Paystack, automated WhatsApp receipts, manager edit tools.
+  * Live card/bank payments via Paystack, automated WhatsApp receipts, manager edit tools, and full Counter Display System (counter order mode, portion tracking, and digital showcase display integration).
 * **Monthly Support & Cloud Hosting:** $100 - $250 / month.
 
 ---
@@ -81,3 +81,26 @@
 
 ## 8. Closing Line
 > *"Sir, the next step is to confirm the final business details and choose the production package that matches how far you want to take this."*
+
+---
+
+## 9. Glass Showcase & Counter Display Workflow (Future Upgrade)
+* **The Opportunity:** Match Chikini Monie’s real in-store glass showcase display.
+* **The Presentation Pitch:**
+  > *"Sir, one thing I noticed about Chikini Monie is that the business already works with a physical display/counter style. When customers enter, they can already see many of the available meals inside the glass showcase.
+  >
+  > So this platform should not just work like a normal restaurant website where every order goes straight to kitchen preparing. The better production version should match how Chikini Monie actually operates.
+  >
+  > We can add what I call a Today’s Showcase or Counter Display System. This means staff can update what is available today, what is limited, what is sold out, and what is coming later.
+  >
+  > For example, if Jollof Rice is available, Chicken is limited, or Turkey is sold out, the system can show that clearly. This can help customers understand what is available before ordering, and it can help staff avoid confusion.
+  >
+  > For the internal side, staff can also have a Counter Order Mode, where they quickly tap the items a customer picks from the showcase, record the order, and mark it as served or completed.
+  >
+  > So the future version is not just online ordering. It can support your real in-store workflow: food displayed → customer chooses → staff packs or serves → order is recorded → manager sees activity.
+  >
+  > This is why I see the platform as more than a website. It can become a digital layer around how Chikini Monie already works physically."*
+* **Pricing Integration:**
+  - **Option 2:** Includes basic Today's Showcase (Available / Limited / Sold Out status display).
+  - **Option 3:** Includes full Counter Display System (counter order mode, portion tracking, and digital showcase display integration).
+
