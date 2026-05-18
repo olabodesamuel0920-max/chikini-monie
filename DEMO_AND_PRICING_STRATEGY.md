@@ -104,7 +104,7 @@ This guide provides a comprehensive selling blueprint to present the Chikini Mon
 | OPTION 2: Production Core System                    | $900 - $1,200            |
 |   - All Option 1 features included.                                            |
 |   - Security hardening: private passwords for staff & manager dashboards.      |
-|   - Production database setup with real order storage.                         |
+|   - Controlled production database setup.                                      |
 |   - Standard delivery pricing & branch dispatch configuration.                 |
 +--------------------------------------------------------------------------------+
 | OPTION 3: Full Operations Platform                  | $1,800 - $2,500          |
@@ -127,7 +127,7 @@ This guide provides a comprehensive selling blueprint to present the Chikini Mon
 *The strategic recommendation to present to the business owner:*
 
 * **The Smartest Choice: Option 2 (Production Core System)**
-  * **Why:** This is the most practical entry point for an active restaurant. It secures your dashboards with custom passwords, stores real customer orders, and gives the owner secure control without the high initial cost of direct online payments. You can start taking real orders immediately, with payments collected via traditional bank transfer or cash on delivery.
+  * **Why:** This is the most practical entry point for an active restaurant. It secures your dashboards with custom passwords, provides a controlled production database setup, and gives the owner secure control without the high initial cost of direct online payments. You can start taking real orders immediately, with payments collected via traditional bank transfer or cash on delivery.
 * **Alternative 1: Option 1 (Launch Polish Package)**
   * **Why:** Best if the owner only wants a branded informational site for now and is not ready to coordinate digital order workflows with staff and kitchen.
 * **Alternative 2: Option 3 (Full Operations Platform)**
@@ -178,7 +178,7 @@ This guide provides a comprehensive selling blueprint to present the Chikini Mon
 
 > *"Hi Sheriff, thank you for taking the time to review the Chikini Monie digital operations prototype today! I'm thrilled to see how the cloud demo sync, staff board, and kitchen display fit your vision for scaling the business.
 >
-> To take this from our successful preview to a secure, live production site on your custom domain, we are ready to move forward. As discussed, the smartest path is the **Production Core Package ($900-$1,200)** to lock down staff passwords and prepare real order storage.
+> To take this from our successful preview to a secure, live production site on your custom domain, we are ready to move forward. As discussed, the smartest path is the **Production Core Package ($900-$1,200)** to lock down staff passwords and prepare a controlled production database setup.
 >
 > I have attached the quick confirmation checklist for final menu items and prices. Let me know which package you’d like to go with, and we can initiate setup this week!
 >
