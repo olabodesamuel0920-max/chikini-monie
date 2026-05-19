@@ -1,4 +1,4 @@
-// Verified safe preview copywriting - Final Wording Polish
+// Verified safe preview copywriting - Final Staff Clarity Wording Polish
 "use client";
 
 import Navbar from "@/components/Navbar";
