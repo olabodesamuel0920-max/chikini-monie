@@ -14,7 +14,7 @@ const Footer = () => {
             <span className="font-extrabold text-2xl tracking-tighter gold-text uppercase font-heading">CHIKINI MONIE.</span>
           </Link>
           <p className="text-gray-500 font-medium leading-relaxed">
-            Akure's premium 24/7 digital food destination. Uncompromising taste for every craving. Built for the bold.
+            Akure's premium digital food preview. Uncompromising taste for every craving. Built for the bold.
           </p>
           <div className="flex items-center gap-4">
             {[Instagram, MessageCircle, Twitter, Facebook].map((Icon, idx) => (

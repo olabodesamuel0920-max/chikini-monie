@@ -165,7 +165,7 @@ export default function PitchPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10">
             {[
-              { title: "Unified Ordering", desc: "A premium digital storefront that eliminates social media order chaos and verification delays." },
+              { title: "Unified Ordering", desc: "A premium digital storefront that is designed to reduce social media order confusion and verification delays." },
               { title: "Staff Clarity", desc: "Real-time boards that ensure staff always know what needs to be confirmed and served." },
               { title: "Kitchen Precision", desc: "Digital tickets help staff reduce missed handoffs." },
               { title: "Owner Dashboard", desc: "Owner can review performance data from supported devices." },
@@ -281,7 +281,7 @@ export default function PitchPage() {
               <div className="text-center mb-16">
                 <span className="text-[#d4af37] font-bold text-xs uppercase tracking-[0.4em] mb-4 block font-heading">Launch Readiness</span>
                 <h2 className="text-4xl md:text-7xl font-extrabold uppercase tracking-tight leading-none font-heading text-white">PRODUCTION <span className="italic text-primary">ACTIVATION CHECKLIST.</span></h2>
-                <p className="text-gray-500 text-lg mt-4 font-medium">To transition the prototype into a fully secured, live public system on your own custom domain, we will need the following details from management:</p>
+                <p className="text-gray-500 text-lg mt-4 font-medium">To transition the prototype into a production-ready public system after final access, security, and operations setup on your own custom domain, we will need the following details from management:</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-xs font-bold text-gray-400 uppercase tracking-widest leading-relaxed">
@@ -326,7 +326,7 @@ export default function PitchPage() {
 
               <div className="mt-16 p-8 bg-white/5 border border-white/10 rounded-3xl text-center">
                 <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed">
-                  * All infrastructure elements will be secured, hardened, and locked with password-protected staff dashboards in the final production upgrade stage.
+                  * Production infrastructure can be configured with controlled access, staff dashboards, and security hardening during the final upgrade stage.
                 </p>
               </div>
             </div>

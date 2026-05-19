@@ -26,7 +26,7 @@ export default function BranchesPage() {
               PREVIEW OUR <br /><span className="italic text-white text-5xl md:text-7xl">BRANCHES.</span>
             </h1>
             <p className="text-gray-500 text-xl md:text-2xl leading-relaxed max-w-3xl font-medium">
-              Chikini Monie is strategically expanding across Akure to ensure 24/7 craving coverage. Find our active preview hubs or stay updated on upcoming locations.
+              Chikini Monie is strategically expanding across Akure to ensure flexible branch coverage. Find our active preview hubs or stay updated on upcoming locations.
             </p>
           </motion.div>
         </div>
