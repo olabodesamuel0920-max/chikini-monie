@@ -166,7 +166,7 @@ export default function PitchPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10">
             {[
               { title: "Unified Ordering", desc: "A premium digital storefront that is designed to reduce social media order confusion and verification delays." },
-              { title: "Staff Clarity", desc: "Real-time boards that ensure staff always know what needs to be confirmed and served." },
+              { title: "Staff Clarity", desc: "Preview boards help staff understand what may need confirmation, serving, or follow-up." },
               { title: "Kitchen Precision", desc: "Digital tickets help staff reduce missed handoffs." },
               { title: "Owner Dashboard", desc: "Owner can review performance data from supported devices." },
               { title: "Brand Premium", desc: "A world-class digital presence that builds massive trust with corporate and high-end clients." },
