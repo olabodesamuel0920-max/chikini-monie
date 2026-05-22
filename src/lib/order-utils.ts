@@ -17,7 +17,7 @@ export interface Order {
   items: OrderItem[];
   total: number;
   orderType: "Dine-in" | "Takeaway" | "Delivery";
-  paymentStatus: "Pay on pickup/delivery" | "Transfer pending";
+  paymentStatus: string;
   status: OrderStatus;
   createdAt: string;
 }

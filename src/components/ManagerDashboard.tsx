@@ -282,6 +282,7 @@ export default function ManagerDashboard() {
               This analytics dashboard is for structural demonstration only. 
               It is not connected to live business records or banking systems. 
               No real financial commitments or operational data should be used. 
+              Payment statuses are preview-only and not connected to live banking or payment processors.
               Pending final management confirmation of reporting requirements.
             </p>
           </div>

@@ -105,8 +105,20 @@ const OrderCard = ({ order, onUpdate, showActions = true, isKitchenView = false 
             <span>{order.branch}</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className={`w-2 h-2 rounded-full ${order.paymentStatus.includes("Transfer") ? "bg-orange-500 animate-pulse" : "bg-green-500"}`} />
-            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">{order.paymentStatus}</span>
+            <div className={`w-2 h-2 rounded-full ${
+              (order.paymentStatus || "").includes("Confirmed") || (order.paymentStatus || "").includes("Success")
+                ? "bg-green-500"
+                : (order.paymentStatus || "").includes("Pending") || (order.paymentStatus || "").includes("Transfer")
+                ? "bg-orange-500 animate-pulse"
+                : "bg-blue-500"
+            }`} />
+            <span className={`text-[10px] font-bold uppercase tracking-wider ${
+              (order.paymentStatus || "").includes("Confirmed") || (order.paymentStatus || "").includes("Success")
+                ? "text-green-400"
+                : (order.paymentStatus || "").includes("Pending") || (order.paymentStatus || "").includes("Transfer")
+                ? "text-orange-400"
+                : "text-gray-400"
+            }`}>{order.paymentStatus || "Demo Only"}</span>
           </div>
         </div>
 
