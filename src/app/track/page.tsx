@@ -33,7 +33,8 @@ import {
   Compass, 
   ClipboardCheck, 
   Info,
-  Calendar
+  Calendar,
+  AlertTriangle
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -101,23 +102,41 @@ function TrackPageContent() {
     setTrackingCode(searchQuery);
   };
 
+  const isDelivery = order?.fulfillmentType === "delivery" || order?.orderType === "Delivery";
+
   // Status timeline steps configuration
-  const timelineSteps = [
-    { title: "Order Placed", key: "received", check: (o: Order) => true },
-    { title: "Confirmed", key: "confirmed", check: (o: Order) => isConfirmedStatus(o.status) || isPreparingStatus(o.status) || isReadyStatus(o.status) || isCompletedStatus(o.status) },
-    { title: "In Kitchen", key: "preparing", check: (o: Order) => isPreparingStatus(o.status) || isReadyStatus(o.status) || isCompletedStatus(o.status) },
-    { title: "Ready / Out", key: "ready", check: (o: Order) => isReadyStatus(o.status) || isCompletedStatus(o.status) },
-    { title: "Completed", key: "completed", check: (o: Order) => isCompletedStatus(o.status) }
-  ];
+  const timelineSteps = isDelivery 
+    ? [
+        { title: "Order Placed", key: "received", check: (o: Order) => true },
+        { title: "Confirmed", key: "confirmed", check: (o: Order) => isConfirmedStatus(o.status) || isPreparingStatus(o.status) || isReadyStatus(o.status) || isCompletedStatus(o.status) || o.status === "issue_reported" },
+        { title: "In Kitchen", key: "preparing", check: (o: Order) => isPreparingStatus(o.status) || isReadyStatus(o.status) || isCompletedStatus(o.status) || o.status === "issue_reported" },
+        { title: "Out for Delivery", key: "out_for_delivery", check: (o: Order) => ["picked_up", "out_for_delivery", "delivered", "completed", "Completed"].includes(o.status) || o.status === "issue_reported" },
+        { title: "Delivered", key: "delivered", check: (o: Order) => ["delivered", "completed", "Completed"].includes(o.status) }
+      ]
+    : [
+        { title: "Order Placed", key: "received", check: (o: Order) => true },
+        { title: "Confirmed", key: "confirmed", check: (o: Order) => isConfirmedStatus(o.status) || isPreparingStatus(o.status) || isReadyStatus(o.status) || isCompletedStatus(o.status) },
+        { title: "In Kitchen", key: "preparing", check: (o: Order) => isPreparingStatus(o.status) || isReadyStatus(o.status) || isCompletedStatus(o.status) },
+        { title: "Ready for Pickup", key: "ready", check: (o: Order) => isReadyStatus(o.status) || isCompletedStatus(o.status) },
+        { title: "Completed", key: "completed", check: (o: Order) => isCompletedStatus(o.status) }
+      ];
 
   // Detect current timeline step index
   const getCurrentStepIndex = () => {
     if (!order) return 0;
-    if (isCompletedStatus(order.status)) return 4;
-    if (isReadyStatus(order.status)) return 3;
-    if (isPreparingStatus(order.status)) return 2;
-    if (isConfirmedStatus(order.status)) return 1;
-    return 0;
+    if (isDelivery) {
+      if (["delivered", "completed", "Completed"].includes(order.status)) return 4;
+      if (["picked_up", "out_for_delivery", "issue_reported"].includes(order.status)) return 3;
+      if (isPreparingStatus(order.status) || order.status === "ready_for_pickup" || order.status === "assigned_to_rider") return 2;
+      if (isConfirmedStatus(order.status)) return 1;
+      return 0;
+    } else {
+      if (isCompletedStatus(order.status)) return 4;
+      if (isReadyStatus(order.status)) return 3;
+      if (isPreparingStatus(order.status)) return 2;
+      if (isConfirmedStatus(order.status)) return 1;
+      return 0;
+    }
   };
 
   const activeStepIdx = getCurrentStepIndex();
@@ -229,6 +248,18 @@ function TrackPageContent() {
                 </div>
 
                 {/* Timeline Render */}
+                {order.status === "issue_reported" && (
+                  <div className="p-8 bg-amber-500/5 border border-amber-500/20 rounded-3xl flex items-start gap-4 mb-8 animate-pulse">
+                    <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-extrabold text-sm uppercase text-amber-500 tracking-wider">Delivery Issue Reported</h4>
+                      <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider leading-relaxed mt-2">
+                        {order.deliveryNote || "Rider reported a delay. Staging tracking details below."}
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 {isCancelledStatus(order.status) ? (
                   <div className="p-8 bg-red-500/5 border border-red-500/20 rounded-3xl flex items-start gap-4">
                     <ShieldAlert className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
@@ -365,6 +396,10 @@ function TrackPageContent() {
                           <h3 className="font-extrabold text-sm uppercase tracking-wider text-white">Rider Dispatch</h3>
                           <span className="text-[8px] font-bold text-accent uppercase tracking-widest">Simulated dispatch sandbox</span>
                         </div>
+                      </div>
+
+                      <div className="bg-primary/10 border border-primary/20 p-4 rounded-2xl text-[10px] text-primary text-center font-bold uppercase tracking-wider leading-relaxed">
+                        Rider location is not live. This page only previews delivery status updates.
                       </div>
 
                       <div className="space-y-5 text-xs font-bold uppercase tracking-widest text-gray-400">

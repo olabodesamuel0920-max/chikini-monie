@@ -53,6 +53,22 @@ export const updateSupabaseOrderStatus = async (orderId: string, status: string)
   return true;
 };
 
+export const updateSupabaseOrder = async (order: Order): Promise<boolean> => {
+  if (!isSupabaseConfigured) return false;
+
+  const { error } = await supabase
+    .from('demo_orders')
+    .update(mapOrderToSupabase(order))
+    .eq('order_code', order.id);
+
+  if (error) {
+    console.error('Error updating Supabase order details:', error);
+    return false;
+  }
+
+  return true;
+};
+
 // Mappers
 const mapOrderToSupabase = (order: Order) => {
   const row: any = {

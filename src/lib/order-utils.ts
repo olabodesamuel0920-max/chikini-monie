@@ -1,7 +1,7 @@
 
 import { MenuItem } from "./demo-data";
 import { isSupabaseConfigured } from "./supabase-client";
-import { saveSupabaseOrder, updateSupabaseOrderStatus } from "./supabase-orders";
+import { saveSupabaseOrder, updateSupabaseOrderStatus, updateSupabaseOrder } from "./supabase-orders";
 
 export interface OrderItem extends MenuItem {
   quantity: number;
@@ -19,11 +19,13 @@ export type OrderStatus =
   | "preparing_or_packing"
   | "ready_for_pickup"
   | "assigned_to_rider"
+  | "picked_up"
   | "out_for_delivery"
   | "delivered"
   | "completed"
   | "cancelled"
-  | "refunded_review";
+  | "refunded_review"
+  | "issue_reported";
 
 export type FulfillmentType = "pickup" | "delivery" | "counter_order" | "showcase_order";
 
@@ -114,10 +116,12 @@ export const getOrderStatusLabel = (status: OrderStatus): string => {
     case "preparing_or_packing": return "Preparing / Packing";
     case "ready_for_pickup": return "Ready for Pickup";
     case "assigned_to_rider": return "Assigned to Rider";
+    case "picked_up": return "Picked Up by Rider";
     case "out_for_delivery": return "Out for Delivery";
     case "delivered": return "Delivered";
     case "completed": return "Completed";
     case "refunded_review": return "Refunded Review";
+    case "issue_reported": return "Delivery Issue Reported";
     default: return status;
   }
 };
@@ -135,7 +139,7 @@ export const isPreparingStatus = (status: OrderStatus): boolean => {
 };
 
 export const isReadyStatus = (status: OrderStatus): boolean => {
-  return ["Ready", "ready_for_pickup", "assigned_to_rider", "out_for_delivery", "delivered"].includes(status);
+  return ["Ready", "ready_for_pickup", "assigned_to_rider", "picked_up", "out_for_delivery", "delivered"].includes(status);
 };
 
 export const isCompletedStatus = (status: OrderStatus): boolean => {
@@ -144,6 +148,25 @@ export const isCompletedStatus = (status: OrderStatus): boolean => {
 
 export const isCancelledStatus = (status: OrderStatus): boolean => {
   return ["Cancelled", "cancelled", "refunded_review"].includes(status);
+};
+
+export const isIssueStatus = (status: OrderStatus): boolean => {
+  return status === "issue_reported";
+};
+
+export const getNextRiderStatus = (currentStatus: OrderStatus): OrderStatus | null => {
+  switch (currentStatus) {
+    case "ready_for_pickup":
+      return "assigned_to_rider";
+    case "assigned_to_rider":
+      return "picked_up";
+    case "picked_up":
+      return "out_for_delivery";
+    case "out_for_delivery":
+      return "delivered";
+    default:
+      return null;
+  }
 };
 
 export const getFulfillmentTypeLabel = (type: FulfillmentType): string => {
@@ -231,6 +254,23 @@ export const updateOrderStatus = async (orderId: string, status: OrderStatus) =>
   if (isSupabaseConfigured) {
     try {
       await updateSupabaseOrderStatus(orderId, status);
+    } catch (e) {
+      console.error("Supabase update failed, relying on localStorage", e);
+    }
+  }
+};
+
+export const updateOrder = async (updatedOrder: Order) => {
+  const enriched = enrichOrder(updatedOrder);
+  const orders = getOrders();
+  const updatedOrders = orders.map((order) =>
+    order.id === enriched.id ? enriched : order
+  );
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedOrders));
+
+  if (isSupabaseConfigured) {
+    try {
+      await updateSupabaseOrder(enriched);
     } catch (e) {
       console.error("Supabase update failed, relying on localStorage", e);
     }

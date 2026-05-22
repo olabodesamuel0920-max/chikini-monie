@@ -1,7 +1,8 @@
 
 "use client";
 
-import { Clock, Phone, MapPin, User, ChevronRight } from "lucide-react";
+import { Clock, Phone, MapPin, User, ChevronRight, AlertTriangle } from "lucide-react";
+import Link from "next/link";
 import { 
   Order, 
   updateOrderStatus, 
@@ -54,7 +55,11 @@ const OrderCard = ({ order, onUpdate, showActions = true, isKitchenView = false 
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="glass-premium rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl font-body"
+      className={`glass-premium rounded-[2.5rem] overflow-hidden border shadow-2xl font-body transition-all duration-300 ${
+        order.status === "issue_reported" 
+          ? "border-red-500/30 bg-red-950/[0.02]" 
+          : "border-white/5"
+      }`}
     >
       <div className="p-8 border-b border-white/5 flex items-center justify-between">
         <div>
@@ -173,10 +178,28 @@ const OrderCard = ({ order, onUpdate, showActions = true, isKitchenView = false 
                     <span className="text-accent">{order.estimatedDeliveryTime}</span>
                   </div>
                 )}
-                <p className="text-[8px] text-gray-600 font-bold uppercase tracking-wider mt-2 border-t border-white/5 pt-2 leading-normal">
-                  Rider dispatch simulation staging. Full dispatch portal unlocks in Phase 3C.
-                </p>
+                <div className="pt-2 mt-2 border-t border-white/5 flex justify-between items-center">
+                  <span className="text-[8px] text-gray-600 font-bold uppercase tracking-wider">Delivery Preview Controls</span>
+                  <Link 
+                    href="/rider" 
+                    className="text-[9px] text-primary hover:underline font-extrabold uppercase tracking-wider flex items-center gap-1"
+                  >
+                    Open Rider Board <ChevronRight className="w-3 h-3" />
+                  </Link>
+                </div>
               </div>
+            </div>
+          )}
+
+          {/* Active Issue warning block */}
+          {order.status === "issue_reported" && (
+            <div className="pt-3 border-t border-red-500/20 text-red-400 space-y-1">
+              <span className="text-[9px] font-black uppercase tracking-wider flex items-center gap-1">
+                <AlertTriangle className="w-3.5 h-3.5 text-red-500 animate-pulse" /> Active Delivery Issue
+              </span>
+              <p className="text-[10px] text-gray-300 normal-case leading-normal font-medium bg-red-500/5 border border-red-500/10 rounded-xl p-3">
+                {order.deliveryNote || "No details reported"}
+              </p>
             </div>
           )}
         </div>

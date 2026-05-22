@@ -16,7 +16,8 @@ import {
   Database,
   Trash2,
   Cloud,
-  WifiOff
+  WifiOff,
+  Bike
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase-client";
@@ -212,6 +213,38 @@ export default function ManagerDashboard() {
               </div>
               <p className="text-[11px] text-gray-500 leading-relaxed font-medium italic">South Gate branch continues to dominate the morning peak hours, contributing to over 40% of daily digital revenue in this simulation.</p>
             </div>
+          </div>
+        </div>
+
+        {/* Rider Dispatch Preview Insights */}
+        <div className="glass-premium rounded-[3.5rem] border border-white/5 p-12 shadow-2xl mb-20 font-body">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+            <div>
+              <div className="flex items-center gap-2 mb-2 text-primary font-bold">
+                <Bike className="w-5 h-5" />
+                <span className="text-[10px] uppercase tracking-widest">Simulation Logistics Staging</span>
+              </div>
+              <h3 className="text-3xl font-bold uppercase tracking-tight leading-none mb-1 font-heading text-white">Rider Dispatch Preview Insights</h3>
+              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">Fulfillment logistics metrics based on staging orders</p>
+            </div>
+            <div className="bg-amber-500/10 border border-amber-500/20 px-4 py-2 rounded-xl text-[9px] text-amber-500 font-bold uppercase tracking-wider">
+              Delivery metrics are based on demo/staging orders only.
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {[
+              { label: "Total Deliveries", count: orders.filter(o => o.fulfillmentType === "delivery" || o.orderType === "Delivery").length, color: "text-white" },
+              { label: "Assigned Riders", count: orders.filter(o => ["assigned_to_rider", "picked_up"].includes(o.status)).length, color: "text-indigo-400" },
+              { label: "Active Dispatches", count: orders.filter(o => o.status === "out_for_delivery").length, color: "text-cyan-400" },
+              { label: "Completed Deliveries", count: orders.filter(o => ["delivered", "completed", "Completed"].includes(o.status)).length, color: "text-purple-400" },
+              { label: "Reported Issues", count: orders.filter(o => o.status === "issue_reported").length, color: "text-red-400 font-black animate-pulse" }
+            ].map((stat, i) => (
+              <div key={i} className="bg-black/30 border border-white/5 p-6 rounded-2xl">
+                <span className="text-[9px] font-black uppercase text-gray-500 tracking-wider block mb-2">{stat.label}</span>
+                <span className={`text-3xl font-black ${stat.color}`}>{stat.count}</span>
+              </div>
+            ))}
           </div>
         </div>
 

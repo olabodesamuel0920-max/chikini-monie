@@ -34,6 +34,12 @@ const StatusBadge = ({ status, className }: StatusBadgeProps) => {
       case "out_for_delivery":
         return "bg-cyan-500/10 text-cyan-400 border-cyan-500/20";
 
+      case "picked_up":
+        return "bg-indigo-500/10 text-indigo-400 border-indigo-500/20";
+
+      case "issue_reported":
+        return "bg-red-500/10 text-red-500 border-red-500/20 font-black animate-pulse";
+
       case "Completed":
       case "completed":
         return "bg-purple-500/10 text-purple-500 border-purple-500/20";
