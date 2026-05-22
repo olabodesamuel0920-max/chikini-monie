@@ -4,7 +4,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PreviewGate from "@/components/PreviewGate";
+import InternalAccessGate from "@/components/InternalAccessGate";
 
 const StaffDashboard = dynamic(() => import("@/components/StaffDashboard"), {
   ssr: false,
@@ -15,9 +15,9 @@ export default function StaffPage() {
   return (
     <div className="min-h-screen bg-[#050505]">
       <Navbar />
-      <PreviewGate dashboardName="Staff Dashboard">
+      <InternalAccessGate dashboardName="Staff Dashboard">
         <StaffDashboard />
-      </PreviewGate>
+      </InternalAccessGate>
       <Footer />
     </div>
   );

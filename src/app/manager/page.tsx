@@ -4,7 +4,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PreviewGate from "@/components/PreviewGate";
+import InternalAccessGate from "@/components/InternalAccessGate";
 
 const ManagerDashboard = dynamic(() => import("@/components/ManagerDashboard"), {
   ssr: false,
@@ -15,9 +15,9 @@ export default function ManagerPage() {
   return (
     <div className="min-h-screen bg-dark">
       <Navbar />
-      <PreviewGate dashboardName="Manager Dashboard">
+      <InternalAccessGate dashboardName="Manager Dashboard">
         <ManagerDashboard />
-      </PreviewGate>
+      </InternalAccessGate>
       <Footer />
     </div>
   );

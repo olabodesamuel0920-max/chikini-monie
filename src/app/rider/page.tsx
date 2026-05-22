@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PreviewGate from "@/components/PreviewGate";
+import InternalAccessGate from "@/components/InternalAccessGate";
 
 const RiderDashboard = dynamic(() => import("@/components/RiderDashboard"), {
   ssr: false,
@@ -14,9 +14,9 @@ export default function RiderPage() {
   return (
     <div className="min-h-screen bg-[#050505]">
       <Navbar />
-      <PreviewGate dashboardName="Rider Dashboard">
+      <InternalAccessGate dashboardName="Rider Dashboard">
         <RiderDashboard />
-      </PreviewGate>
+      </InternalAccessGate>
       <Footer />
     </div>
   );

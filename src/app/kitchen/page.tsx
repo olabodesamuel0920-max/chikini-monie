@@ -4,7 +4,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PreviewGate from "@/components/PreviewGate";
+import InternalAccessGate from "@/components/InternalAccessGate";
 
 const KitchenDashboard = dynamic(() => import("@/components/KitchenDashboard"), {
   ssr: false,
@@ -15,9 +15,9 @@ export default function KitchenPage() {
   return (
     <div className="min-h-screen bg-black">
       <Navbar />
-      <PreviewGate dashboardName="Kitchen Display">
+      <InternalAccessGate dashboardName="Kitchen Display">
         <KitchenDashboard />
-      </PreviewGate>
+      </InternalAccessGate>
       <Footer />
     </div>
   );

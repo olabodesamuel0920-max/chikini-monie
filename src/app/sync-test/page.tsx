@@ -4,6 +4,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import InternalAccessGate from "@/components/InternalAccessGate";
 
 const SyncTestDashboard = dynamic(() => import("@/components/SyncTestDashboard"), {
   ssr: false,
@@ -14,7 +15,9 @@ export default function SyncTestPage() {
   return (
     <div className="min-h-screen bg-[#050505]">
       <Navbar />
-      <SyncTestDashboard />
+      <InternalAccessGate dashboardName="Sync Test Center">
+        <SyncTestDashboard />
+      </InternalAccessGate>
       <Footer />
     </div>
   );
