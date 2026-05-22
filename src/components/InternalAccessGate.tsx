@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Lock, ArrowRight, Info, ShieldAlert, KeyRound, LayoutDashboard, ChefHat, BarChart3, Bike, RefreshCw, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
 
 interface InternalAccessGateProps {
   children: React.ReactNode;
@@ -12,6 +13,8 @@ interface InternalAccessGateProps {
 type PreviewRole = "Staff" | "Kitchen" | "Manager" | "Rider";
 
 export default function InternalAccessGate({ children, dashboardName }: InternalAccessGateProps) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [hasAccess, setHasAccess] = useState(false);
   const [selectedRole, setSelectedRole] = useState<PreviewRole | null>(null);
   const [isVerified, setIsVerified] = useState(false);
@@ -21,17 +24,30 @@ export default function InternalAccessGate({ children, dashboardName }: Internal
 
   useEffect(() => {
     const access = sessionStorage.getItem("chikini_internal_access");
-    const role = sessionStorage.getItem("chikini_preview_role") as PreviewRole | null;
+    let role = sessionStorage.getItem("chikini_preview_role") as PreviewRole | null;
     
     if (access === "true") {
       setIsVerified(true);
       setHasAccess(true);
+      
+      // Auto-align role with the current path if they have access
+      if (pathname === "/staff") {
+        role = "Staff";
+      } else if (pathname === "/kitchen") {
+        role = "Kitchen";
+      } else if (pathname === "/rider") {
+        role = "Rider";
+      } else if (pathname === "/manager") {
+        role = "Manager";
+      }
+      
       if (role) {
         setSelectedRole(role);
+        sessionStorage.setItem("chikini_preview_role", role);
       }
     }
     setIsLoading(false);
-  }, []);
+  }, [pathname]);
 
   const handleVerifyCode = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,6 +72,17 @@ export default function InternalAccessGate({ children, dashboardName }: Internal
   const handleSelectRole = (role: PreviewRole) => {
     setSelectedRole(role);
     sessionStorage.setItem("chikini_preview_role", role);
+    
+    // Redirect to matching route
+    if (role === "Staff") {
+      router.push("/staff");
+    } else if (role === "Kitchen") {
+      router.push("/kitchen");
+    } else if (role === "Rider") {
+      router.push("/rider");
+    } else if (role === "Manager") {
+      router.push("/manager");
+    }
   };
 
   const handleClearAccess = () => {
@@ -67,6 +94,7 @@ export default function InternalAccessGate({ children, dashboardName }: Internal
     setEnteredCode("");
     setError(null);
   };
+
 
   if (isLoading) {
     return (

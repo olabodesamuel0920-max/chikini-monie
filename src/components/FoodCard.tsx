@@ -42,7 +42,11 @@ const FoodCard = ({ item, onAddToCart }: FoodCardProps) => {
         </div>
 
         {/* Favorite Button */}
-        <button className="absolute top-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-md rounded-xl text-white/70 hover:text-primary hover:bg-white transition-all flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+        <button 
+          type="button"
+          onClick={(e) => e.stopPropagation()}
+          className="absolute z-10 top-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-md rounded-xl text-white/70 hover:text-primary hover:bg-white transition-all flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 cursor-pointer pointer-events-auto"
+        >
           <Heart className="w-4.5 h-4.5" />
         </button>
       </div>
@@ -69,13 +73,18 @@ const FoodCard = ({ item, onAddToCart }: FoodCardProps) => {
           </div>
           
           <button
-            onClick={() => onAddToCart?.(item)}
-            className="w-10 h-10 premium-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/10 hover:scale-110 active:scale-95 transition-all"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onAddToCart?.(item);
+            }}
+            className="relative z-10 w-10 h-10 premium-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/10 hover:scale-110 active:scale-95 transition-all cursor-pointer pointer-events-auto"
           >
             <Plus className="w-5 h-5" />
           </button>
         </div>
       </div>
+
     </motion.div>
   );
 };
