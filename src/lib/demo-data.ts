@@ -9,6 +9,13 @@ export type Category =
   | "Coffee & Drinks"
   | "Combos";
 
+export type ShowcaseAvailability = 
+  | "available_today"
+  | "limited"
+  | "sold_out"
+  | "preparing_more"
+  | "not_listed_today";
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -17,6 +24,7 @@ export interface MenuItem {
   category: Category;
   image: string;
   popular?: boolean;
+  availabilityStatus?: ShowcaseAvailability;
 }
 
 export interface Branch {
@@ -48,6 +56,7 @@ export const menuItems: MenuItem[] = [
     category: "Rice Meals",
     image: "https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&q=80&w=800",
     popular: true,
+    availabilityStatus: "available_today",
   },
   {
     id: "r2",
@@ -56,6 +65,7 @@ export const menuItems: MenuItem[] = [
     price: 3800,
     category: "Rice Meals",
     image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&q=80&w=800",
+    availabilityStatus: "limited",
   },
   {
     id: "s1",
@@ -65,6 +75,7 @@ export const menuItems: MenuItem[] = [
     category: "Swallow & Soups",
     image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
     popular: true,
+    availabilityStatus: "available_today",
   },
   {
     id: "sh1",
@@ -74,6 +85,7 @@ export const menuItems: MenuItem[] = [
     category: "Shawarma",
     image: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&q=80&w=800",
     popular: true,
+    availabilityStatus: "available_today",
   },
   {
     id: "b1",
@@ -82,6 +94,7 @@ export const menuItems: MenuItem[] = [
     price: 3000,
     category: "Breakfast",
     image: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&q=80&w=800",
+    availabilityStatus: "sold_out",
   },
   {
     id: "p1",
@@ -90,6 +103,7 @@ export const menuItems: MenuItem[] = [
     price: 800,
     category: "Pastries",
     image: "https://images.unsplash.com/photo-1601205741712-b261aff33a7d?auto=format&fit=crop&q=80&w=800",
+    availabilityStatus: "preparing_more",
   },
   {
     id: "sm1",
@@ -98,6 +112,7 @@ export const menuItems: MenuItem[] = [
     price: 2200,
     category: "Smoothies & Milkshakes",
     image: "https://images.unsplash.com/photo-1579954115545-a95591f28be0?auto=format&fit=crop&q=80&w=800",
+    availabilityStatus: "available_today",
   },
   {
     id: "c1",
@@ -106,6 +121,7 @@ export const menuItems: MenuItem[] = [
     price: 1800,
     category: "Coffee & Drinks",
     image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800",
+    availabilityStatus: "not_listed_today",
   },
   {
     id: "combo1",
@@ -115,6 +131,7 @@ export const menuItems: MenuItem[] = [
     category: "Combos",
     image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=800",
     popular: true,
+    availabilityStatus: "available_today",
   },
 ];
 

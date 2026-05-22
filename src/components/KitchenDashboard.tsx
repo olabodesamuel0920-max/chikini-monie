@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import OrderCard from "@/components/OrderCard";
-import { getOrders, Order, getDemoMode } from "@/lib/order-utils";
+import { getOrders, Order, getDemoMode, isConfirmedStatus, isPreparingStatus } from "@/lib/order-utils";
 import { ChefHat, RefreshCw, Cloud, WifiOff } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase-client";
@@ -18,10 +18,10 @@ export default function KitchenDashboard() {
 
   const fetchKitchenOrders = async () => {
     setIsRefreshing(true);
-    const localData = getOrders().filter(o => ["Confirmed", "Preparing"].includes(o.status));
+    const localData = getOrders().filter(o => isConfirmedStatus(o.status) || isPreparingStatus(o.status));
     if (isSupabaseConfigured) {
       const cloudData = await fetchSupabaseOrders();
-      const kitchenCloud = cloudData.filter(o => ["Confirmed", "Preparing"].includes(o.status));
+      const kitchenCloud = cloudData.filter(o => isConfirmedStatus(o.status) || isPreparingStatus(o.status));
       if (kitchenCloud.length > 0 || cloudData.length > 0) {
         setOrders(kitchenCloud);
       } else {

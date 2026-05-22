@@ -5,6 +5,7 @@ export const publicLinks = [
   { name: "Home", href: "/" },
   { name: "Menu", href: "/menu" },
   { name: "Branches", href: "/branches" },
+  { name: "Track Order", href: "/track" },
   { name: "About", href: "/about" },
 ];
 

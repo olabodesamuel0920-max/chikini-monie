@@ -54,18 +54,33 @@ export const updateSupabaseOrderStatus = async (orderId: string, status: string)
 };
 
 // Mappers
-const mapOrderToSupabase = (order: Order) => ({
-  order_code: order.id,
-  customer_name: order.customerName,
-  customer_phone: order.phone,
-  branch: order.branch,
-  order_type: order.orderType,
-  payment_status: order.paymentStatus,
-  status: order.status,
-  items: order.items,
-  total: order.total,
-  created_at: order.createdAt
-});
+const mapOrderToSupabase = (order: Order) => {
+  const row: any = {
+    order_code: order.id,
+    customer_name: order.customerName,
+    customer_phone: order.phone,
+    branch: order.branch,
+    order_type: order.orderType,
+    payment_status: order.paymentStatus,
+    status: order.status,
+    items: order.items,
+    total: order.total,
+    created_at: order.createdAt
+  };
+
+  // Staging foundation fields (defensive layout mapping)
+  if (order.fulfillmentType) row.fulfillment_type = order.fulfillmentType;
+  if (order.paymentMethodStatus) row.payment_method_status = order.paymentMethodStatus;
+  if (order.riderName) row.rider_name = order.riderName;
+  if (order.riderPhone) row.rider_phone = order.riderPhone;
+  if (order.riderStatus) row.rider_status = order.riderStatus;
+  if (order.estimatedDeliveryTime) row.estimated_delivery_time = order.estimatedDeliveryTime;
+  if (order.deliveryNote) row.delivery_note = order.deliveryNote;
+  if (order.customerTrackingCode) row.customer_tracking_code = order.customerTrackingCode;
+  if (order.lastStatusUpdate) row.last_status_update = order.lastStatusUpdate;
+
+  return row;
+};
 
 export const mapSupabaseToOrder = (row: any): Order => ({
   id: row.order_code,
@@ -77,5 +92,16 @@ export const mapSupabaseToOrder = (row: any): Order => ({
   status: row.status as any,
   items: row.items,
   total: Number(row.total),
-  createdAt: row.created_at
+  createdAt: row.created_at,
+
+  // Staging foundation fields mapping
+  fulfillmentType: row.fulfillment_type || undefined,
+  paymentMethodStatus: row.payment_method_status || undefined,
+  riderName: row.rider_name || undefined,
+  riderPhone: row.rider_phone || undefined,
+  riderStatus: row.rider_status || undefined,
+  estimatedDeliveryTime: row.estimated_delivery_time || undefined,
+  deliveryNote: row.delivery_note || undefined,
+  customerTrackingCode: row.customer_tracking_code || undefined,
+  lastStatusUpdate: row.last_status_update || undefined
 });

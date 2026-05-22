@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import OrderCard from "@/components/OrderCard";
-import { getOrders, Order, OrderStatus, loadSampleOrders, resetOrders, getDemoMode } from "@/lib/order-utils";
+import { getOrders, Order, OrderStatus, loadSampleOrders, resetOrders, getDemoMode, isPendingStatus, isConfirmedStatus, isPreparingStatus, isReadyStatus, isCompletedStatus, isCancelledStatus } from "@/lib/order-utils";
 import { Search, Trash2, Database, LayoutDashboard, RefreshCw, Cloud, WifiOff, Filter } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase-client";
@@ -59,7 +59,25 @@ export default function StaffDashboard() {
   };
 
   const filteredOrders = orders.filter((order) => {
-    const matchesStatus = filterStatus === "All" || order.status === filterStatus;
+    let matchesStatus = false;
+    if (filterStatus === "All") {
+      matchesStatus = true;
+    } else if (filterStatus === "Pending") {
+      matchesStatus = isPendingStatus(order.status);
+    } else if (filterStatus === "Confirmed") {
+      matchesStatus = isConfirmedStatus(order.status);
+    } else if (filterStatus === "Preparing") {
+      matchesStatus = isPreparingStatus(order.status);
+    } else if (filterStatus === "Ready") {
+      matchesStatus = isReadyStatus(order.status);
+    } else if (filterStatus === "Completed") {
+      matchesStatus = isCompletedStatus(order.status);
+    } else if (filterStatus === "Cancelled") {
+      matchesStatus = isCancelledStatus(order.status);
+    } else {
+      matchesStatus = order.status === filterStatus;
+    }
+
     const matchesBranch = filterBranch === "All" || order.branch === filterBranch;
     const matchesSearch =
       order.customerName.toLowerCase().includes(searchQuery.toLowerCase()) ||

@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import DashboardStatCard from "@/components/DashboardStatCard";
-import { getOrders, Order, loadSampleOrders, resetOrders, getDemoMode } from "@/lib/order-utils";
+import { getOrders, Order, loadSampleOrders, resetOrders, getDemoMode, isCancelledStatus, isPendingStatus, isConfirmedStatus, isPreparingStatus, isCompletedStatus, getOrderStatusLabel } from "@/lib/order-utils";
 import { formatPrice } from "@/lib/utils";
 import { 
   BarChart3, 
@@ -53,9 +53,9 @@ export default function ManagerDashboard() {
     }
   }, []);
 
-  const totalSales = orders.reduce((sum, o) => o.status !== "Cancelled" ? sum + o.total : sum, 0);
-  const pendingOrders = orders.filter(o => o.status === "Pending" || o.status === "Confirmed" || o.status === "Preparing").length;
-  const completedOrders = orders.filter(o => o.status === "Completed").length;
+  const totalSales = orders.reduce((sum, o) => !isCancelledStatus(o.status) ? sum + o.total : sum, 0);
+  const pendingOrders = orders.filter(o => isPendingStatus(o.status) || isConfirmedStatus(o.status) || isPreparingStatus(o.status)).length;
+  const completedOrders = orders.filter(o => isCompletedStatus(o.status)).length;
   
   const handleLoadSample = () => {
     loadSampleOrders();
@@ -252,10 +252,11 @@ export default function ManagerDashboard() {
                       <td className="p-8 font-bold gold-text text-lg font-heading">{formatPrice(order.total)}</td>
                       <td className="p-8">
                         <span className={`px-4 py-1.5 rounded-xl text-[10px] font-bold uppercase tracking-wider border ${
-                          order.status === 'Completed' ? 'bg-purple-500/10 text-purple-500 border-purple-500/20' :
+                          isCompletedStatus(order.status) ? 'bg-purple-500/10 text-purple-500 border-purple-500/20' :
+                          isCancelledStatus(order.status) ? 'bg-red-500/10 text-red-500 border-red-500/20' :
                           'bg-blue-500/10 text-blue-500 border-blue-500/20'
                         }`}>
-                          {order.status}
+                          {getOrderStatusLabel(order.status)}
                         </span>
                       </td>
                       <td className="p-8 text-right">

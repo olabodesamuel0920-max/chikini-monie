@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { formatPrice } from "@/lib/utils";
-import { saveOrder, Order, getDemoMode } from "@/lib/order-utils";
+import { saveOrder, Order, getDemoMode, FulfillmentType, PaymentMethodStatus, OrderStatus } from "@/lib/order-utils";
 import { Save, Cloud, WifiOff, ArrowLeft, ShoppingBag, Info, Shield, ShieldCheck, CreditCard, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -24,15 +24,16 @@ export default function OrderCheckout() {
   const [showTestModal, setShowTestModal] = useState(false);
   const [testPaymentConfirmed, setTestPaymentConfirmed] = useState(false);
   const [testRef, setTestRef] = useState("");
+  const [placedOrder, setPlacedOrder] = useState<Order | null>(null);
 
   useEffect(() => {
     const savedCart = localStorage.getItem("chikini_monie_cart");
     if (savedCart && JSON.parse(savedCart).length > 0) {
       setCart(JSON.parse(savedCart));
-    } else {
+    } else if (!placedOrder) {
       router.push("/menu");
     }
-  }, [router]);
+  }, [router, placedOrder]);
 
   useEffect(() => {
     if (showTestModal) {
@@ -58,8 +59,32 @@ export default function OrderCheckout() {
 
     setIsSaving(true);
 
+    // Map payment Method Status
+    let paymentMethodStatus: PaymentMethodStatus = "pay_on_delivery";
+    if (paymentMethod === "Pay on Delivery Preview") paymentMethodStatus = "pay_on_delivery";
+    else if (paymentMethod === "Bank Transfer Confirmation Preview") paymentMethodStatus = "bank_transfer_confirmation";
+    else if (paymentMethod === "POS / Counter Payment Preview") paymentMethodStatus = "pos_counter";
+    else if (paymentMethod === "Online Payment Test Preview") paymentMethodStatus = "paystack_test";
+    else if (paymentMethod === "WhatsApp Payment Confirmation Preview") paymentMethodStatus = "whatsapp_payment_confirmation";
+
+    // Map fulfillment Type
+    let fulfillmentType: FulfillmentType = "pickup";
+    if (formData.orderType === "Delivery") fulfillmentType = "delivery";
+    else if (formData.orderType === "Takeaway") fulfillmentType = "pickup";
+    else if (formData.orderType === "Dine-in") fulfillmentType = "pickup";
+
+    // Determine starting status
+    let initialStatus: OrderStatus = "order_received";
+    if (paymentMethodStatus === "paystack_test" && !testPaymentConfirmed) {
+      initialStatus = "awaiting_payment";
+    } else if (paymentMethodStatus === "bank_transfer_confirmation") {
+      initialStatus = "awaiting_payment";
+    }
+
+    const orderId = `ORD-${Math.floor(Math.random() * 90000) + 10000}`;
+
     const newOrder: Order = {
-      id: `ORD-${Math.floor(Math.random() * 90000) + 10000}`,
+      id: orderId,
       customerName: formData.customerName,
       phone: formData.phone,
       branch: formData.branch,
@@ -69,16 +94,30 @@ export default function OrderCheckout() {
       paymentStatus: paymentMethod === "Online Payment Test Preview"
         ? (testPaymentConfirmed ? "Test Payment Confirmed" : "Demo Payment Pending")
         : (paymentMethod as any),
-      status: "Pending",
+      status: initialStatus,
       createdAt: new Date().toISOString(),
+
+      // Staging fields
+      fulfillmentType,
+      paymentMethodStatus,
+      customerTrackingCode: `TRK-${orderId.replace("ORD-", "")}`,
+      lastStatusUpdate: new Date().toISOString(),
     };
+
+    // Configure staging rider details if delivery
+    if (fulfillmentType === "delivery") {
+      newOrder.riderName = "Pending Assignment";
+      newOrder.riderPhone = "Pending Assignment";
+      newOrder.riderStatus = "idle";
+      newOrder.estimatedDeliveryTime = "25-35 mins";
+      newOrder.deliveryNote = formData.notes || "Leave at security gate";
+    }
 
     setTimeout(async () => {
       await saveOrder(newOrder);
       localStorage.removeItem("chikini_monie_cart");
       setIsSaving(false);
-      alert("Demo order saved! If Cloud Demo is active, it will now appear instantly on the operational dashboards in the Demo Center.");
-      router.push("/staff");
+      setPlacedOrder(newOrder);
     }, 1000);
   };
 
@@ -116,6 +155,80 @@ export default function OrderCheckout() {
   ];
 
   const demoMode = getDemoMode();
+
+  if (placedOrder) {
+    return (
+      <main className="max-w-3xl mx-auto px-6 pt-48 pb-32 font-body text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="glass-premium p-10 md:p-16 rounded-[3.5rem] border border-white/10 shadow-2xl space-y-10 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="w-20 h-20 bg-green-500/10 rounded-[2.2rem] flex items-center justify-center text-green-500 border border-green-500/20 mx-auto shadow-xl shadow-green-500/10">
+            <CheckCircle2 className="w-10 h-10 animate-pulse" />
+          </div>
+
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-5xl font-black uppercase text-white font-heading tracking-tight leading-none">
+              DEMO ORDER <span className="gold-text">PLACED!</span>
+            </h1>
+            <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px]">
+              Staging Order Flow Confirmed
+            </p>
+          </div>
+
+          {/* Staging Info Box */}
+          <div className="bg-black/40 border border-white/5 rounded-3xl p-8 space-y-5 max-w-md mx-auto text-left">
+            <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-gray-500">
+              <span>Order ID:</span>
+              <span className="text-white font-mono text-sm">{placedOrder.id}</span>
+            </div>
+            <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-gray-500 border-t border-white/5 pt-4">
+              <span>Tracking Code:</span>
+              <span className="text-primary font-mono text-base font-black tracking-wider">{placedOrder.customerTrackingCode}</span>
+            </div>
+            <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-gray-500 border-t border-white/5 pt-4">
+              <span>Fulfillment:</span>
+              <span className="text-white">{placedOrder.orderType}</span>
+            </div>
+            <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-gray-500 border-t border-white/5 pt-4">
+              <span>Total Amount:</span>
+              <span className="text-white font-heading text-lg">{formatPrice(placedOrder.total)}</span>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href={`/track?code=${placedOrder.customerTrackingCode}`}
+              className="w-full sm:w-auto px-10 py-5 premium-gradient rounded-2xl font-black text-sm uppercase tracking-widest text-white shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all text-center"
+            >
+              Track This Demo Order
+            </Link>
+            <Link
+              href="/staff"
+              className="w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 rounded-2xl font-black text-sm uppercase tracking-widest text-gray-400 hover:bg-white/10 hover:text-white transition-all text-center"
+            >
+              Staff Board View
+            </Link>
+          </div>
+
+          {/* Safety Disclaimer */}
+          <div className="p-6 bg-primary/[0.01] border border-primary/20 rounded-2xl text-left space-y-3 max-w-xl mx-auto">
+            <div className="flex items-center gap-2 text-primary font-heading text-xs font-extrabold uppercase tracking-wider">
+              <Info className="w-4 h-4 shrink-0" />
+              <span>Operational Staging Notice</span>
+            </div>
+            <p className="text-[9px] text-gray-500 font-bold leading-relaxed uppercase tracking-wider">
+              This order has been recorded in the staging environment. If Cloud Staging is active, it will now appear instantly on the Staff Dashboard, Kitchen Display, and Manager Analytics. Live customer tracking, rider location, and delivery notifications require production approval and setup.
+            </p>
+          </div>
+        </motion.div>
+      </main>
+    );
+  }
 
   return (
     <main className="max-w-7xl mx-auto px-6 pt-48 pb-32 font-body">

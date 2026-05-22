@@ -2,7 +2,19 @@
 "use client";
 
 import { Clock, Phone, MapPin, User, ChevronRight } from "lucide-react";
-import { Order, updateOrderStatus, OrderStatus } from "@/lib/order-utils";
+import { 
+  Order, 
+  updateOrderStatus, 
+  OrderStatus, 
+  isPendingStatus, 
+  isConfirmedStatus, 
+  isPreparingStatus, 
+  isReadyStatus, 
+  isCompletedStatus, 
+  isCancelledStatus,
+  getFulfillmentTypeLabel,
+  getPaymentMethodStatusLabel
+} from "@/lib/order-utils";
 import StatusBadge from "./StatusBadge";
 import { formatPrice } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -48,6 +60,11 @@ const OrderCard = ({ order, onUpdate, showActions = true, isKitchenView = false 
         <div>
           <span className="text-[10px] uppercase tracking-wider text-gray-500 font-bold block mb-1">Order Identifier</span>
           <h3 className="font-bold text-xl text-white tracking-tight font-heading">{order.id}</h3>
+          {order.customerTrackingCode && (
+            <span className="text-[9px] font-bold text-accent uppercase tracking-widest block mt-1">
+              Tracking: {order.customerTrackingCode}
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-3">
           {isKitchenView && (
@@ -98,67 +115,109 @@ const OrderCard = ({ order, onUpdate, showActions = true, isKitchenView = false 
             <span className="text-2xl font-bold gold-text font-heading">{formatPrice(order.total)}</span>
           </div>
         </div>
+        <div className="flex flex-col gap-4">
+          <div className="flex justify-between items-center text-[10px] font-bold uppercase tracking-wider text-gray-500">
+            <span className="flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5 text-primary" />
+              {order.branch}
+            </span>
+            {order.fulfillmentType && (
+              <span className="px-2.5 py-0.5 rounded bg-accent/10 border border-accent/20 text-accent font-extrabold text-[9px]">
+                {getFulfillmentTypeLabel(order.fulfillmentType)}
+              </span>
+            )}
+          </div>
+          
+          <div className="flex items-center justify-between border-t border-white/5 pt-3">
+            <div className="flex items-center gap-2">
+              <div className={`w-2 h-2 rounded-full ${
+                order.paymentMethodStatus === "paystack_test" || order.paymentStatus.includes("Confirmed") || order.paymentStatus.includes("Test")
+                  ? "bg-green-500"
+                  : order.paymentMethodStatus === "bank_transfer_confirmation" || order.paymentStatus.includes("Pending") || order.paymentStatus.includes("Transfer")
+                  ? "bg-orange-500 animate-pulse"
+                  : "bg-blue-500"
+              }`} />
+              <span className={`text-[10px] font-bold uppercase tracking-wider ${
+                order.paymentMethodStatus === "paystack_test" || order.paymentStatus.includes("Confirmed") || order.paymentStatus.includes("Test")
+                  ? "text-green-400"
+                  : order.paymentMethodStatus === "bank_transfer_confirmation" || order.paymentStatus.includes("Pending") || order.paymentStatus.includes("Transfer")
+                  ? "text-orange-400"
+                  : "text-gray-400"
+              }`}>
+                {order.paymentMethodStatus ? getPaymentMethodStatusLabel(order.paymentMethodStatus) : order.paymentStatus}
+              </span>
+            </div>
+          </div>
 
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
-            <MapPin className="w-4 h-4 text-primary" />
-            <span>{order.branch}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className={`w-2 h-2 rounded-full ${
-              (order.paymentStatus || "").includes("Confirmed") || (order.paymentStatus || "").includes("Success")
-                ? "bg-green-500"
-                : (order.paymentStatus || "").includes("Pending") || (order.paymentStatus || "").includes("Transfer")
-                ? "bg-orange-500 animate-pulse"
-                : "bg-blue-500"
-            }`} />
-            <span className={`text-[10px] font-bold uppercase tracking-wider ${
-              (order.paymentStatus || "").includes("Confirmed") || (order.paymentStatus || "").includes("Success")
-                ? "text-green-400"
-                : (order.paymentStatus || "").includes("Pending") || (order.paymentStatus || "").includes("Transfer")
-                ? "text-orange-400"
-                : "text-gray-400"
-            }`}>{order.paymentStatus || "Demo Only"}</span>
-          </div>
+          {/* Rider Placeholder Section - Delivery only */}
+          {order.fulfillmentType === "delivery" && (
+            <div className="pt-3 border-t border-white/5 space-y-2.5">
+              <div className="flex justify-between items-center">
+                <span className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Rider Assignment Preview</span>
+                <span className="text-[8px] bg-primary/10 border border-primary/20 text-primary px-1.5 py-0.5 rounded font-black uppercase tracking-wider">Staging</span>
+              </div>
+              <div className="bg-black/35 border border-white/[0.04] rounded-2xl p-4 space-y-2 text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                <div className="flex justify-between">
+                  <span>Assigned Rider:</span>
+                  <span className="text-white">{order.riderName || "Pending Assignment"}</span>
+                </div>
+                {order.riderPhone && order.riderPhone !== "Pending Assignment" && (
+                  <div className="flex justify-between">
+                    <span>Rider Phone:</span>
+                    <span className="text-white font-mono">{order.riderPhone}</span>
+                  </div>
+                )}
+                {order.estimatedDeliveryTime && (
+                  <div className="flex justify-between">
+                    <span>Est. Delivery:</span>
+                    <span className="text-accent">{order.estimatedDeliveryTime}</span>
+                  </div>
+                )}
+                <p className="text-[8px] text-gray-600 font-bold uppercase tracking-wider mt-2 border-t border-white/5 pt-2 leading-normal">
+                  Rider dispatch simulation staging. Full dispatch portal unlocks in Phase 3C.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         {showActions && (
           <div className="grid grid-cols-2 gap-3 pt-4">
-            {order.status === "Pending" && (
+            {isPendingStatus(order.status) && (
               <button
-                onClick={() => handleStatusUpdate("Confirmed")}
+                onClick={() => handleStatusUpdate("staff_confirmed")}
                 className="px-4 py-4 bg-blue-600/20 border border-blue-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-blue-400 hover:bg-blue-600 hover:text-white transition-all shadow-xl shadow-blue-600/10"
               >
                 Confirm Order
               </button>
             )}
-            {(order.status === "Confirmed" || order.status === "Pending") && (
+            {(isConfirmedStatus(order.status) || isPendingStatus(order.status)) && (
               <button
-                onClick={() => handleStatusUpdate("Preparing")}
+                onClick={() => handleStatusUpdate("preparing_or_packing")}
                 className="px-4 py-4 bg-orange-600/20 border border-orange-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-orange-400 hover:bg-orange-600 hover:text-white transition-all shadow-xl shadow-orange-600/10"
               >
                 Send to Kitchen
               </button>
             )}
-            {order.status === "Preparing" && (
+            {isPreparingStatus(order.status) && (
               <button
-                onClick={() => handleStatusUpdate("Ready")}
+                onClick={() => handleStatusUpdate("ready_for_pickup")}
                 className="px-4 py-4 bg-green-600/20 border border-green-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-green-400 hover:bg-green-600 hover:text-white transition-all shadow-xl shadow-green-600/10"
               >
                 Mark as Ready
               </button>
             )}
-            {order.status === "Ready" && (
+            {isReadyStatus(order.status) && (
               <button
-                onClick={() => handleStatusUpdate("Completed")}
+                onClick={() => handleStatusUpdate("completed")}
                 className="px-4 py-4 bg-purple-600/20 border border-purple-600/30 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-purple-400 hover:bg-purple-600 hover:text-white transition-all shadow-xl shadow-purple-600/10"
               >
                 Complete Order
               </button>
             )}
-            {order.status !== "Completed" && order.status !== "Cancelled" && (
+            {!isCompletedStatus(order.status) && !isCancelledStatus(order.status) && (
               <button
-                onClick={() => handleStatusUpdate("Cancelled")}
+                onClick={() => handleStatusUpdate("cancelled")}
                 className="px-4 py-4 bg-red-900/10 border border-red-900/20 rounded-2xl text-[10px] font-bold uppercase tracking-wider text-red-400 hover:bg-red-900 hover:text-white transition-all"
               >
                 Cancel Order
